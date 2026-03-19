@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { hasSupabase } from "@/lib/env";
+import { applyRateLimit, clientAddress } from "@/lib/rate-limit";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
 const fallback = [
@@ -9,7 +10,19 @@ const fallback = [
   { user_id: "demo-3", display_name: "GraceLearner", total_points: 65, best_session: 47 },
 ];
 
-export async function GET() {
+export async function GET(request: Request) {
+  const limit = applyRateLimit(
+    `leaderboard:${clientAddress(request.headers)}`,
+    Number(process.env.RATE_LIMIT_LEADERBOARD_PER_MIN ?? 90),
+    60_000,
+  );
+  if (!limit.allowed) {
+    return NextResponse.json(
+      { error: "Too many leaderboard requests.", retryAfter: limit.retryAfterSeconds },
+      { status: 429, headers: { "Retry-After": String(limit.retryAfterSeconds) } },
+    );
+  }
+
   if (!hasSupabase) {
     return NextResponse.json({ source: "local", rows: fallback });
   }

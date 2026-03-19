@@ -77,7 +77,14 @@ See `.env.example`:
 - `POST /api/attempt`
 - `GET /api/profile?userId=...`
 - `GET /api/leaderboard`
-- `POST /api/admin/verse` (requires `x-admin-token`)
+- `POST /api/admin/verse` (requires Supabase authenticated admin role when Supabase is enabled)
+
+## Security Hardening
+
+- Server-side score validation and anti-cheat checks on `/api/attempt`.
+- Per-endpoint rate limiting for attempt, admin, and leaderboard APIs.
+- Admin content write path now supports Supabase role-based authorization (`app_metadata.role=admin`).
+- Local fallback mode keeps `x-admin-token` support for non-Supabase development.
 
 ## Quality Gates
 

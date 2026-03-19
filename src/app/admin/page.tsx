@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
+
 const template = {
   id: "ps11911",
   reference: "Psalm 119:11",
@@ -15,16 +17,30 @@ const template = {
 export default function AdminPage() {
   const [token, setToken] = useState("");
   const [json, setJson] = useState(JSON.stringify(template, null, 2));
-  const [message, setMessage] = useState("Admin API token required.");
+  const [message, setMessage] = useState("Admin role required when Supabase is enabled.");
 
   async function submit() {
     try {
       const body = JSON.parse(json) as unknown;
+
+      let authHeader: string | undefined;
+      try {
+        const supabase = getSupabaseBrowserClient();
+        const { data } = await supabase.auth.getSession();
+        const token = data.session?.access_token;
+        if (token) {
+          authHeader = `Bearer ${token}`;
+        }
+      } catch {
+        // Local fallback mode can still use x-admin-token.
+      }
+
       const response = await fetch("/api/admin/verse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-admin-token": token,
+          ...(token ? { "x-admin-token": token } : {}),
+          ...(authHeader ? { Authorization: authHeader } : {}),
         },
         body: JSON.stringify(body),
       });
@@ -46,7 +62,7 @@ export default function AdminPage() {
       <p className="muted">Use this route to add or update verse content in Supabase.</p>
 
       <div className="field">
-        <label htmlFor="token">Admin API token</label>
+        <label htmlFor="token">Local admin token (fallback mode)</label>
         <input id="token" onChange={(e) => setToken(e.target.value)} type="password" value={token} />
       </div>
 

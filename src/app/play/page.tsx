@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { scoreAttempt, sessionPercentage, shuffle } from "@/lib/game";
+import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 import type { Verse } from "@/types/domain";
 
 type VerseState = {
@@ -125,11 +126,29 @@ export default function PlayPage() {
     );
     const points = scoreAttempt(correctCount, verse.answers.length, activeState.attemptIndex);
 
+    let authHeader: string | undefined;
+    let userId = getUserId();
+
+    try {
+      const supabase = getSupabaseBrowserClient();
+      const { data } = await supabase.auth.getSession();
+      const token = data.session?.access_token;
+      if (token) {
+        authHeader = `Bearer ${token}`;
+        userId = data.session?.user.id ?? userId;
+      }
+    } catch {
+      // Local/dev mode can run without Supabase auth.
+    }
+
     await fetch("/api/attempt", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(authHeader ? { Authorization: authHeader } : {}),
+      },
       body: JSON.stringify({
-        userId: getUserId(),
+        userId,
         verseId: verse.id,
         correctCount,
         totalBlanks: verse.answers.length,

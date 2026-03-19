@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
 import { hasSupabase } from "@/lib/env";
+import { applyRateLimit, clientAddress } from "@/lib/rate-limit";
+import { authenticatedUserFromRequest, isAdminUser } from "@/lib/supabase/auth";
 import { LOCAL_VERSES } from "@/lib/verses-local";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
@@ -21,8 +23,24 @@ function authorized(request: NextRequest): boolean {
 }
 
 export async function POST(request: NextRequest) {
-  if (!authorized(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const ip = clientAddress(request.headers);
+  const adminLimit = applyRateLimit(`admin:${ip}`, Number(process.env.RATE_LIMIT_ADMIN_PER_MIN ?? 20), 60_000);
+  if (!adminLimit.allowed) {
+    return NextResponse.json(
+      { error: "Too many admin requests.", retryAfter: adminLimit.retryAfterSeconds },
+      { status: 429, headers: { "Retry-After": String(adminLimit.retryAfterSeconds) } },
+    );
+  }
+
+  if (!hasSupabase) {
+    if (!authorized(request)) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+  } else {
+    const user = await authenticatedUserFromRequest(request);
+    if (!user || !isAdminUser(user)) {
+      return NextResponse.json({ error: "Admin role required." }, { status: 403 });
+    }
   }
 
   const body = await request.json();
