@@ -1,76 +1,94 @@
-# Scripture Memory
+# Scripture Memory Web App
 
-> "Thy word have I hid in mine heart, that I might not sin against thee." — Psalm 119:11
+Production-ready Scripture Memory app built with Next.js, TypeScript, Supabase, and CI.
 
-A drag-and-drop Bible verse memory game built as a Progressive Web App (PWA). Works in any browser, installs on phone home screens, and runs fully offline.
+## What Was Implemented (All 5 Phases)
 
-## Features
+1. Frontend migration to Next.js App Router with modular pages.
+2. Supabase authentication and server API integration.
+3. Database-backed verse catalog model with SQL schema and seed scripts.
+4. Profile, streak/stat model, leaderboard, and admin verse CMS route.
+5. Tests, GitHub Actions CI, and Sentry monitoring bootstrap.
 
-- 10 key memory verses (NIV)
-- Drag word tiles into blanks to complete each verse
-- Score tracking — 10 pts first try, 7 pts second, 5 pts third+
-- Best scores saved across sessions (localStorage)
-- Share your score with friends (Web Share API)
-- Fully offline-capable (service worker)
-- Installable on iPhone/Android home screen
+## Tech Stack
 
-## Verses Included
+- Next.js 15 + React 19 + TypeScript
+- Supabase (Auth + Postgres)
+- Zod input validation
+- Vitest unit tests
+- GitHub Actions CI
+- Sentry error monitoring
 
-| Reference | Blanks |
-|-----------|--------|
-| Romans 3:23 | 3 |
-| 1 John 1:9 | 5 |
-| Romans 6:23 | 4 |
-| John 3:16 | 4 |
-| Philippians 4:13 | 2 |
-| Romans 8:28 | 4 |
-| Proverbs 3:5–6 | 6 |
-| Jeremiah 29:11 | 3 |
-| Matthew 11:28 | 2 |
-| Psalm 46:10 | 3 |
+## Local Development
 
-## Deploy to GitHub Pages
+1. Install dependencies:
 
-1. Create a new GitHub repository (e.g. `scripture-memory`)
-2. Upload all files from this folder to the repo root:
-   - `index.html`
-   - `manifest.json`
-   - `sw.js`
-   - `icon-192.png`
-   - `icon-512.png`
-3. Go to **Settings → Pages**
-4. Under **Source**, select **Deploy from a branch**
-5. Choose branch: `main`, folder: `/ (root)`
-6. Click **Save**
-7. Your app will be live at:  
-   `https://YOUR-USERNAME.github.io/scripture-memory/`
-
-## Adding More Verses
-
-Open `index.html` and find the `VERSES` array. Add a new object following this pattern:
-
-```js
-{
-  id: 'unique-id',
-  ref: 'Book Chapter:Verse',
-  v: 'NIV',
-  parts: ['Text before blank ', ', text between blanks ', ', text after last blank.'],
-  answers: ['WORD1', 'WORD2'],
-  decoys: ['WRONG1', 'WRONG2', 'WRONG3', 'WRONG4']
-}
+```bash
+npm install
 ```
 
-**Tips:**
-- `parts` has one more element than `answers` (text wraps around each blank)
-- Keep `decoys` plausible but wrong — 3–5 decoys works well
-- All words in UPPERCASE
+2. Copy env template and fill values:
 
-## Install on Phone
+```bash
+cp .env.example .env.local
+```
 
-**iPhone:** Open in Safari → tap the Share button → "Add to Home Screen"  
-**Android:** Open in Chrome → tap the three-dot menu → "Add to Home Screen" or "Install app"
+3. Run the app:
 
----
+```bash
+npm run dev
+```
 
-Built with plain HTML, CSS, and vanilla JavaScript — no frameworks, no build tools.  
-Compatible with GitHub Pages, Netlify, or any static host.
+4. Open http://localhost:3000
+
+## Required Environment Variables
+
+See `.env.example`:
+
+- NEXT_PUBLIC_SUPABASE_URL
+- NEXT_PUBLIC_SUPABASE_ANON_KEY
+- SUPABASE_SERVICE_ROLE_KEY
+- NEXT_PUBLIC_APP_URL
+- ADMIN_API_TOKEN
+- SENTRY_DSN
+- SENTRY_AUTH_TOKEN
+- SENTRY_ORG
+- SENTRY_PROJECT
+
+## Supabase Setup
+
+1. Create a new Supabase project.
+2. Run `supabase/schema.sql`.
+3. Run `supabase/seed.sql`.
+4. Add Supabase keys to env vars.
+
+## App Routes
+
+- `/` home
+- `/play` game session
+- `/auth` sign in/sign up
+- `/profile` user stats
+- `/leaderboard` rankings
+- `/admin` verse CMS UI
+
+## API Routes
+
+- `GET /api/verses`
+- `POST /api/attempt`
+- `GET /api/profile?userId=...`
+- `GET /api/leaderboard`
+- `POST /api/admin/verse` (requires `x-admin-token`)
+
+## Quality Gates
+
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+## Notes
+
+- If Supabase env vars are missing, the app uses local fallback data for development.
+- Verse text in this repository may require translation licensing review before commercial use.
