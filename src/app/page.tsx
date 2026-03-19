@@ -14,9 +14,18 @@ export default function HomePage() {
             Start Playing
           </Link>
           <Link className="btn secondary" href="/auth">
-            Sign In
+            Sign In / Create Account
+          </Link>
+          <Link className="btn secondary" href="/play">
+            Continue as Guest
           </Link>
         </div>
+        <p className="muted" style={{ marginBottom: 0, marginTop: "0.75rem" }}>
+          Want to skip this screen? Sign In / Create Account for login, or Continue as Guest to play right away.
+        </p>
+        <p className="muted" style={{ marginBottom: 0, marginTop: "0.55rem" }}>
+          Looking for the full catalog? <Link href="/verses">Browse all scriptures</Link>.
+        </p>
       </section>
 
       <section className="grid two">

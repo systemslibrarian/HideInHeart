@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { scoreAttempt, sessionPercentage } from "@/lib/game";
+import { canPlaceWord, getRemainingTileCount, scoreAttempt, sessionPercentage } from "@/lib/game";
 
 describe("scoreAttempt", () => {
   it("gives full points on first perfect attempt", () => {
@@ -20,5 +20,21 @@ describe("scoreAttempt", () => {
 describe("sessionPercentage", () => {
   it("returns rounded percentage", () => {
     expect(sessionPercentage(37, 50)).toBe(74);
+  });
+});
+
+describe("duplicate tile availability", () => {
+  it("keeps a duplicate answer available until all copies are used", () => {
+    const tilePool = ["LIGHT", "LIGHT", "DAY", "FIRE"];
+
+    expect(getRemainingTileCount("LIGHT", tilePool, ["LIGHT", ""])).toBe(1);
+    expect(canPlaceWord("LIGHT", ["LIGHT", ""], tilePool)).toBe(true);
+  });
+
+  it("blocks a word once every copy has been placed", () => {
+    const tilePool = ["LIGHT", "LIGHT", "DAY", "FIRE"];
+
+    expect(getRemainingTileCount("LIGHT", tilePool, ["LIGHT", "LIGHT"])).toBe(0);
+    expect(canPlaceWord("LIGHT", ["LIGHT", "LIGHT"], tilePool)).toBe(false);
   });
 });

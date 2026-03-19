@@ -36,12 +36,15 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ar
 .sp-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:2rem;line-height:1.6;}
 .sp-btn{padding:.9rem 2.5rem;background:var(--gold);color:var(--navy);border:none;border-radius:30px;font-size:16px;font-weight:700;cursor:pointer;}
 .sp-btn:active{opacity:.85;}
+.sp-actions{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center;}
+.sp-btn.alt{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);}
 
 /* HOME */
 .h-head{background:linear-gradient(160deg,var(--navy) 0%,var(--blue) 100%);color:#fff;padding:1.4rem 1.25rem 1.1rem;}
 .h-row{display:flex;align-items:center;gap:.55rem;margin-bottom:.2rem;}
 .h-title{font-size:20px;font-weight:700;letter-spacing:-.3px;}
 .h-tag{font-size:11px;color:rgba(255,255,255,.48);font-style:italic;}
+.h-login{margin-left:auto;padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.13);color:#fff;font-size:12px;font-weight:700;cursor:pointer;}
 .h-stats{display:flex;gap:1px;background:var(--g200);}
 .stat{flex:1;background:#fff;padding:.75rem .5rem;text-align:center;}
 .stat-n{font-size:20px;font-weight:700;color:var(--blue-md);}
@@ -131,6 +134,23 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ar
 .ghost-btn{padding:.85rem;background:#fff;border:1px solid var(--g200);color:var(--g600);border-radius:var(--r);font-size:15px;cursor:pointer;}
 .toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--g800);color:#fff;padding:.55rem 1.2rem;border-radius:20px;font-size:14px;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap;z-index:9999;}
 .toast.show{opacity:1;}
+
+/* LOGIN */
+.a-wrap{flex:1;display:flex;align-items:center;justify-content:center;padding:1.25rem;}
+.a-card{width:min(520px,100%);background:#fff;border:1px solid var(--g200);border-radius:var(--r);padding:1.2rem;box-shadow:0 6px 18px rgba(0,0,0,.08);}
+.a-title{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:.4rem;}
+.a-sub{font-size:13px;color:var(--g600);margin-bottom:1rem;line-height:1.55;}
+.a-field{display:flex;flex-direction:column;gap:.35rem;margin-bottom:.85rem;}
+.a-label{font-size:12px;font-weight:700;color:var(--g600);text-transform:uppercase;letter-spacing:.06em;}
+.a-input{height:44px;border:1px solid var(--g300);border-radius:8px;padding:0 .7rem;font-size:15px;color:var(--g800);}
+.a-input:focus{outline:3px solid rgba(24,95,165,.22);border-color:var(--blue-md);}
+.a-actions{display:flex;gap:.55rem;flex-wrap:wrap;margin-top:.3rem;}
+.a-msg{margin-top:.9rem;min-height:20px;font-size:13px;color:var(--g600);}
+@media (max-width:720px){
+  .sp-actions{width:100%;}
+  .sp-btn{width:100%;max-width:260px;}
+  .h-row{align-items:flex-start;}
+}
 </style>
 </head>
 <body>
@@ -141,13 +161,46 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ar
   <div class="sp-verse">"Thy word have I hid in mine heart, that I might not sin against thee."</div>
   <div class="sp-ref">Psalm 119:11 &middot; KJV</div>
   <div class="sp-sub">Commit scripture to memory,<br>one verse at a time.</div>
-  <button class="sp-btn" onclick="initApp()">Begin</button>
+  <div class="sp-actions">
+    <button class="sp-btn" onclick="initApp()">Play as Guest</button>
+    <button class="sp-btn alt" onclick="showLogin()">Sign In</button>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="screen" id="authScreen">
+  <div class="h-head">
+    <div class="h-row">
+      <span style="font-size:20px">&#128274;</span>
+      <div class="h-title">Sign In</div>
+    </div>
+    <div class="h-tag">Sync your progress across sessions</div>
+  </div>
+  <div class="a-wrap">
+    <div class="a-card">
+      <div class="a-title">Welcome back</div>
+      <div class="a-sub">Use your email and password, then continue to the game.</div>
+      <div class="a-field">
+        <label class="a-label" for="authEmail">Email</label>
+        <input class="a-input" id="authEmail" type="email" autocomplete="email" placeholder="you@example.com">
+      </div>
+      <div class="a-field">
+        <label class="a-label" for="authPassword">Password</label>
+        <input class="a-input" id="authPassword" type="password" autocomplete="current-password" placeholder="Enter password">
+      </div>
+      <div class="a-actions">
+        <button class="chk-btn" onclick="submitLogin()">Sign In</button>
+        <button class="clr-btn" onclick="continueAsGuestStatic()">Continue as Guest</button>
+      </div>
+      <div class="a-msg" id="authMessage">You can also use Guest Mode without signing in.</div>
+    </div>
+  </div>
 </div>
 
 <!-- HOME -->
 <div class="screen" id="homeScreen">
   <div class="h-head">
-    <div class="h-row"><span style="font-size:20px">&#128214;</span><div class="h-title">Scripture Memory</div></div>
+    <div class="h-row"><span style="font-size:20px">&#128214;</span><div class="h-title">Scripture Memory</div><button class="h-login" onclick="showLogin()">Sign In</button></div>
     <div class="h-tag">"Thy word have I hid in mine heart" &mdash; Psalm 119:11 (KJV)</div>
   </div>
   <div class="h-stats">
@@ -274,7 +327,26 @@ function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show')
 
 function initApp(){sessionStorage.setItem('splashSeen','1');renderHome();show('homeScreen');}
 function goHome(){renderHome();show('homeScreen');}
+function showLogin(){show('authScreen');setTimeout(()=>$('authEmail')?.focus(),50);}
 if(sessionStorage.getItem('splashSeen')){renderHome();show('homeScreen');}
+
+function continueAsGuestStatic(){
+  localStorage.setItem('sm_user_mode','guest');
+  initApp();
+}
+
+function submitLogin(){
+  const email=$('authEmail')?.value?.trim()||'';
+  const password=$('authPassword')?.value||'';
+  const msg=$('authMessage');
+  if(!email||!password){if(msg)msg.textContent='Please enter both email and password.';return;}
+  if(!/^\S+@\S+\.\S+$/.test(email)){if(msg)msg.textContent='Please enter a valid email address.';return;}
+  localStorage.setItem('sm_user_email',email);
+  localStorage.setItem('sm_user_mode','account');
+  if(msg)msg.textContent='Signed in. Redirecting to home...';
+  sessionStorage.setItem('splashSeen','1');
+  setTimeout(()=>{renderHome();show('homeScreen');toast('Signed in as '+email);},450);
+}
 
 function renderHome(){
   $('stPlays').textContent=saved.totalPlays||0;

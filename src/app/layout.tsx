@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+
+import { SiteHeader } from "@/components/site-header";
 
 import "./globals.css";
 
@@ -28,17 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <div className="shell">
-          <header className="topbar">
-            <div className="brand">Scripture Memory</div>
-            <nav className="nav">
-              <Link href="/">Home</Link>
-              <Link href="/play">Play</Link>
-              <Link href="/profile">Profile</Link>
-              <Link href="/leaderboard">Leaderboard</Link>
-              <Link href="/admin">Admin</Link>
-              <Link href="/auth">Auth</Link>
-            </nav>
-          </header>
+          <SiteHeader />
           {children}
         </div>
       </body>
