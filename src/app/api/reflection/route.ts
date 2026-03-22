@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (!hasSupabase) {
-    return NextResponse.json({ saved: false, mode: "local" });
+    return NextResponse.json({ saved: true, mode: "local" });
   }
 
   try {

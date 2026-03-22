@@ -19,7 +19,7 @@ export const HEART_CHECK_OPTIONS: ThemeOption[] = [
     label: "Anger",
     description: "Slow your reactions and let Scripture steady your spirit.",
     prompt: "Where do you need God's mercy to soften a sharp response today?",
-    verseThemeIds: ["guidance", "hope"],
+    verseThemeIds: ["anger"],
   },
   {
     id: "doubt",
@@ -50,6 +50,18 @@ export const HEART_CHECK_OPTIONS: ThemeOption[] = [
     label: "Hope",
     description: "Hold onto the promises that lift your eyes forward.",
     prompt: "What promise from God do you need to remember and live from today?",
+  },
+  {
+    id: "peace",
+    label: "Peace",
+    description: "Receive the stillness that only God gives.",
+    prompt: "Where do you need God's peace to stand guard over your mind today?",
+  },
+  {
+    id: "rest",
+    label: "Rest",
+    description: "Lay down striving and receive what Christ offers.",
+    prompt: "What are you straining under that needs to come under Christ's yoke?",
   },
 ];
 

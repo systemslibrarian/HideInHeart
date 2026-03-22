@@ -574,18 +574,17 @@ export default function PlayPage() {
           {!practiceResult && (
             <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
               <button className="btn" disabled={!allFilled} onClick={handleSubmit}>
-                Check my answers
+                See how I did
               </button>
             </div>
           )}
 
           {practiceResult && (
             <div className="journey-verse-card" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-              <p style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "0.25rem" }}>
-                {practiceResult.correct} of {practiceResult.total} correct
-              </p>
-              <p className="soft-label" style={{ marginBottom: "0.75rem" }}>
-                +{practiceResult.score} points &middot; Attempt #{attemptIndex}
+              <p style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: "0.5rem", color: practiceResult.correct === practiceResult.total ? "var(--ok)" : "var(--ink)" }}>
+                {practiceResult.correct === practiceResult.total
+                  ? "Every word in its place."
+                  : `${practiceResult.correct} of ${practiceResult.total} words placed correctly.`}
               </p>
 
               {serverError && (
@@ -596,7 +595,7 @@ export default function PlayPage() {
 
               <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
                 <button className="btn btn-ghost" onClick={handleRetry}>
-                  Try again
+                  Practice once more
                 </button>
                 <button className="btn" onClick={goToReflect}>
                   Continue &rarr;
@@ -695,35 +694,37 @@ export default function PlayPage() {
       {/* ------- COMPLETE ------- */}
       {step === "complete" && (
         <section className="journey-stage completion-panel" style={{ textAlign: "center" }}>
-          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "1.6rem", marginBottom: "0.25rem" }}>
-            Amen.
-          </h2>
-          <p className="soft-label" style={{ maxWidth: 420, margin: "0 auto 1.5rem" }}>
-            You showed up today. The Word is doing its work, even when you can&rsquo;t see it.
-          </p>
-
           {verse && (
-            <div className="journey-verse-card" style={{ marginBottom: "1.5rem" }}>
-              <p style={{ fontStyle: "italic", lineHeight: 1.6 }}>
+            <>
+              <p className="verse-display">
                 &ldquo;{buildFullVerseText(verse)}&rdquo;
               </p>
-              <p style={{ fontWeight: 600 }}>{verse.reference}</p>
-            </div>
+              <p className="completion-verse-ref">{verse.reference}</p>
+            </>
           )}
 
-          {sessionScore > 0 && (
-            <p style={{ marginBottom: "0.5rem" }}>
-              Session: <strong>{sessionScore} points</strong>
-              {streak > 0 && <> &middot; {streak}-day streak</>}
+          <p className="soft-label" style={{ marginTop: "1.5rem" }}>
+            You spent time in this verse today.
+          </p>
+
+          {streak > 0 && (
+            <p style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: "0.5rem" }}>
+              {streak} days walking with the Word
             </p>
           )}
 
-          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "1rem" }}>
+          {reflectionSaved && (
+            <p style={{ fontSize: "0.88rem", color: "var(--ok)", marginTop: "0.5rem" }}>
+              Your reflection has been kept.
+            </p>
+          )}
+
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "1.5rem" }}>
             <button className="btn" onClick={startOver}>
-              Start a new journey
+              Begin another journey
             </button>
             <Link href="/" className="btn btn-ghost">
-              Back to home
+              Return to home
             </Link>
           </div>
         </section>

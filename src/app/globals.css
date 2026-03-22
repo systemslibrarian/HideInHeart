@@ -167,6 +167,28 @@ a {
   padding: 0.6rem 1rem;
   font-weight: 700;
   cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(35, 49, 58, 0.2);
+  color: var(--ink);
+}
+
+.btn.btn-ghost:hover {
+  background: rgba(35, 49, 58, 0.04);
+  opacity: 1;
 }
 
 .btn.primary {
@@ -177,6 +199,7 @@ a {
 .btn.secondary {
   background: #ffffff;
   border: 1px solid #ccd2dc;
+  color: var(--ink);
 }
 
 .row {
@@ -342,6 +365,12 @@ a {
   padding: 0.5rem 0.8rem;
   font-weight: 700;
   cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.tile:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(31, 42, 55, 0.1);
 }
 
 .tile-row {
@@ -362,10 +391,20 @@ a {
 
 .journey-stage,
 .journey-verse-card,
-.verse-panel,
+.verse-panel {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 4px 24px rgba(31, 42, 55, 0.07);
+}
+
 .completion-panel {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 253, 250, 0.97));
+  padding: clamp(2rem, 5vw, 4rem);
+  max-width: 560px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: 0 4px 24px rgba(31, 42, 55, 0.07);
 }
 
 .journey-title {
@@ -378,35 +417,34 @@ a {
 
 .journey-progress {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  gap: 6px;
+  margin: 0 0 2rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .journey-progress-step {
   flex: 1;
-  height: 6px;
+  height: 4px;
   min-width: 2rem;
   border: none;
   border-radius: 999px;
   padding: 0;
-  background: rgba(0, 0, 0, 0.12);
+  background: #dde2e9;
   cursor: default;
   transition: background 0.2s, box-shadow 0.2s;
 }
 
 .journey-progress-step.done {
-  background: var(--brand);
+  background: var(--ok);
   cursor: pointer;
 }
 
 .journey-progress-step.done:hover {
-  box-shadow: 0 0 0 3px rgba(49, 95, 114, 0.25);
+  box-shadow: 0 0 0 3px rgba(61, 122, 94, 0.25);
 }
 
 .journey-progress-step.active {
-  background: rgba(49, 95, 114, 0.35);
+  background: var(--brand);
 }
 
 .journey-progress-step:disabled:not(.done) {
@@ -428,12 +466,14 @@ a {
 .journey-reading {
   font-family: "Fraunces", Georgia, serif;
   font-size: clamp(1.22rem, 1.9vw, 1.5rem);
-  line-height: 1.9;
+  line-height: 2.1;
+  letter-spacing: 0.01em;
 }
 
 .journey-devotional {
-  font-size: 1.03rem;
-  line-height: 1.75;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: rgba(35, 49, 58, 0.88);
 }
 
 .theme-card,
@@ -495,6 +535,36 @@ a {
 
 .bad {
   color: var(--bad);
+}
+
+.blank.correct {
+  background: rgba(61, 122, 94, 0.1);
+  border-color: var(--ok);
+  color: var(--ok);
+}
+
+.blank.wrong {
+  background: rgba(160, 77, 70, 0.08);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.verse-display {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  line-height: 1.75;
+  font-style: italic;
+  text-align: center;
+  color: var(--ink);
+}
+
+.completion-verse-ref {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 0.5rem;
 }
 
 a:focus-visible,
