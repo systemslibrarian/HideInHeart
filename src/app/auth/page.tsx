@@ -12,15 +12,7 @@ export default function AuthPage() {
   const [message, setMessage] = useState("Supabase env vars are required for real auth.");
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
-  const [pendingAction, setPendingAction] = useState<"signIn" | "signUp" | "guest" | null>(null);
-
-  function ensureGuestUserId() {
-    const existing = localStorage.getItem("sg_user_id");
-    if (existing) return existing;
-    const generated = crypto.randomUUID();
-    localStorage.setItem("sg_user_id", generated);
-    return generated;
-  }
+  const [pendingAction, setPendingAction] = useState<"signIn" | "signUp" | null>(null);
 
   function validateCredentials(): boolean {
     const trimmedEmail = email.trim();
@@ -91,21 +83,10 @@ export default function AuthPage() {
     }
   }
 
-  function continueAsGuest() {
-    setPendingAction("guest");
-    ensureGuestUserId();
-    localStorage.setItem("sg_auth_mode", "guest");
-    setMessage("Continuing in Guest Mode.");
-    router.push("/play");
-  }
-
   return (
     <main aria-busy={pendingAction !== null} className="card" style={{ maxWidth: "560px" }}>
       <h1 style={{ marginTop: 0 }}>Sign In or Create Account</h1>
       <p className="muted">Create an account to sync progress across devices, or sign in to continue where you left off.</p>
-      <p className="muted" style={{ marginTop: "0.4rem" }}>
-        Prefer not to sign in yet? Continue as a guest and start memorizing immediately.
-      </p>
 
       <form
         aria-describedby="auth-help auth-status"
@@ -168,9 +149,6 @@ export default function AuthPage() {
           </button>
           <button className="btn primary" disabled={pendingAction !== null} type="submit">
             Sign In
-          </button>
-          <button className="btn secondary" disabled={pendingAction !== null} onClick={continueAsGuest} type="button">
-            Continue as Guest
           </button>
         </div>
       </form>

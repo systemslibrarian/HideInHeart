@@ -16,6 +16,7 @@ import {
   buildFullVerseText,
   buildPracticeSet,
   getPracticeLevelMeta,
+  getThemeOption,
   getVerseTranslation,
   pickDailyFeaturedVerse,
   pickJourneyVerse,
@@ -213,7 +214,7 @@ export default function PlayPage() {
 
   const toggleHeartCheckTag = useCallback((tag: string) => {
     setHeartCheckTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+      prev.includes(tag) ? [] : [tag],
     );
   }, []);
 
@@ -544,6 +545,15 @@ export default function PlayPage() {
       {/* ------- STEP 3 — READ SLOWLY ------- */}
       {step === "read" && verse && (
         <section className="journey-stage" aria-labelledby="read-heading">
+          {selectedThemeId && (() => {
+            const theme = getThemeOption(selectedThemeId);
+            return theme ? (
+              <div className="topic-badge-row">
+                <span className="topic-badge">{theme.label}</span>
+                <button className="btn-change-topic" onClick={goToHeartCheck}>Change topic</button>
+              </div>
+            ) : null;
+          })()}
           <p id="read-heading" className="soft-label" style={{ textAlign: "center", marginBottom: "1rem" }}>
             Read slowly
           </p>
@@ -596,8 +606,15 @@ export default function PlayPage() {
       {/* ------- STEP 4 — PRACTICE (drag-and-drop preserved) ------- */}
       {step === "practice" && verse && (() => {
         const t = getVerseTranslation(verse, translationKey);
+        const practiceTheme = selectedThemeId ? getThemeOption(selectedThemeId) : null;
         return (
         <section className="journey-stage">
+          {practiceTheme && (
+            <div className="topic-badge-row">
+              <span className="topic-badge">{practiceTheme.label}</span>
+              <button className="btn-change-topic" onClick={goToHeartCheck}>Change topic</button>
+            </div>
+          )}
           <div style={{ marginBottom: "1.5rem" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem" }}>
               <p className="soft-label" style={{ margin: 0 }}>Hide this verse in your heart</p>
@@ -724,6 +741,16 @@ export default function PlayPage() {
       {step === "apply" && verse && (
         <section className="journey-stage" aria-labelledby="apply-heading" style={{ maxWidth: 560, margin: "0 auto" }}>
           <p id="apply-heading" className="soft-label" style={{ textAlign: "center", marginBottom: "1.5rem" }}>Respond</p>
+
+          {selectedThemeId && (() => {
+            const theme = getThemeOption(selectedThemeId);
+            return theme ? (
+              <div className="topic-badge-row">
+                <span className="topic-badge">{theme.label}</span>
+                <button className="btn-change-topic" onClick={goToHeartCheck}>Change topic</button>
+              </div>
+            ) : null;
+          })()}
 
           {heartCheckTags.length > 0 && (
             <p style={{ fontStyle: "italic", color: "var(--muted)", textAlign: "center", marginBottom: "1.25rem", lineHeight: 1.6 }}>

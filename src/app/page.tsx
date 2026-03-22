@@ -15,10 +15,10 @@ export default function HomePage() {
   return (
     <main className="grid spacious">
       <section className="hero hero-journey">
-        <h1 style={{ marginTop: 0 }}>Hide God&apos;s Word in your heart.</h1>
-        <p className="hero-rhythm">Read · Reflect · Memorize · Live</p>
+        <h1 style={{ marginTop: 0, textAlign: "center" }}>Hide God&apos;s Word in your heart.</h1>
+        <p className="hero-rhythm" style={{ textAlign: "center" }}>Read · Reflect · Memorize · Live</p>
 
-        <p className="scripture-inline">&ldquo;{PSALM_119_11[translationKey]}&rdquo; — Psalm 119:11 ({label})</p>
+        <p className="scripture-inline" style={{ textAlign: "left" }}>&ldquo;{PSALM_119_11[translationKey]}&rdquo; <span style={{ whiteSpace: "nowrap" }}>— Psalm 119:11 ({label})</span></p>
 
         <div className="row hero-actions" style={{ justifyContent: "center" }}>
           <Link className="btn primary large" href="/play">
@@ -26,10 +26,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="hero-signin-nudge">
-          <Link className="btn outline" href="/auth">Sign in</Link>
-          <span>to save your progress, track your streak, and pick up where you left off.</span>
-        </div>
+
       </section>
 
       <section className="grid three home-grid">

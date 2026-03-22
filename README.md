@@ -1,5 +1,7 @@
 # Scripture Journey
 
+**[Live Demo →](https://systemslibrarian.github.io/scripturegame/)**
+
 ## About
 
 Scripture Journey is a calm daily companion for hiding God's Word in your heart.
