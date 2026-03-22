@@ -1,10 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import {
   canPlaceWord,
-  getRemainingTileCount,
+  countWords,
   normalizeWord,
   scoreAttempt,
   shuffle,
@@ -95,7 +96,7 @@ export default function PlayPage() {
   const [blankIndices, setBlankIndices] = useState<number[]>([]);
   const [blankIndexLookup, setBlankIndexLookup] = useState<Map<number, number>>(new Map());
   const [practiceAnswers, setPracticeAnswers] = useState<string[]>([]);
-  const [selectedTile, setSelectedTile] = useState<string | null>(null);
+  const [selectedTile, setSelectedTile] = useState<number | null>(null);
   const [attemptIndex, setAttemptIndex] = useState(1);
   const [practiceResult, setPracticeResult] = useState<PracticeResult | null>(null);
   const [startTime, setStartTime] = useState(0);
@@ -184,6 +185,32 @@ export default function PlayPage() {
 
   const goToComplete = useCallback(() => setStep("complete"), []);
 
+  const navigateToStep = useCallback(
+    (target: JourneyStep) => {
+      const targetIndex = stepOrder.indexOf(target);
+      const current = stepOrder.indexOf(step);
+      if (targetIndex >= current) return; // only allow backward
+      if (target === "intro") {
+        // reset everything
+        setStep("intro");
+        setSelectedThemeId(null);
+        setVerse(null);
+        setPracticeResult(null);
+        setReflectionText("");
+        setReflectionSaved(false);
+        setServerError(null);
+        return;
+      }
+      if (target === "practice" && verse) {
+        initPractice(selectedLevel);
+        return;
+      }
+      setStep(target);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [step, verse, selectedLevel],
+  );
+
   const startOver = useCallback(() => {
     setStep("intro");
     setSelectedThemeId(null);
@@ -196,9 +223,9 @@ export default function PlayPage() {
 
   /* ---- practice interaction ---- */
   const handleTileClick = useCallback(
-    (tile: string) => {
+    (tileIndex: number) => {
       if (practiceResult) return;
-      setSelectedTile((prev) => (prev === tile ? null : tile));
+      setSelectedTile((prev) => (prev === tileIndex ? null : tileIndex));
     },
     [practiceResult],
   );
@@ -216,12 +243,13 @@ export default function PlayPage() {
         return;
       }
 
-      if (!selectedTile) return;
-      if (!canPlaceWord(selectedTile, placements, tilePool, slotIndex)) return;
+      if (selectedTile === null) return;
+      const word = tilePool[selectedTile];
+      if (!canPlaceWord(word, placements, tilePool, slotIndex)) return;
 
       setPlacements((prev) => {
         const next = [...prev];
-        next[slotIndex] = selectedTile;
+        next[slotIndex] = word;
         return next;
       });
       setSelectedTile(null);
@@ -338,19 +366,27 @@ export default function PlayPage() {
     <main className="shell">
       {/* progress bar */}
       {step !== "intro" && (
-        <div className="journey-progress" role="progressbar" aria-valuenow={currentStepIndex} aria-valuemin={0} aria-valuemax={stepOrder.length - 1}>
-          {stepOrder.map((s, i) => (
-            <div
-              key={s}
-              className={classNames(
-                "journey-progress-step",
-                i < currentStepIndex && "done",
-                i === currentStepIndex && "active",
-              )}
-              title={STEP_LABELS[s]}
-            />
-          ))}
-        </div>
+        <nav className="journey-progress" aria-label="Journey steps">
+          {stepOrder.map((s, i) => {
+            const canClick = i < currentStepIndex;
+            return (
+              <button
+                key={s}
+                type="button"
+                className={classNames(
+                  "journey-progress-step",
+                  i < currentStepIndex && "done",
+                  i === currentStepIndex && "active",
+                )}
+                title={STEP_LABELS[s]}
+                aria-label={`${STEP_LABELS[s]}${canClick ? " (go back)" : ""}`}
+                aria-current={i === currentStepIndex ? "step" : undefined}
+                disabled={!canClick}
+                onClick={() => canClick && navigateToStep(s)}
+              />
+            );
+          })}
+        </nav>
       )}
 
       {/* ------- INTRO ------- */}
@@ -512,17 +548,20 @@ export default function PlayPage() {
           {!practiceResult && (
             <div className="tile-pool" style={{ marginTop: "1.5rem" }}>
               {tilePool.map((tile, tileIndex) => {
-                const remaining = getRemainingTileCount(tile, tilePool, placements);
+                const norm = normalizeWord(tile);
+                const usedCount = countWords(placements)[norm] ?? 0;
+                const instanceIndex = tilePool.slice(0, tileIndex + 1).filter((t) => normalizeWord(t) === norm).length - 1;
+                const isUsed = instanceIndex < usedCount;
                 return (
                   <button
                     key={`${tile}-${tileIndex}`}
                     className={classNames(
                       "tile",
-                      selectedTile === tile && "selected",
-                      remaining <= 0 && "used",
+                      selectedTile === tileIndex && "selected",
+                      isUsed && "used",
                     )}
-                    onClick={() => handleTileClick(tile)}
-                    disabled={remaining <= 0}
+                    onClick={() => handleTileClick(tileIndex)}
+                    disabled={isUsed}
                   >
                     {tile}
                   </button>
@@ -683,9 +722,9 @@ export default function PlayPage() {
             <button className="btn" onClick={startOver}>
               Start a new journey
             </button>
-            <a href="/verses" className="btn btn-ghost">
-              Browse the verse library
-            </a>
+            <Link href="/" className="btn btn-ghost">
+              Back to home
+            </Link>
           </div>
         </section>
       )}

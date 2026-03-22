@@ -17,9 +17,6 @@ export default function HomePage() {
           <Link className="btn secondary" href="/auth">
             Sign in to keep your rhythm
           </Link>
-          <Link className="btn secondary" href="/verses">
-            Browse the verse library
-          </Link>
         </div>
         <p className="muted quiet-note">
           The memorization practice still centers on placing word tiles into the verse, but the experience now starts with reflection before it asks for recall.
