@@ -48,6 +48,7 @@ create table if not exists public.reflections (
   user_id text not null,
   verse_id text not null references public.verses(id) on delete cascade,
   category_id text not null,
+  heart_check_tags text[],
   response_text text not null,
   created_at timestamptz not null default now()
 );

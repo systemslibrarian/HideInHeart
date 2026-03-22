@@ -25,9 +25,9 @@ import type { SkillLevel, Verse } from "@/types/domain";
 /*  Types                                                             */
 /* ------------------------------------------------------------------ */
 
-type JourneyStep = "intro" | "theme" | "read" | "practice" | "reflect" | "complete";
+type JourneyStep = "today" | "heartcheck" | "read" | "practice" | "apply" | "complete";
 
-type PracticeResult = { correct: number; total: number; score: number };
+type PracticeResult = { correct: number; total: number };
 
 type AttemptResponse = {
   success: boolean;
@@ -37,14 +37,12 @@ type AttemptResponse = {
   error?: string;
 };
 
-type ReflectionMode = "choose" | "write";
-
 const STEP_LABELS: Record<JourneyStep, string> = {
-  intro: "Welcome",
-  theme: "Heart Check",
+  today: "Today",
+  heartcheck: "Heart Check",
   read: "Read Slowly",
   practice: "Practice",
-  reflect: "Live It",
+  apply: "Apply",
   complete: "Amen",
 };
 
@@ -85,8 +83,9 @@ export default function PlayPage() {
   const [loading, setLoading] = useState(true);
 
   /* ---- journey flow ---- */
-  const [step, setStep] = useState<JourneyStep>("intro");
+  const [step, setStep] = useState<JourneyStep>("today");
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
+  const [heartCheckTags, setHeartCheckTags] = useState<string[]>([]);
   const [selectedLevel, setSelectedLevel] = useState<SkillLevel>("intermediate");
   const [verse, setVerse] = useState<Verse | null>(null);
 
@@ -102,14 +101,12 @@ export default function PlayPage() {
   const [startTime, setStartTime] = useState(0);
 
   /* ---- reflection state ---- */
-  const [reflectionMode, setReflectionMode] = useState<ReflectionMode>("choose");
   const [reflectionText, setReflectionText] = useState("");
   const [reflectionSaved, setReflectionSaved] = useState(false);
   const [reflectionError, setReflectionError] = useState<string | null>(null);
 
   /* ---- overall stats ---- */
   const [streak, setStreak] = useState(0);
-  const [sessionScore, setSessionScore] = useState(0);
   const [serverError, setServerError] = useState<string | null>(null);
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -120,8 +117,8 @@ export default function PlayPage() {
       try {
         const response = await fetch("/api/verses");
         if (!response.ok) throw new Error("fetch verses failed");
-        const data: Verse[] = await response.json();
-        setVerses(data);
+        const data = await response.json();
+        setVerses(Array.isArray(data) ? data : data.verses ?? []);
       } catch {
         setVerses([]);
       } finally {
@@ -130,18 +127,18 @@ export default function PlayPage() {
     })();
   }, []);
 
-  /* featured verse for intro */
+  /* featured verse for step 1 */
   const featuredVerse = useMemo(
     () => (verses.length > 0 ? pickDailyFeaturedVerse(verses) : null),
     [verses],
   );
 
   /* ---- step progress bar ---- */
-  const stepOrder: JourneyStep[] = ["intro", "theme", "read", "practice", "reflect", "complete"];
+  const stepOrder: JourneyStep[] = ["today", "heartcheck", "read", "practice", "apply", "complete"];
   const currentStepIndex = stepOrder.indexOf(step);
 
   /* ---- navigation helpers ---- */
-  const goToTheme = useCallback(() => setStep("theme"), []);
+  const goToHeartCheck = useCallback(() => setStep("heartcheck"), []);
 
   const goToRead = useCallback(
     (themeId: string | null) => {
@@ -175,25 +172,31 @@ export default function PlayPage() {
     [verse],
   );
 
-  const goToReflect = useCallback(() => {
-    setReflectionMode("choose");
+  const goToApply = useCallback(() => {
     setReflectionText("");
     setReflectionSaved(false);
     setReflectionError(null);
-    setStep("reflect");
+    setStep("apply");
+    setTimeout(() => textareaRef.current?.focus(), 60);
   }, []);
 
   const goToComplete = useCallback(() => setStep("complete"), []);
+
+  const toggleHeartCheckTag = useCallback((tag: string) => {
+    setHeartCheckTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+    );
+  }, []);
 
   const navigateToStep = useCallback(
     (target: JourneyStep) => {
       const targetIndex = stepOrder.indexOf(target);
       const current = stepOrder.indexOf(step);
-      if (targetIndex >= current) return; // only allow backward
-      if (target === "intro") {
-        // reset everything
-        setStep("intro");
+      if (targetIndex >= current) return;
+      if (target === "today") {
+        setStep("today");
         setSelectedThemeId(null);
+        setHeartCheckTags([]);
         setVerse(null);
         setPracticeResult(null);
         setReflectionText("");
@@ -212,8 +215,9 @@ export default function PlayPage() {
   );
 
   const startOver = useCallback(() => {
-    setStep("intro");
+    setStep("today");
     setSelectedThemeId(null);
+    setHeartCheckTags([]);
     setVerse(null);
     setPracticeResult(null);
     setReflectionText("");
@@ -268,10 +272,8 @@ export default function PlayPage() {
     });
 
     const total = practiceAnswers.length;
-    const score = scoreAttempt(correct, total, attemptIndex);
-    const result: PracticeResult = { correct, total, score };
-    setPracticeResult(result);
-    setSessionScore((prev) => prev + score);
+    scoreAttempt(correct, total, attemptIndex);
+    setPracticeResult({ correct, total });
 
     try {
       const userId = await getUserId();
@@ -359,13 +361,12 @@ export default function PlayPage() {
   /*  RENDER                                                          */
   /* ================================================================ */
 
-  const themeOption = HEART_CHECK_OPTIONS.find((option) => option.id === selectedThemeId);
   const levelMeta = getPracticeLevelMeta(selectedLevel);
 
   return (
     <main className="shell">
       {/* progress bar */}
-      {step !== "intro" && (
+      {step !== "today" && (
         <nav className="journey-progress" aria-label="Journey steps">
           {stepOrder.map((s, i) => {
             const canClick = i < currentStepIndex;
@@ -389,47 +390,51 @@ export default function PlayPage() {
         </nav>
       )}
 
-      {/* ------- INTRO ------- */}
-      {step === "intro" && (
+      {/* ------- STEP 1 — TODAY ------- */}
+      {step === "today" && (
         <section className="journey-stage" style={{ textAlign: "center" }}>
           <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "1.8rem", marginBottom: "0.5rem" }}>
             Today&rsquo;s Journey
           </h1>
-          <p className="soft-label" style={{ maxWidth: 480, margin: "0 auto 2rem" }}>
-            Read a verse slowly, practice placing its words, and take one thought
-            with you into your day.
-          </p>
 
           {featuredVerse && (
             <div className="journey-verse-card" style={{ marginBottom: "2rem" }}>
-              <p className="soft-label" style={{ marginBottom: "0.25rem" }}>Today&rsquo;s featured verse</p>
-              <p style={{ fontStyle: "italic", lineHeight: 1.6, marginBottom: "0.5rem" }}>
-                &ldquo;{buildFullVerseText(featuredVerse)}&rdquo;
+              <p style={{ fontWeight: 600, marginBottom: "0.25rem" }}>{featuredVerse.reference}</p>
+              <p className="soft-label" style={{ marginBottom: 0 }}>{featuredVerse.themeLabel}</p>
+              <p className="soft-label" style={{ maxWidth: 480, margin: "0.75rem auto 0" }}>
+                Read a verse slowly, practice placing its words, and take one thought
+                with you into your day.
               </p>
-              <p style={{ fontWeight: 600 }}>{featuredVerse.reference}</p>
             </div>
           )}
 
-          <button className="btn" onClick={goToTheme}>
+          {!featuredVerse && (
+            <p className="soft-label" style={{ maxWidth: 480, margin: "0 auto 2rem" }}>
+              Read a verse slowly, practice placing its words, and take one thought
+              with you into your day.
+            </p>
+          )}
+
+          <button className="btn" onClick={goToHeartCheck}>
             Begin today&rsquo;s journey
           </button>
         </section>
       )}
 
-      {/* ------- THEME (Heart Check) ------- */}
-      {step === "theme" && (
+      {/* ------- STEP 2 — HEART CHECK ------- */}
+      {step === "heartcheck" && (
         <section className="journey-stage">
           <h2 style={{ textAlign: "center", marginBottom: "0.25rem" }}>Heart Check</h2>
           <p className="soft-label" style={{ textAlign: "center", maxWidth: 440, margin: "0 auto 1.5rem" }}>
-            What are you carrying today? Choose a theme and let Scripture meet you there.
+            What are you carrying today? Choose what resonates, and let Scripture meet you there.
           </p>
 
           <div className="theme-grid">
             {HEART_CHECK_OPTIONS.map((option) => (
               <button
                 key={option.id}
-                className={classNames("theme-card", selectedThemeId === option.id && "selected")}
-                onClick={() => setSelectedThemeId(option.id)}
+                className={classNames("theme-card", heartCheckTags.includes(option.id) && "selected")}
+                onClick={() => toggleHeartCheckTag(option.id)}
               >
                 <strong>{option.label}</strong>
                 <span className="soft-label" style={{ fontSize: "0.85rem" }}>
@@ -440,17 +445,25 @@ export default function PlayPage() {
           </div>
 
           <div style={{ textAlign: "center", marginTop: "1.5rem", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <button className="btn" disabled={!selectedThemeId} onClick={() => goToRead(selectedThemeId)}>
-              Continue with this theme
+            <button
+              className="btn"
+              disabled={heartCheckTags.length === 0}
+              onClick={() => {
+                const primary = heartCheckTags[0] ?? null;
+                setSelectedThemeId(primary);
+                goToRead(primary);
+              }}
+            >
+              Continue
             </button>
             <button className="btn btn-ghost" onClick={() => goToRead(null)}>
-              Surprise me
+              Skip
             </button>
           </div>
         </section>
       )}
 
-      {/* ------- READ SLOWLY ------- */}
+      {/* ------- STEP 3 — READ SLOWLY ------- */}
       {step === "read" && verse && (
         <section className="journey-stage">
           <h2 style={{ textAlign: "center", marginBottom: "0.25rem" }}>Read Slowly</h2>
@@ -459,14 +472,13 @@ export default function PlayPage() {
           </p>
 
           <div className="journey-reading">
-            <p className="journey-devotional">
+            <p className="journey-devotional" style={{ fontSize: "1.25rem", lineHeight: 1.8 }}>
               &ldquo;{buildFullVerseText(verse)}&rdquo;
             </p>
             <p style={{ fontWeight: 600, textAlign: "center" }}>{verse.reference}</p>
 
             {verse.devotional && (
               <div style={{ marginTop: "1.25rem", padding: "1rem", background: "rgba(49,95,114,0.06)", borderRadius: "var(--radius)" }}>
-                <p className="soft-label" style={{ marginBottom: "0.25rem" }}>A thought to sit with</p>
                 <p style={{ lineHeight: 1.7 }}>{verse.devotional}</p>
               </div>
             )}
@@ -476,7 +488,7 @@ export default function PlayPage() {
             Choose your practice depth
           </h3>
           <p className="soft-label" style={{ textAlign: "center", marginBottom: "1rem" }}>
-            How many words would you like to fill in?
+            How many words would you like to place?
           </p>
 
           <div className="practice-level-grid">
@@ -494,17 +506,17 @@ export default function PlayPage() {
 
           <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
             <button className="btn" onClick={() => initPractice(selectedLevel)}>
-              Begin practice
+              I&rsquo;ve read this
             </button>
           </div>
         </section>
       )}
 
-      {/* ------- PRACTICE ------- */}
+      {/* ------- STEP 4 — PRACTICE (drag-and-drop preserved) ------- */}
       {step === "practice" && verse && (
         <section className="journey-stage">
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1rem" }}>
-            <h2 style={{ margin: 0 }}>Practice</h2>
+            <h2 style={{ margin: 0 }}>Place the Missing Words</h2>
             <span className="soft-label">{levelMeta.label} &middot; {verse.reference}</span>
           </div>
 
@@ -570,20 +582,21 @@ export default function PlayPage() {
             </div>
           )}
 
-          {/* submit / result */}
+          {/* submit */}
           {!practiceResult && (
             <div style={{ textAlign: "center", marginTop: "1.5rem" }}>
               <button className="btn" disabled={!allFilled} onClick={handleSubmit}>
-                See how I did
+                Check my words
               </button>
             </div>
           )}
 
+          {/* result */}
           {practiceResult && (
             <div className="journey-verse-card" style={{ marginTop: "1.5rem", textAlign: "center" }}>
-              <p style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: "0.5rem", color: practiceResult.correct === practiceResult.total ? "var(--ok)" : "var(--ink)" }}>
+              <p style={{ fontSize: "1.15rem", fontWeight: 600, marginBottom: "0.5rem", color: "var(--ink)" }}>
                 {practiceResult.correct === practiceResult.total
-                  ? "Every word in its place."
+                  ? "Well done. The Word is taking root."
                   : `${practiceResult.correct} of ${practiceResult.total} words placed correctly.`}
               </p>
 
@@ -597,8 +610,8 @@ export default function PlayPage() {
                 <button className="btn btn-ghost" onClick={handleRetry}>
                   Practice once more
                 </button>
-                <button className="btn" onClick={goToReflect}>
-                  Continue &rarr;
+                <button className="btn" onClick={goToApply}>
+                  Continue
                 </button>
               </div>
             </div>
@@ -606,45 +619,37 @@ export default function PlayPage() {
         </section>
       )}
 
-      {/* ------- REFLECT (Live It) ------- */}
-      {step === "reflect" && verse && (
+      {/* ------- STEP 5 — APPLY ------- */}
+      {step === "apply" && verse && (
         <section className="journey-stage" style={{ maxWidth: 560, margin: "0 auto" }}>
-          <h2 style={{ textAlign: "center", marginBottom: "0.25rem" }}>Live It</h2>
+          <h2 style={{ textAlign: "center", marginBottom: "0.25rem" }}>Apply</h2>
           <p className="soft-label" style={{ textAlign: "center", marginBottom: "1.5rem" }}>
             Take one truth from this passage into the rest of your day.
           </p>
 
-          {themeOption && (
-            <div className="journey-verse-card" style={{ marginBottom: "1.5rem" }}>
-              <p style={{ fontStyle: "italic", lineHeight: 1.6 }}>{themeOption.prompt}</p>
-            </div>
+          {heartCheckTags.length > 0 && (
+            <p style={{ fontStyle: "italic", color: "var(--muted)", textAlign: "center", marginBottom: "1rem" }}>
+              You mentioned you&rsquo;re dealing with {heartCheckTags.map((t) => t.toLowerCase()).join(", ")}…
+            </p>
           )}
 
           {verse.applicationPrompt && (
             <div className="journey-verse-card" style={{ marginBottom: "1.5rem" }}>
-              <p className="soft-label" style={{ marginBottom: "0.25rem" }}>From today&rsquo;s verse</p>
               <p style={{ lineHeight: 1.6 }}>{verse.applicationPrompt}</p>
             </div>
           )}
 
-          {reflectionMode === "choose" && (
-            <div style={{ textAlign: "center", display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <button className="btn" onClick={() => { setReflectionMode("write"); setTimeout(() => textareaRef.current?.focus(), 60); }}>
-                Write a short reflection
-              </button>
-              <button className="btn btn-ghost" onClick={goToComplete}>
-                Skip for now
-              </button>
-            </div>
-          )}
-
-          {reflectionMode === "write" && !reflectionSaved && (
+          {!reflectionSaved && (
             <div>
+              <label className="soft-label" htmlFor="reflection-textarea" style={{ display: "block", marginBottom: "0.5rem" }}>
+                Your reflection (optional)
+              </label>
               <textarea
+                id="reflection-textarea"
                 ref={textareaRef}
                 className="reflection-textarea"
                 rows={4}
-                maxLength={1000}
+                maxLength={2000}
                 placeholder="What is one way you can live this verse today?"
                 value={reflectionText}
                 onChange={(event) => setReflectionText(event.target.value)}
@@ -664,7 +669,7 @@ export default function PlayPage() {
                   disabled={!reflectionText.trim()}
                   onClick={handleSaveReflection}
                 >
-                  Save &amp; finish
+                  Save and finish
                 </button>
                 <button className="btn btn-ghost" onClick={goToComplete}>
                   Skip
@@ -684,32 +689,32 @@ export default function PlayPage() {
                 Reflection saved.
               </p>
               <button className="btn" onClick={goToComplete}>
-                Finish &rarr;
+                Finish
               </button>
             </div>
           )}
         </section>
       )}
 
-      {/* ------- COMPLETE ------- */}
+      {/* ------- STEP 6 — COMPLETION ------- */}
       {step === "complete" && (
         <section className="journey-stage completion-panel" style={{ textAlign: "center" }}>
           {verse && (
             <>
-              <p className="verse-display">
-                &ldquo;{buildFullVerseText(verse)}&rdquo;
-              </p>
-              <p className="completion-verse-ref">{verse.reference}</p>
+              <p className="completion-verse-ref" style={{ fontWeight: 600, marginBottom: "0.5rem" }}>{verse.reference}</p>
             </>
           )}
 
-          <p className="soft-label" style={{ marginTop: "1.5rem" }}>
-            You spent time in this verse today.
+          <p style={{ fontSize: "1.1rem", marginTop: "1rem" }}>
+            You spent time with this verse today.
+          </p>
+          <p className="soft-label" style={{ marginTop: "0.5rem" }}>
+            Carry it with you.
           </p>
 
           {streak > 0 && (
-            <p style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: "0.5rem" }}>
-              {streak} days walking with the Word
+            <p style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: "1rem" }}>
+              Day {streak} in a row
             </p>
           )}
 
@@ -724,7 +729,7 @@ export default function PlayPage() {
               Begin another journey
             </button>
             <Link href="/" className="btn btn-ghost">
-              Return to home
+              Return home
             </Link>
           </div>
         </section>

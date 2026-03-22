@@ -1,53 +1,94 @@
-# Scripture Memory Web App
+# Scripture Memory
 
-Production-ready Scripture Memory app built with Next.js, TypeScript, Supabase, and CI.
+A calm, daily Scripture practice app. Read a passage slowly, sit with it, place the missing words from memory, and carry one clear response into the rest of your day.
 
-## What Was Implemented (All 5 Phases)
+## What It Does
 
-1. Frontend migration to Next.js App Router with modular pages.
-2. Supabase authentication and server API integration.
-3. Database-backed verse catalog model with SQL schema and seed scripts.
-4. Profile, streak/stat model, leaderboard, and admin verse CMS route.
-5. Tests, GitHub Actions CI, and Sentry monitoring bootstrap.
+Each day you walk through a short journey:
+
+1. **Read it** — A featured verse, its theme, and a brief devotional set the pace before anything else happens.
+2. **Practice it** — The verse reappears with key words removed. Drag word tiles into the correct blanks to rebuild it from memory.
+3. **Live it** — Finish with a simple application prompt so the passage moves from recall into real life.
+
+Themes include anxiety, fear, doubt, temptation, waiting, guidance, hope, and more — you choose what your heart needs today.
+
+## Features
+
+- **Drag-and-drop word tiles** — the central memorization mechanic, designed for mobile and desktop.
+- **Heart check** — pick a theme that matches where you are right now before your verse is chosen.
+- **Three skill levels** — beginner, intermediate, and expert control how many blanks appear.
+- **Streaks and scoring** — track daily consistency and see your progress over time.
+- **Leaderboard** — optional friendly accountability with other users.
+- **Guest mode** — start immediately, no account required. Sign in later to sync progress across devices.
+- **Offline-capable** — a local verse set works without any backend connection.
+- **Reflections** — save short written responses to application prompts after each practice.
 
 ## Tech Stack
 
-- Next.js 15 + React 19 + TypeScript
-- Supabase (Auth + Postgres)
-- Zod input validation
-- Vitest unit tests
-- GitHub Actions CI
-- Sentry error monitoring
+| Layer | Technology |
+|---|---|
+| Framework | Next.js 15, React 19, TypeScript |
+| Database & Auth | Supabase (PostgreSQL + Auth) |
+| Validation | Zod |
+| Testing | Vitest |
+| Monitoring | Sentry |
+| Hosting | Vercel |
 
-## Local Development
-
-1. Install dependencies:
+## Getting Started
 
 ```bash
+# Install dependencies
 npm install
-```
 
-2. Copy env template and fill values:
-
-```bash
+# Copy environment template and fill in your values
 cp .env.example .env.local
-```
 
-3. Run the app:
-
-```bash
+# Start the dev server
 npm run dev
 ```
 
-4. Open http://localhost:3000
+Then open [http://localhost:3000](http://localhost:3000).
 
-## Required Environment Variables
+### Environment Variables
 
-See `.env.example`:
+See `.env.example` for the full list. The key ones:
 
-- NEXT_PUBLIC_SUPABASE_URL
-- NEXT_PUBLIC_SUPABASE_ANON_KEY
-- SUPABASE_SERVICE_ROLE_KEY
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous/public key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key (server only) |
+| `ADMIN_API_TOKEN` | Protects the admin verse management endpoint |
+
+The app runs in **local-only mode** without Supabase credentials — all verses come from a built-in fallback set and auth features are disabled.
+
+## Project Structure
+
+```
+src/
+  app/           — Next.js App Router pages and API routes
+  components/    — Shared UI components
+  lib/           — Game logic, journey flow, auth helpers, rate limiting
+  types/         — TypeScript domain types
+supabase/
+  schema.sql     — Full database schema with row-level security
+  seed.sql       — Starter verse data
+```
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run lint` | ESLint (zero warnings) |
+| `npm run typecheck` | TypeScript type check |
+| `npm run test` | Run Vitest unit tests |
+| `npm run preflight` | Pre-deploy validation |
+
+## License
+
+ISC
 - NEXT_PUBLIC_APP_URL
 - ADMIN_API_TOKEN
 - SENTRY_DSN

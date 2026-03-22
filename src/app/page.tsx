@@ -19,7 +19,7 @@ export default function HomePage() {
           </Link>
         </div>
         <p className="muted quiet-note">
-          The memorization practice still centers on placing word tiles into the verse, but the experience now starts with reflection before it asks for recall.
+          The practice centers on placing word tiles into the verse, but the experience starts with reflection before it asks for recall.
         </p>
       </section>
 

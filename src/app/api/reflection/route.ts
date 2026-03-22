@@ -6,6 +6,17 @@ import { LOCAL_VERSES } from "@/lib/verses-local";
 import { authenticatedUserFromRequest } from "@/lib/supabase/auth";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
+async function verseExists(verseId: string): Promise<boolean> {
+  if (LOCAL_VERSES.some((v) => v.id === verseId)) return true;
+  if (!hasSupabase) return false;
+  const supabase = createSupabaseAdminClient();
+  const { count } = await supabase
+    .from("verses")
+    .select("id", { count: "exact", head: true })
+    .eq("id", verseId);
+  return (count ?? 0) > 0;
+}
+
 const reflectionSchema = z.object({
   verseId: z.string().min(1),
   categoryId: z.string().min(1),
@@ -21,9 +32,8 @@ export async function POST(request: NextRequest) {
   }
 
   const payload = parsed.data;
-  const verse = LOCAL_VERSES.find((item) => item.id === payload.verseId);
 
-  if (!verse) {
+  if (!(await verseExists(payload.verseId))) {
     return NextResponse.json({ error: "Unknown verseId." }, { status: 400 });
   }
 
