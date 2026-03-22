@@ -2,10 +2,14 @@
 
 ## About
 
-scripturegame is a calm daily companion for hiding God's Word in your heart.
+Scripture Journey is a calm daily companion for hiding God's Word in your heart.
 
-Rooted in Psalm 119:11 — it guides you through reading, reflection, memorization,
-and application in a quiet, focused journey. No scores. No timers. Just Scripture.
+Rooted in Psalm 119:11 — it guides you through reading, reflection,
+memorization, and application in a quiet daily journey. No scores. No timers.
+Just Scripture, carried deeper each day.
+
+> "Your word I have hidden in my heart, that I might not sin against You."
+> — Psalm 119:11
 
 Built with Next.js 15, Supabase, and TypeScript.
 
@@ -14,21 +18,21 @@ Built with Next.js 15, Supabase, and TypeScript.
 Each day you walk through a short journey:
 
 1. **Read it** — A featured verse, its theme, and a brief devotional set the pace before anything else happens.
-2. **Practice it** — The verse reappears with key words removed. Drag word tiles into the correct blanks to rebuild it from memory.
-3. **Live it** — Finish with a simple application prompt so the passage moves from recall into real life.
+2. **Practice it** — The verse reappears with key words removed. Place word tiles into the correct blanks to rebuild it from memory.
+3. **Live it** — Finish with a short application prompt so the passage moves from recall into real life.
 
 Themes include anxiety, fear, doubt, temptation, waiting, guidance, hope, and more — you choose what your heart needs today.
 
 ## Features
 
-- **Drag-and-drop word tiles** — the central memorization mechanic, designed for mobile and desktop.
+- **Word-tile memorization** — the central mechanic, designed for mobile and desktop.
 - **Heart check** — pick a theme that matches where you are right now before your verse is chosen.
-- **Three skill levels** — beginner, intermediate, and expert control how many blanks appear.
+- **Three depth levels** — beginner, intermediate, and expert control how many blanks appear.
 - **Streaks** — track daily consistency and see your continued rhythm over time.
-- **Leaderboard** — optional friendly accountability with other users.
+- **NIV / KJV toggle** — switch translations at any time.
 - **Guest mode** — start immediately, no account required. Sign in later to sync progress across devices.
 - **Offline-capable** — a local verse set works without any backend connection.
-- **Reflections** — save short written responses to application prompts after each practice.
+- **Reflections** — save short written responses to application prompts after each journey.
 
 ## Tech Stack
 
@@ -75,7 +79,7 @@ The app runs in **local-only mode** without Supabase credentials — all verses 
 src/
   app/           — Next.js App Router pages and API routes
   components/    — Shared UI components
-  lib/           — Game logic, journey flow, auth helpers, rate limiting
+  lib/           — Journey logic, verse helpers, auth, rate limiting
   types/         — TypeScript domain types
 supabase/
   schema.sql     — Full database schema with row-level security
@@ -96,12 +100,6 @@ supabase/
 ## License
 
 ISC
-- NEXT_PUBLIC_APP_URL
-- ADMIN_API_TOKEN
-- SENTRY_DSN
-- SENTRY_AUTH_TOKEN
-- SENTRY_ORG
-- SENTRY_PROJECT
 
 ## Supabase Setup
 
@@ -115,9 +113,8 @@ ISC
 - `/` home
 - `/play` daily journey
 - `/auth` sign in/sign up
-- `/profile` your journey stats
+- `/profile` your journey walk
 - `/profile/reflections` devotional journal
-- `/leaderboard` rankings
 - `/admin` verse CMS UI
 
 ## API Routes
