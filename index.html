@@ -31,13 +31,13 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ar
 #splashScreen{background:linear-gradient(160deg,#021a34 0%,#042C53 60%,#0C447C 100%);
   align-items:center;justify-content:center;text-align:center;padding:2.5rem 1.5rem;}
 .sp-cross{font-size:52px;margin-bottom:1.5rem;}
-.sp-verse{font-size:19px;font-style:italic;color:var(--gold);line-height:1.75;max-width:300px;margin:0 auto .85rem;}
-.sp-ref{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.09em;text-transform:uppercase;margin-bottom:2rem;}
-.sp-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:2rem;line-height:1.6;}
+.sp-heading{font-size:clamp(1.5rem,5vw,2.1rem);font-weight:700;color:#fff;line-height:1.25;margin:0 auto 0.6rem;max-width:320px;}
+.sp-rhythm{font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.75rem;}
+.sp-verse{font-size:18px;font-style:italic;color:var(--gold);line-height:1.75;max-width:300px;margin:0 auto .6rem;}
+.sp-ref{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.09em;text-transform:uppercase;margin-bottom:2rem;}
 .sp-btn{padding:.9rem 2.5rem;background:var(--gold);color:var(--navy);border:none;border-radius:30px;font-size:16px;font-weight:700;cursor:pointer;}
 .sp-btn:active{opacity:.85;}
 .sp-actions{display:flex;gap:.65rem;flex-wrap:wrap;justify-content:center;}
-.sp-btn.alt{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);}
 
 /* HOME */
 .h-head{background:linear-gradient(160deg,var(--navy) 0%,var(--blue) 100%);color:#fff;padding:1.4rem 1.25rem 1.1rem;}
@@ -159,12 +159,12 @@ html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Ar
 <!-- SPLASH -->
 <div class="screen active" id="splashScreen">
   <div class="sp-cross">&#9768;</div>
-  <div class="sp-verse">"Thy word have I hid in mine heart, that I might not sin against thee."</div>
-  <div class="sp-ref">Psalm 119:11 &middot; KJV</div>
-  <div class="sp-sub">Commit scripture to memory,<br>one verse at a time.</div>
+  <div class="sp-heading">Hide God&rsquo;s Word in your heart.</div>
+  <div class="sp-rhythm">Read &middot; Reflect &middot; Memorize &middot; Live</div>
+  <div class="sp-verse">&ldquo;I have hidden your word in my heart, that I might not sin against you.&rdquo;</div>
+  <div class="sp-ref">Psalm 119:11 &middot; NIV</div>
   <div class="sp-actions">
-    <button class="sp-btn" onclick="initApp()">Play as Guest</button>
-    <button class="sp-btn alt" onclick="showLogin()">Sign In</button>
+    <button class="sp-btn" onclick="initApp()">Begin today&rsquo;s journey</button>
   </div>
 </div>
 
