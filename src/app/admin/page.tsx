@@ -71,7 +71,7 @@ export default function AdminPage() {
 
   return (
     <main aria-busy={pending} className="card">
-      <h2 style={{ marginTop: 0 }}>Admin Verse CMS</h2>
+      <h1 style={{ marginTop: 0, fontFamily: "'Fraunces', Georgia, serif" }}>Admin Verse CMS</h1>
       <p className="muted">Use this route to add or update verse content in Supabase.</p>
 
       <form

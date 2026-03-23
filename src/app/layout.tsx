@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Crimson_Text } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
@@ -39,6 +39,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={crimsonText.variable}>
@@ -51,9 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <div className="shell">
               <SiteHeader />
-              <div id="main-content">
+              <main id="main-content">
                 {children}
-              </div>
+              </main>
             </div>
             <footer className="site-footer">
               <p className="footer-scripture">

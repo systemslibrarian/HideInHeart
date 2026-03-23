@@ -430,6 +430,7 @@ a {
   font: inherit;
   background: var(--card);
   color: var(--ink);
+  min-height: 44px;
 }
 
 .muted {
@@ -770,10 +771,10 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
-@media (max-width: 600px) {
+@media (max-width: 720px) {
   .book-columns {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 }
 
@@ -790,6 +791,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 0.85rem;
+  min-height: 44px;
   border-radius: var(--radius);
   cursor: pointer;
   transition: background 0.2s;
@@ -913,7 +915,7 @@ select:focus-visible {
 .theme-toggle {
   border: 1px solid var(--nav-border);
   border-radius: 999px;
-  min-height: 36px;
+  min-height: 44px;
   padding: 0.3rem 0.9rem;
   font-size: 0.82rem;
   font-weight: 700;

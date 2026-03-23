@@ -9,10 +9,10 @@ export default function GlobalError({ error, reset }: { error: Error; reset: () 
   }, [error]);
 
   return (
-    <html>
+    <html lang="en">
       <body>
         <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-          <h2>Something went wrong</h2>
+          <h1>Something went wrong</h1>
           <p>The error was captured for monitoring.</p>
           <button onClick={() => reset()} type="button">
             Try again
