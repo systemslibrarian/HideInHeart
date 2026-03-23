@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/systemslibrarian/scripturegame.git"
+    "url": "git+https://github.com/systemslibrarian/HideInHeart.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/systemslibrarian/scripturegame/issues"
+    "url": "https://github.com/systemslibrarian/HideInHeart/issues"
   },
-  "homepage": "https://github.com/systemslibrarian/scripturegame#readme",
+  "homepage": "https://github.com/systemslibrarian/HideInHeart#readme",
   "dependencies": {
     "@sentry/nextjs": "^10.44.0",
     "@supabase/supabase-js": "^2.99.2",
