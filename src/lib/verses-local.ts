@@ -1813,4 +1813,159 @@ export const LOCAL_VERSES: Verse[] = [
       decoys: ["LORD", "ASK", "HOPE", "FATHER"],
     },
   },
+
+  /* ------------------------------------------------------------------ */
+  /*  PERSEVERANCE                                                      */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "rom83839",
+    reference: "Romans 8:38-39",
+    translation: "NIV",
+    parts: [
+      "For I am convinced that neither ",
+      " nor life, neither angels nor demons, neither the present nor the ",
+      ", nor any powers, will be able to separate us from the ",
+      " of God that is in Christ Jesus our Lord.",
+    ],
+    answers: ["DEATH", "FUTURE", "LOVE"],
+    decoys: ["FEAR", "PAST", "GRACE", "HOPE"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "Paul does not say nothing bad will happen. He says nothing can separate you. The list is total: death, life, angels, demons, present, future, powers. He searched every category of existence and found nothing strong enough to break the grip of God\u2019s love on you.",
+    applicationPrompt: "What has made you feel separated from God\u2019s love recently? Hold it against this list and see if it qualifies.",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["For I am persuaded, that neither ", ", nor life, nor angels, nor principalities, nor powers, nor things present, nor things to ", ", Nor height, nor depth, nor any other creature, shall be able to separate us from the ", " of God, which is in Christ Jesus our Lord."],
+      answers: ["DEATH", "COME", "LOVE"],
+      decoys: ["FEAR", "PASS", "GRACE", "HOPE"],
+    },
+  },
+  {
+    id: "phil16",
+    reference: "Philippians 1:6",
+    translation: "NIV",
+    parts: [
+      "Being confident of this, that he who began a ",
+      " work in you will carry it on to ",
+      " until the day of Christ Jesus.",
+    ],
+    answers: ["GOOD", "COMPLETION"],
+    decoys: ["GREAT", "PERFECTION", "GLORY", "HOLY"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "God does not start things He cannot finish. The work He began in you is not an experiment. He is confident He will complete it \u2014 even when you are not confident in yourself. Your growth is His project, and He does not abandon His projects.",
+    applicationPrompt: "Where have you given up on your own growth? What if the God who started it is still working?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Being confident of this very thing, that he which hath begun a ", " work in you will perform it until the ", " of Jesus Christ."],
+      answers: ["GOOD", "DAY"],
+      decoys: ["GREAT", "COMING", "GLORY", "END"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  PROVISION                                                         */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "phil419",
+    reference: "Philippians 4:19",
+    translation: "NIV",
+    parts: [
+      "And my God will meet all your ",
+      " according to the riches of his ",
+      " in Christ Jesus.",
+    ],
+    answers: ["NEEDS", "GLORY"],
+    decoys: ["WANTS", "GRACE", "LOVE", "MERCY"],
+    themeId: "provision",
+    themeLabel: "Provision",
+    devotional:
+      "God promises to meet your needs \u2014 not according to your budget, your salary, or your plan, but according to His riches in glory. The supply is measured by His wealth, not your worthiness. And His wealth has no limit.",
+    applicationPrompt: "What need are you trying to meet in your own strength that you haven\u2019t entrusted to God?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["But my God shall supply all your ", " according to his riches in ", " by Christ Jesus."],
+      answers: ["NEED", "GLORY"],
+      decoys: ["WANTS", "GRACE", "LOVE", "MERCY"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  FORGIVENESS                                                       */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "eph432",
+    reference: "Ephesians 4:32",
+    translation: "NIV",
+    parts: [
+      "Be ",
+      " and compassionate to one another, ",
+      " each other, just as in Christ God forgave you.",
+    ],
+    answers: ["KIND", "FORGIVING"],
+    decoys: ["GENTLE", "LOVING", "SERVING", "PATIENT"],
+    themeId: "forgiveness",
+    themeLabel: "Forgiveness",
+    devotional:
+      "The standard for your forgiveness is not fairness. It is the cross. God did not forgive you because you deserved it. He forgave you in Christ. Now He asks you to do the same \u2014 not because the person earned it, but because you were shown mercy first.",
+    applicationPrompt: "Who are you withholding forgiveness from, and what would it look like to extend the same mercy God gave you?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And be ye ", " one to another, tenderhearted, ", " one another, even as God for Christ's sake hath forgiven you."],
+      answers: ["KIND", "FORGIVING"],
+      decoys: ["GENTLE", "LOVING", "SERVING", "PATIENT"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  WISDOM                                                            */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "prov17",
+    reference: "Proverbs 1:7",
+    translation: "NIV",
+    parts: [
+      "The ",
+      " of the Lord is the beginning of ",
+      "; fools despise wisdom and instruction.",
+    ],
+    answers: ["FEAR", "KNOWLEDGE"],
+    decoys: ["LOVE", "WISDOM", "FAITH", "TRUTH"],
+    themeId: "wisdom",
+    themeLabel: "Wisdom",
+    devotional:
+      "Wisdom does not begin with information. It begins with reverence. The fear of the Lord is not terror \u2014 it is the honest recognition that He is God and you are not. Everything you need to know starts with knowing your place before Him.",
+    applicationPrompt: "Where have you been seeking knowledge without first submitting to the God who holds all knowledge?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["The ", " of the Lord is the beginning of ", ": but fools despise wisdom and instruction."],
+      answers: ["FEAR", "KNOWLEDGE"],
+      decoys: ["LOVE", "WISDOM", "FAITH", "TRUTH"],
+    },
+  },
+  {
+    id: "ps13914",
+    reference: "Psalm 139:14",
+    translation: "NIV",
+    parts: [
+      "I praise you because I am ",
+      " and wonderfully made; your ",
+      " are wonderful, I know that full well.",
+    ],
+    answers: ["FEARFULLY", "WORKS"],
+    decoys: ["BEAUTIFULLY", "WAYS", "HANDS", "DEEDS"],
+    themeId: "identity",
+    themeLabel: "Identity in Christ",
+    devotional:
+      "You are not an accident. You are not a rough draft. You were fearfully made \u2014 with reverence and care \u2014 and wonderfully made \u2014 set apart, distinct. The God who spoke galaxies into existence took time with you. That is not flattery. It is fact.",
+    applicationPrompt: "What about yourself have you been rejecting that God intentionally and wonderfully designed?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["I will praise thee; for I am ", " and wonderfully made: marvellous are thy ", ", and that my soul knoweth right well."],
+      answers: ["FEARFULLY", "WORKS"],
+      decoys: ["BEAUTIFULLY", "WAYS", "HANDS", "DEEDS"],
+    },
+  },
 ];
