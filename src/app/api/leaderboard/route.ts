@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 
 import { hasSupabase } from "@/lib/env";
+
+export const dynamic = "force-static";
 import { applyRateLimit, clientAddress } from "@/lib/rate-limit";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
 
