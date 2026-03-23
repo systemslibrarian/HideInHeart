@@ -15,17 +15,22 @@ export default function WhyPage() {
 
       <h1 className="why-heading">
         {isKids
-          ? "Why should I memorize Bible verses?"
+          ? "Why memorize Bible verses?"
           : "Why hide God\u2019s Word in your heart?"}
       </h1>
 
       {/* Section 1 */}
       <section className="why-section">
-        <h2>It builds your faith</h2>
+        <h2>{isKids ? "It helps you trust God more" : "It builds your faith"}</h2>
         {isKids ? (
           <p>
-            When you memorize Bible verses, you learn about all the ways God has been faithful.
-            The more you know His Word, the more you can trust Him.
+            The Bible is full of stories about how God kept His promises &mdash; to Abraham when he had
+            no idea where he was going, to Moses when the way forward seemed impossible, to David
+            when he was afraid and alone. Every one of those stories is true, and every one of them
+            is about the same God who is with you today. When you memorize His Word, those stories
+            and promises stop being something you read once and forget. They become part of how you
+            see the world. The more of Scripture you carry in your heart, the easier it becomes to
+            trust that God knows what He is doing &mdash; even when life is confusing or hard.
           </p>
         ) : (
           <p>
@@ -38,11 +43,16 @@ export default function WhyPage() {
 
       {/* Section 2 */}
       <section className="why-section">
-        <h2>It shapes your character</h2>
+        <h2>{isKids ? "It helps you become who God made you to be" : "It shapes your character"}</h2>
         {isKids ? (
           <p>
-            The Bible shows us how God wants us to act — how to be kind, honest, brave, and loving.
-            When you memorize these verses, they remind you of the right thing to do when it matters.
+            God did not give us His Word just so we would know facts about Him. He gave it to us so
+            we would know how to live. The Bible shows us how to be kind to people who are unkind
+            to us, how to be honest when lying would be easier, how to be brave when we are afraid,
+            and how to love people the way God loves us. When you memorize these verses, they do not
+            just sit in your memory &mdash; they begin to shape the choices you make and the kind of person
+            you are becoming. Not because you have to follow rules, but because God made you for
+            something better than you could choose on your own.
           </p>
         ) : (
           <p>
@@ -55,12 +65,16 @@ export default function WhyPage() {
 
       {/* Section 3 */}
       <section className="why-section">
-        <h2>It keeps you connected to God</h2>
+        <h2>{isKids ? "It goes with you everywhere" : "It keeps you connected to God"}</h2>
         {isKids ? (
           <p>
-            When you memorize God&rsquo;s Word, it goes with you everywhere — to school, to practice,
-            when you&rsquo;re scared, when you need help. You don&rsquo;t need to open a Bible because
-            the verse is already in your heart.
+            You cannot always carry a Bible. But a verse you have memorized is always with you &mdash;
+            at school when something hard happens, at night when your mind will not quiet down,
+            in a moment when you need to know the right thing to do and there is no time to look
+            it up. God&rsquo;s Word hidden in your heart is always close enough to reach. That is exactly
+            what Psalm 119:11 means &mdash; not just that memorizing Scripture is a good idea, but that
+            when His Word is in your heart, it is working in you even when you are not thinking
+            about it.
           </p>
         ) : (
           <p>
