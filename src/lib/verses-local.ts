@@ -1662,4 +1662,155 @@ export const LOCAL_VERSES: Verse[] = [
       decoys: ["DISCIPLE", "LORD", "KEEP", "FOLLOW"],
     },
   },
+
+  /* ------------------------------------------------------------------ */
+  /*  GODS WORD                                                         */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "heb412",
+    reference: "Hebrews 4:12",
+    translation: "NIV",
+    parts: [
+      "For the word of God is ",
+      " and active. Sharper than any double-edged ",
+      ", it penetrates even to dividing soul and spirit.",
+    ],
+    answers: ["ALIVE", "SWORD"],
+    decoys: ["LIVING", "BLADE", "KNIFE", "POWERFUL"],
+    themeId: "gods-word",
+    themeLabel: "God's Word",
+    devotional:
+      "The Bible is not a dead document. It is alive. It does not just inform \u2014 it cuts. It reaches the places you have hidden from everyone, including yourself. That is not a threat; it is surgery performed by the only Physician who can heal what He opens.",
+    applicationPrompt: "What part of your inner life have you been protecting from the searchlight of Scripture?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["For the word of God is ", ", and powerful, and sharper than any twoedged ", ", piercing even to the dividing asunder of soul and spirit."],
+      answers: ["QUICK", "SWORD"],
+      decoys: ["LIVING", "BLADE", "KNIFE", "MIGHTY"],
+    },
+  },
+  {
+    id: "rom1017",
+    reference: "Romans 10:17",
+    translation: "NIV",
+    parts: [
+      "Consequently, ",
+      " comes from hearing the ",
+      ", and the message is heard through the word about ",
+      ".",
+    ],
+    answers: ["FAITH", "MESSAGE", "CHRIST"],
+    decoys: ["HOPE", "GOSPEL", "GOD", "TRUTH"],
+    themeId: "gods-word",
+    themeLabel: "God's Word",
+    devotional:
+      "Faith is not manufactured by willpower. It comes from hearing. The more you expose yourself to the Word of Christ, the more faith grows \u2014 not because you tried harder, but because you listened longer.",
+    applicationPrompt: "How often are you actually hearing the Word \u2014 not skimming, not studying about it, but letting it speak to you?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["So then ", " cometh by hearing, and hearing by the ", " of God."],
+      answers: ["FAITH", "WORD"],
+      decoys: ["HOPE", "GOSPEL", "TRUTH", "GRACE"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  COURAGE                                                           */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "josh19",
+    reference: "Joshua 1:9",
+    translation: "NIV",
+    parts: [
+      "Have I not commanded you? Be ",
+      " and courageous. Do not be ",
+      "; do not be discouraged, for the Lord your God will be with you wherever you go.",
+    ],
+    answers: ["STRONG", "AFRAID"],
+    decoys: ["BRAVE", "FEARFUL", "ANXIOUS", "BOLD"],
+    themeId: "courage",
+    themeLabel: "Courage",
+    devotional:
+      "This is not a pep talk. It is a command from God Himself. Be strong. Be courageous. And the basis is not your ability \u2014 it is His presence. Wherever you go, He is already there. The terrifying next step is not uncharted territory for Him.",
+    applicationPrompt: "What situation are you facing that feels impossible, and what changes if God is truly with you in it?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Have not I commanded thee? Be ", " and of a good courage; be not ", ", neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest."],
+      answers: ["STRONG", "AFRAID"],
+      decoys: ["BRAVE", "FEARFUL", "ANXIOUS", "BOLD"],
+    },
+  },
+  {
+    id: "ps461",
+    reference: "Psalm 46:1",
+    translation: "NIV",
+    parts: [
+      "God is our ",
+      " and strength, an ever-present ",
+      " in trouble.",
+    ],
+    answers: ["REFUGE", "HELP"],
+    decoys: ["SHELTER", "SHIELD", "HOPE", "COMFORT"],
+    themeId: "courage",
+    themeLabel: "Courage",
+    devotional:
+      "Not a distant God. Not an occasional God. An ever-present help. The Hebrew means He is abundantly available in tight places. The tighter the space, the closer He draws. Your crisis is not a surprise to Him \u2014 it is an invitation for His presence to show up.",
+    applicationPrompt: "In your tightest moment this week, did you turn to God first or as a last resort?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["God is our ", " and strength, a very present ", " in trouble."],
+      answers: ["REFUGE", "HELP"],
+      decoys: ["SHELTER", "SHIELD", "HOPE", "COMFORT"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  PRAYER                                                            */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "col42",
+    reference: "Colossians 4:2",
+    translation: "NIV",
+    parts: [
+      "Devote yourselves to ",
+      ", being ",
+      " and thankful.",
+    ],
+    answers: ["PRAYER", "WATCHFUL"],
+    decoys: ["WORSHIP", "FAITHFUL", "CAREFUL", "JOYFUL"],
+    themeId: "prayer",
+    themeLabel: "Prayer",
+    devotional:
+      "Devote. Not dabble. Not fit in when convenient. The word implies persistence, a refusal to quit. And watchful means prayer with eyes open \u2014 alert to what God is doing, not just what you are asking for.",
+    applicationPrompt: "Is your prayer life devoted or occasional? What would devotion look like this week?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Continue in ", ", and watch in the same with ", "."],
+      answers: ["PRAYER", "THANKSGIVING"],
+      decoys: ["WORSHIP", "FAITHFULNESS", "PRAISE", "JOY"],
+    },
+  },
+  {
+    id: "rom826",
+    reference: "Romans 8:26",
+    translation: "NIV",
+    parts: [
+      "In the same way, the ",
+      " helps us in our weakness. We do not know what we ought to ",
+      " for, but the Spirit himself intercedes for us.",
+    ],
+    answers: ["SPIRIT", "PRAY"],
+    decoys: ["LORD", "ASK", "HOPE", "FATHER"],
+    themeId: "prayer",
+    themeLabel: "Prayer",
+    devotional:
+      "When you do not know what to pray, the Spirit does. Your inability to form the right words is not a barrier \u2014 it is an invitation for the Spirit to take over. The groan you cannot articulate is already being translated into the Father\u2019s language.",
+    applicationPrompt: "Where have you stopped praying because you didn\u2019t know what to say? What if you just showed up and let the Spirit carry it?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Likewise the ", " also helpeth our infirmities: for we know not what we should ", " for as we ought: but the Spirit itself maketh intercession for us."],
+      answers: ["SPIRIT", "PRAY"],
+      decoys: ["LORD", "ASK", "HOPE", "FATHER"],
+    },
+  },
 ];
