@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   canPlaceWord,
@@ -18,7 +18,6 @@ import {
   getPracticeLevelMeta,
   getThemeOption,
   getVerseTranslation,
-  pickDailyFeaturedVerse,
   pickJourneyVerse,
 } from "@/lib/journey";
 import { useTranslation } from "@/lib/translation-context";
@@ -148,12 +147,6 @@ export default function PlayPage() {
       setCompletedVerseRef(localStorage.getItem("sg_lastJourneyVerse"));
     }
   }, []);
-
-  /* featured verse for step 1 */
-  const featuredVerse = useMemo(
-    () => (verses.length > 0 ? pickDailyFeaturedVerse(verses) : null),
-    [verses],
-  );
 
   /* ---- step progress bar ---- */
   const stepOrder: JourneyStep[] = ["heartcheck", "read", "practice", "apply", "complete"];
@@ -467,9 +460,9 @@ export default function PlayPage() {
       {/* ------- STEP 2 — HEART CHECK ------- */}
       {step === "heartcheck" && !completedToday && (
         <section className="journey-stage" aria-labelledby="heartcheck-heading">
-          <h2 id="heartcheck-heading" style={{ textAlign: "center", fontFamily: "'Fraunces', Georgia, serif", marginBottom: "0.5rem" }}>What are you carrying today?</h2>
-          <p style={{ textAlign: "center", maxWidth: 440, margin: "0 auto 1.5rem", color: "rgba(35,49,58,0.7)", lineHeight: 1.7 }}>
-            Choose what resonates. Let Scripture meet you there.
+          <h2 id="heartcheck-heading" style={{ textAlign: "center", fontFamily: "'Fraunces', Georgia, serif", marginBottom: "0.35rem" }}>Choose a topic</h2>
+          <p style={{ textAlign: "center", maxWidth: 440, margin: "0 auto 1rem", color: "rgba(35,49,58,0.7)", lineHeight: 1.7 }}>
+            Select a theme below and let Scripture meet you there.
           </p>
 
           <div className="theme-grid" role="group" aria-label="Select what you are carrying">
