@@ -17,18 +17,17 @@ Built with Next.js 15, Supabase, and TypeScript.
 
 ## What It Does
 
-Each day you walk through a short journey:
+Each session you walk through a short journey:
 
-1. **Read it** — A featured verse, its theme, and a brief devotional set the pace before anything else happens.
-2. **Practice it** — The verse reappears with key words removed. Place word tiles into the correct blanks to rebuild it from memory.
-3. **Live it** — Finish with a short application prompt so the passage moves from recall into real life.
-
-Themes include anxiety, fear, doubt, temptation, waiting, guidance, hope, and more — you choose what your heart needs today.
+1. **Choose a topic** — Pick a theme that meets you where you are: anxiety, fear, doubt, hope, and more.
+2. **Read it** — The verse appears with a brief devotional. Read slowly, two or three times. No timer.
+3. **Practice it** — Key words are removed. Place word tiles into the blanks to rebuild the verse from memory.
+4. **Live it** — Finish with a short application prompt so the passage moves from recall into real life.
 
 ## Features
 
 - **Word-tile memorization** — the central mechanic, designed for mobile and desktop.
-- **Heart check** — choose your focus and let Scripture meet you there.
+- **Topic selection** — choose a theme and let Scripture meet you there.
 - **Three depth levels** — beginner, intermediate, and expert control how many blanks appear.
 - **NIV / KJV toggle** — switch translations at any time.
 - **Offline-capable** — a local verse set works without any backend connection.
