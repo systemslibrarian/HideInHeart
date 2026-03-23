@@ -73,7 +73,7 @@ export default function ReflectionsPage() {
           <p style={{ lineHeight: 1.7, color: "var(--muted)" }}>
             Your reflections will appear here. <br />
             <Link href="/browse/topic" style={{ color: "var(--brand)", fontWeight: 600 }}>
-              Start memorizing
+              Pick a verse to memorize
             </Link>{" "}
             to write your first.
           </p>
@@ -100,7 +100,7 @@ export default function ReflectionsPage() {
                     display: "inline-block",
                     marginTop: "0.75rem",
                     padding: "0.2rem 0.6rem",
-                    background: "rgba(49,95,114,0.08)",
+                    background: "var(--surface-soft)",
                     borderRadius: "999px",
                     fontSize: "0.78rem",
                   }}
@@ -112,12 +112,6 @@ export default function ReflectionsPage() {
           ))}
         </div>
       )}
-
-      <div style={{ marginTop: "2rem", textAlign: "center" }}>
-        <Link href="/profile" className="btn btn-ghost">
-          ← Back to profile
-        </Link>
-      </div>
     </main>
   );
 }

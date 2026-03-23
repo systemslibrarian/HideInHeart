@@ -138,10 +138,10 @@ export default function BrowseByTopicPage() {
 
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
         <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(1.25rem, 2.5vw, 1.5rem)", marginBottom: "0.5rem" }}>
-          What are you carrying today?
+          Browse by topic
         </h1>
         <p style={{ color: "var(--muted)", lineHeight: 1.7, maxWidth: 440, margin: "0 auto" }}>
-          Select a theme. Let Scripture meet you there.
+          Select a theme. Let scripture meet you there.
         </p>
       </div>
 

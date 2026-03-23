@@ -322,7 +322,7 @@ export default function PracticePage() {
 
         {/* ---- depth selector (before practice starts) ---- */}
         {!practiceStarted && (
-          <div style={{ marginTop: "2rem", borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: "1.5rem" }}>
+          <div style={{ marginTop: "2rem", borderTop: "1px solid var(--border)", paddingTop: "1.5rem" }}>
             <div className="practice-level-grid" role="radiogroup" aria-label="Practice depth">
               {PRACTICE_LEVELS.map((level) => (
                 <button

@@ -562,13 +562,13 @@ export default function PlayPage() {
             <p style={{ fontWeight: 600, textAlign: "center", marginTop: "0.75rem" }}>{verse.reference} <span style={{ fontWeight: 400, color: "var(--muted)", fontSize: "0.9rem" }}>({translationKey.toUpperCase()})</span></p>
 
             {verse.devotional && !isKids && (
-              <div style={{ marginTop: "2rem", padding: "1.25rem 1.5rem", background: "rgba(49,95,114,0.05)", borderRadius: "var(--radius)", borderLeft: "3px solid rgba(49,95,114,0.2)" }}>
+              <div style={{ marginTop: "2rem", padding: "1.25rem 1.5rem", background: "var(--surface-soft)", borderRadius: "var(--radius)", borderLeft: "3px solid var(--brand)" }}>
                 <p style={{ lineHeight: 1.8, fontSize: "1.02rem", color: "var(--ink)" }}>{verse.devotional}</p>
               </div>
             )}
           </div>
 
-          <div style={{ marginTop: "2.5rem", borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: "2rem" }}>
+          <div style={{ marginTop: "2.5rem", borderTop: "1px solid var(--border)", paddingTop: "2rem" }}>
             <p style={{ textAlign: "center", color: "var(--muted)", marginBottom: "1rem", fontSize: "1.02rem" }}>
               When you are ready, choose how deeply you want to practice.
             </p>
@@ -756,7 +756,7 @@ export default function PlayPage() {
           })()}
 
           {verse.applicationPrompt && (
-            <div style={{ marginBottom: "2rem", padding: "1.25rem 1.5rem", background: "rgba(49,95,114,0.05)", borderRadius: "var(--radius)", borderLeft: "3px solid rgba(49,95,114,0.2)" }}>
+            <div style={{ marginBottom: "2rem", padding: "1.25rem 1.5rem", background: "var(--surface-soft)", borderRadius: "var(--radius)", borderLeft: "3px solid var(--brand)" }}>
               <p style={{ lineHeight: 1.7, fontSize: "1.05rem", fontFamily: "'Fraunces', Georgia, serif" }}>{verse.applicationPrompt}</p>
             </div>
           )}
@@ -777,12 +777,13 @@ export default function PlayPage() {
                   width: "100%",
                   padding: "1rem",
                   borderRadius: "var(--radius)",
-                  border: "1px solid rgba(0,0,0,0.08)",
+                  border: "1px solid var(--border)",
                   fontSize: "1rem",
                   fontFamily: "inherit",
                   resize: "vertical",
                   lineHeight: 1.7,
-                  background: "rgba(255,255,255,0.7)",
+                  background: "var(--card)",
+                  color: "var(--ink)",
                 }}
               />
               <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", marginTop: "1rem" }}>
@@ -830,7 +831,7 @@ export default function PlayPage() {
             </>
           )}
 
-          <div style={{ margin: "2.5rem auto 0", maxWidth: 400, borderTop: "1px solid rgba(0,0,0,0.06)", paddingTop: "2rem" }}>
+          <div style={{ margin: "2.5rem auto 0", maxWidth: 400, borderTop: "1px solid var(--border)", paddingTop: "2rem" }}>
             <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "1.15rem", lineHeight: 1.6, color: "var(--ink)" }}>
               This stays with you.
             </p>
