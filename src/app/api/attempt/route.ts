@@ -3,6 +3,8 @@ import { z } from "zod";
 
 import { validateAndScoreAttempt } from "@/lib/attempt-security";
 import { hasSupabase } from "@/lib/env";
+
+export const dynamic = "force-static";
 import { getBlankCountForSkillLevel } from "@/lib/journey";
 import { LOCAL_VERSES } from "@/lib/verses-local";
 import { applyRateLimit, clientAddress } from "@/lib/rate-limit";

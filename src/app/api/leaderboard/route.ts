@@ -13,6 +13,10 @@ const fallback = [
 ];
 
 export async function GET(request: Request) {
+  if (!hasSupabase) {
+    return NextResponse.json({ source: "local", rows: fallback });
+  }
+
   const limit = applyRateLimit(
     `leaderboard:${clientAddress(request.headers)}`,
     Number(process.env.RATE_LIMIT_LEADERBOARD_PER_MIN ?? 90),
@@ -23,10 +27,6 @@ export async function GET(request: Request) {
       { error: "Too many leaderboard requests.", retryAfter: limit.retryAfterSeconds },
       { status: 429, headers: { "Retry-After": String(limit.retryAfterSeconds) } },
     );
-  }
-
-  if (!hasSupabase) {
-    return NextResponse.json({ source: "local", rows: fallback });
   }
 
   try {

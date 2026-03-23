@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Crimson_Text } from "next/font/google";
 
 import { SiteHeader } from "@/components/site-header";
+import { AudienceProvider } from "@/lib/audience-context";
 import { getAppUrl } from "@/lib/env";
 import { TranslationProvider } from "@/lib/translation-context";
 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={crimsonText.variable}>
       <body>
         <TranslationProvider>
+          <AudienceProvider>
           <a className="skip-link" href="#main-content">
             Skip to content
           </a>
@@ -57,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </p>
             <p className="footer-tagline">Built to draw hearts closer to Christ.</p>
           </footer>
+          </AudienceProvider>
         </TranslationProvider>
       </body>
     </html>

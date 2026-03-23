@@ -20,6 +20,8 @@ import {
   getVerseTranslation,
   pickJourneyVerse,
 } from "@/lib/journey";
+import { KIDS_VERSES, KIDS_THEME_OPTIONS } from "@/lib/kids-verses";
+import { useAudience } from "@/lib/audience-context";
 import { useTranslation } from "@/lib/translation-context";
 import type { SkillLevel, Verse } from "@/types/domain";
 
@@ -89,6 +91,11 @@ export default function PlayPage() {
   const [verses, setVerses] = useState<Verse[]>([]);
   const [loading, setLoading] = useState(true);
 
+  /* ---- audience mode ---- */
+  const { audienceMode } = useAudience();
+  const isKids = audienceMode === "kids";
+  const themeOptions = isKids ? KIDS_THEME_OPTIONS : HEART_CHECK_OPTIONS;
+
   /* ---- journey flow ---- */
   const [step, setStep] = useState<JourneyStep>("heartcheck");
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
@@ -127,6 +134,11 @@ export default function PlayPage() {
 
   /* ---- fetch verses ---- */
   useEffect(() => {
+    if (isKids) {
+      setVerses(KIDS_VERSES);
+      setLoading(false);
+      return;
+    }
     (async () => {
       try {
         const response = await fetch("/api/verses");
@@ -146,7 +158,7 @@ export default function PlayPage() {
       setCompletedToday(true);
       setCompletedVerseRef(localStorage.getItem("sg_lastJourneyVerse"));
     }
-  }, []);
+  }, [isKids]);
 
   /* ---- step progress bar ---- */
   const stepOrder: JourneyStep[] = ["heartcheck", "read", "practice", "apply", "complete"];
@@ -466,7 +478,7 @@ export default function PlayPage() {
           </p>
 
           <div className="theme-grid" role="group" aria-label="Select what you are carrying">
-            {HEART_CHECK_OPTIONS.map((option) => (
+            {themeOptions.map((option) => (
               <button
                 key={option.id}
                 className="theme-card"
@@ -501,7 +513,7 @@ export default function PlayPage() {
             Read slowly
           </p>
           <p style={{ textAlign: "center", color: "var(--muted)", fontSize: "0.92rem", marginBottom: "1.5rem" }}>
-            Read slowly, 2–3 times. There is no timer.
+            {isKids ? "Read it out loud if you can. Then read it again." : "Read slowly, 2–3 times. There is no timer."}
           </p>
 
           <div className="journey-reading" style={{ padding: "1.5rem 0" }}>
@@ -510,7 +522,7 @@ export default function PlayPage() {
             </p>
             <p style={{ fontWeight: 600, textAlign: "center", marginTop: "0.75rem" }}>{verse.reference} <span style={{ fontWeight: 400, color: "var(--muted)", fontSize: "0.9rem" }}>({translationKey.toUpperCase()})</span></p>
 
-            {verse.devotional && (
+            {verse.devotional && !isKids && (
               <div style={{ marginTop: "2rem", padding: "1.25rem 1.5rem", background: "rgba(49,95,114,0.05)", borderRadius: "var(--radius)", borderLeft: "3px solid rgba(49,95,114,0.2)" }}>
                 <p style={{ lineHeight: 1.8, fontSize: "1.02rem", color: "rgba(35,49,58,0.85)" }}>{verse.devotional}</p>
               </div>
@@ -656,7 +668,7 @@ export default function PlayPage() {
                 {answerRevealed
                   ? "Here is the complete verse. Read it slowly."
                   : practiceResult.correct === practiceResult.total
-                    ? "Practice complete — hidden deeper in your heart."
+                    ? (isKids ? "You did it! Keep practicing and it will stick." : "Practice complete — hidden deeper in your heart.")
                     : "Almost there. A few words need another look."}
               </p>
 
@@ -695,7 +707,7 @@ export default function PlayPage() {
             ) : null;
           })()}
 
-          {selectedThemeId && (() => {
+          {selectedThemeId && !isKids && (() => {
             const theme = getThemeOption(selectedThemeId);
             return theme ? (
               <p style={{ fontStyle: "italic", color: "var(--muted)", textAlign: "center", marginBottom: "1.25rem", lineHeight: 1.6 }}>

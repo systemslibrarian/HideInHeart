@@ -2115,4 +2115,1301 @@ export const LOCAL_VERSES: Verse[] = [
       decoys: ["HOPE", "TRUST", "KNOW", "LOVE"],
     },
   },
+
+  /* ------------------------------------------------------------------ */
+  /*  GRACE — expanded                                                  */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "rom324",
+    reference: "Romans 3:24",
+    translation: "NIV",
+    parts: [
+      "and all are ",
+      " freely by his ",
+      " through the redemption that came by Christ Jesus.",
+    ],
+    answers: ["JUSTIFIED", "GRACE"],
+    decoys: ["SAVED", "LOVE", "MERCY", "POWER"],
+    themeId: "grace",
+    themeLabel: "Grace",
+    devotional:
+      "Justified — declared not guilty — and it cost you nothing. Not because it was cheap, but because it was expensive and someone else paid. Grace does not lower the standard. It meets the standard on your behalf.",
+    applicationPrompt: "Where are you still trying to justify yourself instead of receiving the justification Christ already secured?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Being ", " freely by his ", " through the redemption that is in Christ Jesus."],
+      answers: ["JUSTIFIED", "GRACE"],
+      decoys: ["SAVED", "LOVE", "MERCY", "POWER"],
+    },
+  },
+  {
+    id: "titus35",
+    reference: "Titus 3:5",
+    translation: "NIV",
+    parts: [
+      "He saved us, not because of ",
+      " things we had done, but because of his ",
+      ". He saved us through the washing of ",
+      " and renewal by the Holy Spirit.",
+    ],
+    answers: ["RIGHTEOUS", "MERCY", "REBIRTH"],
+    decoys: ["GOOD", "GRACE", "WATER", "FAITH"],
+    themeId: "grace",
+    themeLabel: "Grace",
+    devotional:
+      "Salvation did not begin with your decision. It began with His mercy. The washing is not your effort to be clean — it is the complete renewal God performs when you could not fix yourself. You were not improved. You were reborn.",
+    applicationPrompt: "What righteous deed are you still relying on to feel acceptable to God, instead of resting in His mercy alone?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Not by works of ", " which we have done, but according to his ", " he saved us, by the washing of ", " and renewing of the Holy Ghost."],
+      answers: ["RIGHTEOUSNESS", "MERCY", "REGENERATION"],
+      decoys: ["GOODNESS", "GRACE", "WATER", "FAITH"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  FORGIVENESS — expanded                                            */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "col313",
+    reference: "Colossians 3:13",
+    translation: "NIV",
+    parts: [
+      "Bear with each other and ",
+      " one another if any of you has a ",
+      " against someone. Forgive as the Lord ",
+      " you.",
+    ],
+    answers: ["FORGIVE", "GRIEVANCE", "FORGAVE"],
+    decoys: ["LOVE", "COMPLAINT", "SAVED", "HELPED"],
+    themeId: "forgiveness",
+    themeLabel: "Forgiveness",
+    devotional:
+      "The standard for your forgiveness is not fairness — it is how Christ forgave you. He did not wait for you to apologize. He did not wait for you to deserve it. He moved first. And now He asks you to do the same.",
+    applicationPrompt: "Who are you withholding forgiveness from, and what would it look like to forgive them the way Christ forgave you — freely, without conditions?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Forbearing one another, and ", " one another, if any man have a ", " against any: even as Christ ", " you, so also do ye."],
+      answers: ["FORGIVING", "QUARREL", "FORGAVE"],
+      decoys: ["LOVING", "COMPLAINT", "SAVED", "HELPED"],
+    },
+  },
+  {
+    id: "matt614",
+    reference: "Matthew 6:14",
+    translation: "NIV",
+    parts: [
+      "For if you ",
+      " other people when they sin against you, your heavenly ",
+      " will also forgive you.",
+    ],
+    answers: ["FORGIVE", "FATHER"],
+    decoys: ["LOVE", "LORD", "GOD", "JUDGE"],
+    themeId: "forgiveness",
+    themeLabel: "Forgiveness",
+    devotional:
+      "Jesus does not say forgiveness earns God's favour. He says unforgiveness blocks the flow of what God has already given. When you refuse to forgive, you are not punishing the other person — you are locking yourself away from the mercy that is already yours.",
+    applicationPrompt: "Is there anyone whose sin against you feels too large to forgive? What would it cost you to release it — and what is it costing you to hold on?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["For if ye ", " men their trespasses, your heavenly ", " will also forgive you."],
+      answers: ["FORGIVE", "FATHER"],
+      decoys: ["LOVE", "LORD", "GOD", "JUDGE"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  SURRENDER — expanded                                              */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "rom121",
+    reference: "Romans 12:1",
+    translation: "NIV",
+    parts: [
+      "Therefore, I urge you, brothers and sisters, in view of God's ",
+      ", to offer your ",
+      " as a living sacrifice, holy and ",
+      " to God — this is your true and proper worship.",
+    ],
+    answers: ["MERCY", "BODIES", "PLEASING"],
+    decoys: ["GRACE", "HEARTS", "ACCEPTABLE", "LOVE"],
+    themeId: "surrender",
+    themeLabel: "Surrender",
+    devotional:
+      "A living sacrifice is harder than a dead one — because it keeps crawling off the altar. Paul says present your whole self, not just your Sunday self. Worship is not a song. It is a body offered. Every choice, every hour, every habit laid down before Him.",
+    applicationPrompt: "What part of your daily life have you kept off the altar — the part you treat as yours and not His?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["I beseech you therefore, brethren, by the ", " of God, that ye present your ", " a living sacrifice, holy, ", " unto God, which is your reasonable service."],
+      answers: ["MERCIES", "BODIES", "ACCEPTABLE"],
+      decoys: ["GRACE", "HEARTS", "PLEASING", "LOVE"],
+    },
+  },
+  {
+    id: "rom122",
+    reference: "Romans 12:2",
+    translation: "NIV",
+    parts: [
+      "Do not conform to the ",
+      " of this world, but be ",
+      " by the renewing of your mind. Then you will be able to test and ",
+      " what God's will is — his good, pleasing and perfect will.",
+    ],
+    answers: ["PATTERN", "TRANSFORMED", "APPROVE"],
+    decoys: ["WAYS", "CHANGED", "KNOW", "FIND"],
+    themeId: "surrender",
+    themeLabel: "Surrender",
+    devotional:
+      "The world is shaping you every day whether you notice or not. Paul's command is active resistance: stop being pressed into that mould. The alternative is not willpower — it is a renewed mind, the slow reshaping that happens when you let Scripture overwrite the world's script.",
+    applicationPrompt: "Where is the pattern of this world most actively shaping your thinking — and what would renewal look like in that specific area?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["And be not ", " to this world: but be ye ", " by the renewing of your mind, that ye may ", " what is that good, and acceptable, and perfect, will of God."],
+      answers: ["CONFORMED", "TRANSFORMED", "PROVE"],
+      decoys: ["SHAPED", "CHANGED", "KNOW", "FIND"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  PROVISION — expanded                                              */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "matt633",
+    reference: "Matthew 6:33",
+    translation: "NIV",
+    parts: [
+      "But seek ",
+      " his kingdom and his ",
+      ", and all these things will be ",
+      " to you as well.",
+    ],
+    answers: ["FIRST", "RIGHTEOUSNESS", "GIVEN"],
+    decoys: ["ALWAYS", "GLORY", "ADDED", "BROUGHT"],
+    themeId: "provision",
+    themeLabel: "Provision",
+    devotional:
+      "Jesus does not say stop caring about food, clothing, or shelter. He says stop starting there. When the kingdom comes first in your priorities, everything else is repositioned — not removed, but provided by the One who already knows what you need.",
+    applicationPrompt: "What earthly need are you putting ahead of seeking God's kingdom, and what would it look like to reverse the order?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["But seek ye ", " the kingdom of God, and his ", "; and all these things shall be ", " unto you."],
+      answers: ["FIRST", "RIGHTEOUSNESS", "ADDED"],
+      decoys: ["ALWAYS", "GLORY", "GIVEN", "BROUGHT"],
+    },
+  },
+  {
+    id: "ps3725",
+    reference: "Psalm 37:25",
+    translation: "NIV",
+    parts: [
+      "I was young and now I am ",
+      ", yet I have never seen the ",
+      " forsaken or their children begging bread.",
+    ],
+    answers: ["OLD", "RIGHTEOUS"],
+    decoys: ["AGED", "FAITHFUL", "GODLY", "WISE"],
+    themeId: "provision",
+    themeLabel: "Provision",
+    devotional:
+      "David looks back over an entire lifetime and gives his testimony: God provides. Not lavishly every time, not on your schedule — but faithfully, without exception. The righteous are not guaranteed wealth. They are guaranteed that God will not walk away.",
+    applicationPrompt: "Where in your own story can you look back and see that God provided, even when you couldn't see how He would?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["I have been young, and now am ", "; yet have I not seen the ", " forsaken, nor his seed begging bread."],
+      answers: ["OLD", "RIGHTEOUS"],
+      decoys: ["AGED", "FAITHFUL", "GODLY", "WISE"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  MISSION — expanded                                                */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "acts18",
+    reference: "Acts 1:8",
+    translation: "NIV",
+    parts: [
+      "But you will receive ",
+      " when the Holy Spirit comes on you; and you will be my ",
+      " in Jerusalem, and in all Judea and ",
+      ", and to the ends of the earth.",
+    ],
+    answers: ["POWER", "WITNESSES", "SAMARIA"],
+    decoys: ["STRENGTH", "SERVANTS", "GALILEE", "GLORY"],
+    themeId: "mission",
+    themeLabel: "Mission",
+    devotional:
+      "Mission does not start with a plane ticket. It starts in Jerusalem — your home, your street, your office. The same Spirit who empowered the apostles empowers you. Not to be impressive, but to be a witness: someone who simply tells what they have seen God do.",
+    applicationPrompt: "Where is your Jerusalem — the closest place God is asking you to be a witness — and what is keeping you from starting there?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["But ye shall receive ", " after that the Holy Ghost is come upon you: and ye shall be ", " unto me both in Jerusalem, and in all Judaea, and in ", ", and unto the uttermost part of the earth."],
+      answers: ["POWER,", "WITNESSES", "SAMARIA"],
+      decoys: ["STRENGTH", "SERVANTS", "GALILEE", "GLORY"],
+    },
+  },
+  {
+    id: "mark1615",
+    reference: "Mark 16:15",
+    translation: "NIV",
+    parts: [
+      "He said to them, \"Go into all the ",
+      " and preach the ",
+      " to all creation.\"",
+    ],
+    answers: ["WORLD", "GOSPEL"],
+    decoys: ["NATIONS", "WORD", "TRUTH", "NEWS"],
+    themeId: "mission",
+    themeLabel: "Mission",
+    devotional:
+      "The command is plain: go, preach, all creation. There is no audience filter, no qualification exam, no waiting period. The gospel is not your possession to guard — it is God's message to deliver. And the delivery address is everywhere.",
+    applicationPrompt: "Who in your daily life has never heard the gospel clearly, and what would it look like to share it with them this week?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And he said unto them, Go ye into all the ", " and preach the ", " to every creature."],
+      answers: ["WORLD,", "GOSPEL"],
+      decoys: ["NATIONS", "WORD", "TRUTH", "NEWS"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  OBEDIENCE — expanded                                              */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "john1421",
+    reference: "John 14:21",
+    translation: "NIV",
+    parts: [
+      "Whoever has my ",
+      " and keeps them is the one who ",
+      " me. The one who loves me will be loved by my ",
+      ", and I too will love them and show myself to them.",
+    ],
+    answers: ["COMMANDS", "LOVES", "FATHER"],
+    decoys: ["WORDS", "KNOWS", "GOD", "OBEYS"],
+    themeId: "obedience",
+    themeLabel: "Obedience",
+    devotional:
+      "Jesus equates love with obedience — not because He is demanding, but because love that does nothing is not love. Keeping His commands is not the price of His affection. It is the proof of yours. And the reward is not a gold star — it is more of Him.",
+    applicationPrompt: "Where are you claiming to love Jesus but resisting what He has clearly asked? What would obedience there look like today?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["He that hath my ", " and keepeth them, he it is that ", " me: and he that loveth me shall be loved of my ", ", and I will love him, and will manifest myself to him."],
+      answers: ["COMMANDMENTS,", "LOVETH", "FATHER"],
+      decoys: ["WORDS", "KNOWETH", "GOD", "OBEYETH"],
+    },
+  },
+  {
+    id: "james122",
+    reference: "James 1:22",
+    translation: "NIV",
+    parts: [
+      "Do not merely ",
+      " to the word, and so ",
+      " yourselves. Do what it says.",
+    ],
+    answers: ["LISTEN", "DECEIVE"],
+    decoys: ["HEAR", "FOOL", "FORGET", "DENY"],
+    themeId: "obedience",
+    themeLabel: "Obedience",
+    devotional:
+      "James does not mince words: hearing without doing is self-deception. You can attend every service, read every chapter, nod at every sermon — and still be fooling yourself. The Word is not a lecture to absorb. It is a command to obey.",
+    applicationPrompt: "What Scripture have you heard recently that you know you should act on but haven't? What is the first step of doing what it says?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["But be ye ", " of the word, and not ", " only, deceiving your own selves."],
+      answers: ["DOERS", "HEARERS"],
+      decoys: ["KEEPERS", "READERS", "LISTENERS", "SPEAKERS"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  STRENGTH — expanded                                               */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "is4029",
+    reference: "Isaiah 40:29",
+    translation: "NIV",
+    parts: [
+      "He gives ",
+      " to the weary and increases the ",
+      " of the weak.",
+    ],
+    answers: ["STRENGTH", "POWER"],
+    decoys: ["HOPE", "COURAGE", "FAITH", "REST"],
+    themeId: "strength",
+    themeLabel: "Strength",
+    devotional:
+      "God does not strengthen the strong. He strengthens the weary. He does not increase power for those who have plenty — He increases it for the weak. If you feel depleted, you are exactly the person this verse was written for.",
+    applicationPrompt: "Where are you trying to be strong on your own instead of admitting you are weary and letting God supply what you lack?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["He giveth ", " to the faint; and to them that have no might he increaseth ", "."],
+      answers: ["POWER", "STRENGTH"],
+      decoys: ["HOPE", "COURAGE", "FAITH", "REST"],
+    },
+  },
+  {
+    id: "2cor129",
+    reference: "2 Corinthians 12:9",
+    translation: "NIV",
+    parts: [
+      "But he said to me, \"My ",
+      " is sufficient for you, for my power is made ",
+      " in weakness.\"",
+    ],
+    answers: ["GRACE", "PERFECT"],
+    decoys: ["LOVE", "COMPLETE", "STRONG", "FULL"],
+    themeId: "strength",
+    themeLabel: "Strength",
+    devotional:
+      "Paul asked three times for the thorn to be removed. God said no — and gave him something better: a promise that weakness is not a failure but a stage for divine power. Your insufficiency is not the problem. It is the prerequisite.",
+    applicationPrompt: "What weakness are you begging God to remove that He might be using to display His strength through you?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And he said unto me, My ", " is sufficient for thee: for my strength is made ", " in weakness."],
+      answers: ["GRACE", "PERFECT"],
+      decoys: ["LOVE", "COMPLETE", "STRONG", "FULL"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  WISDOM — expanded                                                 */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "james15",
+    reference: "James 1:5",
+    translation: "NIV",
+    parts: [
+      "If any of you lacks ",
+      ", you should ask ",
+      ", who gives generously to all without finding ",
+      ", and it will be given to you.",
+    ],
+    answers: ["WISDOM", "GOD", "FAULT"],
+    decoys: ["KNOWLEDGE", "HEAVEN", "BLAME", "REASON"],
+    themeId: "wisdom",
+    themeLabel: "Wisdom",
+    devotional:
+      "God does not roll His eyes when you ask for wisdom. He does not say you should already know this. He gives generously, without reproach. The only condition is that you ask. If you are confused, uncertain, or overwhelmed — He wants to hear from you.",
+    applicationPrompt: "What decision are you wrestling with that you have not yet brought honestly before God and asked Him for wisdom?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["If any of you lack ", ", let him ask of ", ", that giveth to all men liberally, and ", " not; and it shall be given him."],
+      answers: ["WISDOM", "GOD", "UPBRAIDETH"],
+      decoys: ["KNOWLEDGE", "HEAVEN", "BLAMETH", "JUDGETH"],
+    },
+  },
+  {
+    id: "prov169",
+    reference: "Proverbs 16:9",
+    translation: "NIV",
+    parts: [
+      "In their hearts humans ",
+      " their course, but the LORD ",
+      " their steps.",
+    ],
+    answers: ["PLAN", "ESTABLISHES"],
+    decoys: ["CHOOSE", "DIRECTS", "GUIDES", "ORDERS"],
+    themeId: "wisdom",
+    themeLabel: "Wisdom",
+    devotional:
+      "Planning is not wrong — it is human. But every plan you make is under the sovereign direction of the God who sees further than you can. Wisdom is making your best plan and then holding it loosely, knowing He will redirect your steps when needed.",
+    applicationPrompt: "Where are you gripping your plan so tightly that you would resist if God redirected your steps?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["A man's heart ", " his way: but the LORD ", " his steps."],
+      answers: ["DEVISETH", "DIRECTETH"],
+      decoys: ["CHOOSETH", "GUIDETH", "ORDERETH", "PLANETH"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  PRAYER — expanded                                                 */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "1john514",
+    reference: "1 John 5:14",
+    translation: "NIV",
+    parts: [
+      "This is the ",
+      " we have in approaching God: that if we ask anything according to his ",
+      ", he hears us.",
+    ],
+    answers: ["CONFIDENCE", "WILL"],
+    decoys: ["HOPE", "WORD", "PROMISE", "LOVE"],
+    themeId: "prayer",
+    themeLabel: "Prayer",
+    devotional:
+      "Prayer is not a lottery. When you align your requests with God's will, you can come with confidence — not arrogance, but the calm assurance that He is listening. The key is not asking louder. It is asking closer to what He already desires.",
+    applicationPrompt: "Are your prayers shaped more by what you want or by what God has revealed He wants? How might that shift change your confidence in prayer?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And this is the ", " that we have in him, that, if we ask any thing according to his ", ", he heareth us."],
+      answers: ["CONFIDENCE", "WILL"],
+      decoys: ["HOPE", "WORD", "PROMISE", "LOVE"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  GOD'S WORD — expanded                                             */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "2tim316",
+    reference: "2 Timothy 3:16",
+    translation: "NIV",
+    parts: [
+      "All Scripture is ",
+      " and is useful for teaching, ",
+      ", correcting and training in righteousness.",
+    ],
+    answers: ["GOD-BREATHED", "REBUKING"],
+    decoys: ["INSPIRED", "GUIDING", "LEADING", "HOLY"],
+    themeId: "gods-word",
+    themeLabel: "God's Word",
+    devotional:
+      "Scripture is not a human book with divine endorsement. It is God-breathed — exhaled from the mouth of the Creator. And it is useful. Not decorative, not optional. It teaches, rebukes, corrects, and trains. If you only use it for comfort, you are using half the tool.",
+    applicationPrompt: "When was the last time you let Scripture rebuke or correct you, rather than just comfort you?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["All scripture is given by ", " of God, and is profitable for doctrine, for ", ", for correction, for instruction in righteousness."],
+      answers: ["INSPIRATION", "REPROOF"],
+      decoys: ["AUTHORITY", "GUIDANCE", "TEACHING", "TRAINING"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  PERSEVERANCE — expanded                                           */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "1cor1558",
+    reference: "1 Corinthians 15:58",
+    translation: "NIV",
+    parts: [
+      "Therefore, my dear brothers and sisters, stand ",
+      ". Let nothing move you. Always give yourselves fully to the ",
+      " of the Lord, because you know that your labor in the Lord is not in ",
+      ".",
+    ],
+    answers: ["FIRM", "WORK", "VAIN"],
+    decoys: ["STRONG", "SERVICE", "WASTE", "DOUBT"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "Paul ends the great resurrection chapter not with theology but with application: stand firm, keep working, nothing is wasted. Every prayer prayed in weariness, every act of faithfulness no one noticed, every day you showed up when you wanted to quit — none of it is in vain.",
+    applicationPrompt: "What kingdom work are you tempted to abandon because it feels fruitless? What would it look like to trust that it is not in vain?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Therefore, my beloved brethren, be ye stedfast, ", ", always abounding in the ", " of the Lord, forasmuch as ye know that your ", " is not in vain in the Lord."],
+      answers: ["UNMOVEABLE", "WORK", "LABOUR"],
+      decoys: ["UNSHAKEABLE", "SERVICE", "EFFORT", "TOIL"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  COURAGE — expanded                                                */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "deut316",
+    reference: "Deuteronomy 31:6",
+    translation: "NIV",
+    parts: [
+      "Be strong and ",
+      ". Do not be afraid or ",
+      " because of them, for the LORD your God goes with you; he will never ",
+      " you nor forsake you.",
+    ],
+    answers: ["COURAGEOUS", "TERRIFIED", "LEAVE"],
+    decoys: ["BRAVE", "SCARED", "ABANDON", "FORGET"],
+    themeId: "courage",
+    themeLabel: "Courage",
+    devotional:
+      "Moses is about to die. Israel is about to face giants. And the command is not 'feel brave.' It is 'be strong' — because courage is not a feeling, it is a decision anchored in a fact: the LORD your God goes with you. He will not leave. He will not forsake. That is the ground you stand on.",
+    applicationPrompt: "What are you terrified of facing, and how would your next step change if you truly believed God was walking into it with you?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Be strong and of a good ", "; fear not, nor be ", " of them: for the LORD thy God, he it is that doth go with thee; he will not ", " thee, nor forsake thee."],
+      answers: ["COURAGE", "AFRAID", "FAIL"],
+      decoys: ["HEART", "SCARED", "LEAVE", "ABANDON"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  HIGH-VALUE ADDITIONS — from 2+ PDF curated lists                  */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "ps11911",
+    reference: "Psalm 119:11",
+    translation: "NIV",
+    parts: [
+      "I have ",
+      " your word in my ",
+      " that I might not sin against you.",
+    ],
+    answers: ["HIDDEN", "HEART"],
+    decoys: ["STORED", "MIND", "SOUL", "KEPT"],
+    themeId: "gods-word",
+    themeLabel: "God's Word",
+    devotional:
+      "This is the verse that started the entire practice of Scripture memorization. Hiding God's Word in your heart is not about intellectual storage — it is about making truth so close that it stands between you and sin before you even realize the temptation has come.",
+    applicationPrompt: "What verse has already protected you from sin simply because you knew it by heart? If none comes to mind, what verse do you need next?",
+    difficulty: "beginner",
+    isDailyFeatured: true,
+    kjv: {
+      parts: ["Thy word have I ", " in mine ", ", that I might not sin against thee."],
+      answers: ["HID", "HEART"],
+      decoys: ["STORED", "MIND", "SOUL", "KEPT"],
+    },
+  },
+  {
+    id: "ps374",
+    reference: "Psalm 37:4",
+    translation: "NIV",
+    parts: [
+      "Take ",
+      " in the LORD, and he will give you the ",
+      " of your heart.",
+    ],
+    answers: ["DELIGHT", "DESIRES"],
+    decoys: ["JOY", "WISHES", "DREAMS", "HOPE"],
+    themeId: "joy",
+    themeLabel: "Joy",
+    devotional:
+      "This is not a prosperity promise. It is a transformation promise. When you delight in the Lord — when He becomes your actual joy, not just your duty — your desires begin to change. He does not give you everything you want. He reshapes what you want until it matches what He has.",
+    applicationPrompt: "What desire are you holding that might change if you delighted in God more than the thing itself?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Delight thyself also in the ", "; and he shall give thee the ", " of thine heart."],
+      answers: ["LORD", "DESIRES"],
+      decoys: ["GOD", "WISHES", "DREAMS", "HOPE"],
+    },
+  },
+  {
+    id: "ps5110",
+    reference: "Psalm 51:10",
+    translation: "NIV",
+    parts: [
+      "Create in me a ",
+      " heart, O God, and renew a ",
+      " spirit within me.",
+    ],
+    answers: ["PURE", "STEADFAST"],
+    decoys: ["CLEAN", "FAITHFUL", "NEW", "RIGHT"],
+    themeId: "surrender",
+    themeLabel: "Surrender",
+    devotional:
+      "David does not ask God to fix his heart. He asks God to create a new one. The word 'create' is the same Hebrew word used in Genesis 1 — something from nothing. Only God can do that. You cannot scrub your own heart clean. You need a Creator, not a cleaner.",
+    applicationPrompt: "What in your heart needs to be created new — not repaired, not improved, but rebuilt from scratch by God?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Create in me a ", " heart, O God; and renew a ", " spirit within me."],
+      answers: ["CLEAN", "RIGHT"],
+      decoys: ["PURE", "FAITHFUL", "NEW", "STEADFAST"],
+    },
+  },
+  {
+    id: "rom1212",
+    reference: "Romans 12:12",
+    translation: "NIV",
+    parts: [
+      "Be ",
+      " in hope, ",
+      " in affliction, ",
+      " in prayer.",
+    ],
+    answers: ["JOYFUL", "PATIENT", "FAITHFUL"],
+    decoys: ["GLAD", "STEADY", "CONSTANT", "STRONG"],
+    themeId: "hope",
+    themeLabel: "Hope",
+    devotional:
+      "Three commands in one breath: joy, patience, prayer. Paul ties them together because they hold each other up. Hope fuels joy. Affliction demands patience. And prayer is the thread that keeps you connected to the source of both. You cannot do one without the others.",
+    applicationPrompt: "Which of these three — joy, patience, or faithfulness in prayer — is weakest in your life right now, and what is one step toward strengthening it?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Rejoicing in ", "; patient in ", "; continuing instant in ", "."],
+      answers: ["HOPE", "TRIBULATION", "PRAYER"],
+      decoys: ["JOY", "SUFFERING", "FAITH", "LOVE"],
+    },
+  },
+  {
+    id: "john1513",
+    reference: "John 15:13",
+    translation: "NIV",
+    parts: [
+      "Greater ",
+      " has no one than this: to lay down one's ",
+      " for one's friends.",
+    ],
+    answers: ["LOVE", "LIFE"],
+    decoys: ["FAITH", "SOUL", "HEART", "GIFT"],
+    themeId: "love",
+    themeLabel: "God's Love",
+    devotional:
+      "Jesus said this knowing exactly what He was about to do. This is not abstract theology — it is autobiography. The greatest love is not a feeling. It is a sacrifice. And He made it for you while calling you His friend.",
+    applicationPrompt: "What would it cost you to love someone sacrificially this week — not with words, but with action that requires something of you?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Greater ", " hath no man than this, that a man lay down his ", " for his friends."],
+      answers: ["LOVE", "LIFE"],
+      decoys: ["FAITH", "SOUL", "HEART", "GIFT"],
+    },
+  },
+  {
+    id: "gal69",
+    reference: "Galatians 6:9",
+    translation: "NIV",
+    parts: [
+      "Let us not become ",
+      " in doing good, for at the proper time we will reap a ",
+      " if we do not give up.",
+    ],
+    answers: ["WEARY", "HARVEST"],
+    decoys: ["TIRED", "REWARD", "BLESSING", "CROWN"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "Weariness in good work is not a sign of failure — it is a sign you are actually doing it. Paul does not deny the fatigue. He gives you a reason to keep going: the harvest is coming. The 'proper time' is not yours to set, but the promise is God's to keep.",
+    applicationPrompt: "What good work are you exhausted from that God is asking you not to abandon — even when you cannot see the harvest yet?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And let us not be ", " in well doing: for in due season we shall ", " if we faint not."],
+      answers: ["WEARY", "REAP,"],
+      decoys: ["TIRED", "HARVEST", "GATHER", "REST"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  JOY — expanded                                                    */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "neh810",
+    reference: "Nehemiah 8:10",
+    translation: "NIV",
+    parts: [
+      "Do not grieve, for the ",
+      " of the LORD is your ",
+      ".",
+    ],
+    answers: ["JOY", "STRENGTH"],
+    decoys: ["LOVE", "POWER", "PEACE", "HOPE"],
+    themeId: "joy",
+    themeLabel: "Joy",
+    devotional:
+      "Nehemiah spoke this to a people weeping over how far they had fallen from God's Word. His response was not 'weep harder.' It was 'stop grieving — His joy is your strength.' Joy is not earned by perfection. It is received from the Lord and it fuels everything else.",
+    applicationPrompt: "Where are you stuck in grief or guilt when God is offering you His joy as the strength to move forward?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Neither be ye sorry; for the ", " of the LORD is your ", "."],
+      answers: ["JOY", "STRENGTH"],
+      decoys: ["LOVE", "POWER", "PEACE", "HOPE"],
+    },
+  },
+  {
+    id: "ps1611",
+    reference: "Psalm 16:11",
+    translation: "NIV",
+    parts: [
+      "You make known to me the path of ",
+      "; you will fill me with ",
+      " in your presence, with eternal ",
+      " at your right hand.",
+    ],
+    answers: ["LIFE", "JOY", "PLEASURES"],
+    decoys: ["HOPE", "PEACE", "BLESSINGS", "GLORY"],
+    themeId: "joy",
+    themeLabel: "Joy",
+    devotional:
+      "Joy is not found at the end of a search for happiness. It is found in His presence. David discovered that the path of life and the presence of God are the same road. Fullness of joy is not a distant reward — it is available now, wherever you meet Him.",
+    applicationPrompt: "When was the last time you experienced joy simply from being in God's presence — and what kept you from staying there longer?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Thou wilt shew me the path of ", "; in thy presence is fulness of ", "; at thy right hand there are ", " for evermore."],
+      answers: ["LIFE", "JOY", "PLEASURES"],
+      decoys: ["HOPE", "PEACE", "BLESSINGS", "GLORY"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  BATCH 8 — High-value verses from 2+ PDF lists                    */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "john112",
+    reference: "John 1:12",
+    translation: "NIV",
+    parts: [
+      "Yet to all who did ",
+      " him, to those who believed in his ",
+      ", he gave the right to become children of God.",
+    ],
+    answers: ["RECEIVE", "NAME"],
+    decoys: ["FOLLOW", "WORD", "LOVE", "TRUTH"],
+    themeId: "identity",
+    themeLabel: "Identity in Christ",
+    devotional:
+      "You did not earn your place in God\u2019s family. You received it. The moment you believed, you were given a right — not a suggestion, not a possibility — to become a child of God. Your identity is not performance-based. It is adoption-sealed.",
+    applicationPrompt: "Where are you still trying to earn what God has already given you — the right to belong to Him?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["But as many as ", " him, to them gave he power to become the sons of God, even to them that believe on his ", "."],
+      answers: ["RECEIVED", "NAME"],
+      decoys: ["FOLLOWED", "WORD", "LOVED", "TRUTH"],
+    },
+  },
+  {
+    id: "1pet318",
+    reference: "1 Peter 3:18",
+    translation: "NIV",
+    parts: [
+      "For Christ also suffered once for ",
+      ", the righteous for the ",
+      ", to bring you to God.",
+    ],
+    answers: ["SINS", "UNRIGHTEOUS"],
+    decoys: ["ALL", "LOST", "WORLD", "BROKEN"],
+    themeId: "salvation",
+    themeLabel: "Salvation",
+    devotional:
+      "Once. Not repeatedly, not insufficiently, not partially. Christ suffered once — and it was enough. The righteous One stood where the unrighteous deserved to stand, and the result was not judgment but access: to bring you to God. The distance is closed.",
+    applicationPrompt: "Do you live as though the distance between you and God is still open — or do you walk through the door Christ already opened?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["For Christ also hath once ", " for sins, the just for the ", ", that he might bring us to God."],
+      answers: ["SUFFERED", "UNJUST"],
+      decoys: ["DIED", "LOST", "WORLD", "BROKEN"],
+    },
+  },
+  {
+    id: "acts412",
+    reference: "Acts 4:12",
+    translation: "NIV",
+    parts: [
+      "Salvation is found in no one else, for there is no other ",
+      " under heaven given to mankind by which we must be ",
+      ".",
+    ],
+    answers: ["NAME", "SAVED"],
+    decoys: ["WAY", "HOPE", "REDEEMED", "FOUND"],
+    themeId: "salvation",
+    themeLabel: "Salvation",
+    devotional:
+      "This is not arrogance — it is precision. Peter, standing before the same council that condemned Jesus, declares there is exactly one name that saves. Not one of many options. The only one. In a world that prizes keeping doors open, the gospel closes every door but one — and throws it wide.",
+    applicationPrompt: "Are you trying to keep other doors open while claiming to trust the one Name that saves?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Neither is there salvation in any other: for there is none other ", " under heaven given among men, whereby we must be ", "."],
+      answers: ["NAME", "SAVED"],
+      decoys: ["WAY", "HOPE", "REDEEMED", "FOUND"],
+    },
+  },
+  {
+    id: "ps563",
+    reference: "Psalm 56:3",
+    translation: "NIV",
+    parts: [
+      "When I am ",
+      ", I put my ",
+      " in you.",
+    ],
+    answers: ["AFRAID", "TRUST"],
+    decoys: ["SCARED", "FAITH", "HOPE", "HEART"],
+    themeId: "fear",
+    themeLabel: "Fear",
+    devotional:
+      "David does not pretend the fear is not real. He does not deny the threat. He simply names what he does with the fear: I put my trust in you. This is not the absence of fear — it is the redirection of it. Fear tells you to run. Trust tells you where to run.",
+    applicationPrompt: "What fear are you experiencing right now, and what would it look like to redirect your trust toward God instead of away from the threat?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["What time I am ", ", I will ", " in thee."],
+      answers: ["AFRAID", "TRUST"],
+      decoys: ["SCARED", "BELIEVE", "HOPE", "REST"],
+    },
+  },
+  {
+    id: "1cor620",
+    reference: "1 Corinthians 6:20",
+    translation: "NIV",
+    parts: [
+      "You were ",
+      " at a price. Therefore ",
+      " God with your bodies.",
+    ],
+    answers: ["BOUGHT", "HONOR"],
+    decoys: ["SAVED", "PRAISE", "SERVE", "GLORIFY"],
+    themeId: "identity",
+    themeLabel: "Identity in Christ",
+    devotional:
+      "You are not your own. That is not a threat — it is a relief. You were purchased at a price so staggering it should end every question about your worth. The One who paid does not regret the cost. Now honor Him — not to earn the price, but because it has already been paid.",
+    applicationPrompt: "What part of your life are you still treating as your own instead of honoring God with it?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["For ye are ", " with a price: therefore ", " God in your body, and in your spirit, which are God's."],
+      answers: ["BOUGHT", "GLORIFY"],
+      decoys: ["SAVED", "PRAISE", "HONOR", "SERVE"],
+    },
+  },
+  {
+    id: "eph17",
+    reference: "Ephesians 1:7",
+    translation: "NIV",
+    parts: [
+      "In him we have ",
+      " through his blood, the ",
+      " of sins, in accordance with the riches of God's ",
+      ".",
+    ],
+    answers: ["REDEMPTION", "FORGIVENESS", "GRACE"],
+    decoys: ["SALVATION", "MERCY", "LOVE", "GLORY"],
+    themeId: "grace",
+    themeLabel: "Grace",
+    devotional:
+      "Redemption is not a metaphor. It is a purchase — paid in blood, not in good behavior. And the forgiveness that flows from it is not rationed. It comes in accordance with the riches of His grace — not in accordance with the size of your failure.",
+    applicationPrompt: "Are you living in the riches of God's grace, or are you still rationing forgiveness for yourself as though the supply might run out?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["In whom we have ", " through his blood, the ", " of sins, according to the riches of his ", "."],
+      answers: ["REDEMPTION", "FORGIVENESS", "GRACE"],
+      decoys: ["SALVATION", "MERCY", "LOVE", "GLORY"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  BATCH 9 — Popular well-known verses                              */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "eph610",
+    reference: "Ephesians 6:10-11",
+    translation: "NIV",
+    parts: [
+      "Finally, be ",
+      " in the Lord and in his mighty ",
+      ". Put on the full armor of God, so that you can take your stand against the devil's ",
+      ".",
+    ],
+    answers: ["STRONG", "POWER", "SCHEMES"],
+    decoys: ["BOLD", "STRENGTH", "PLANS", "ATTACKS"],
+    themeId: "strength",
+    themeLabel: "Strength",
+    devotional:
+      "The command is not \u2018be strong on your own.\u2019 It is \u2018be strong in the Lord.\u2019 The distinction matters. Your strength is borrowed, and the armor is His. You are not told to improvise a defense — you are told to put on what has already been provided.",
+    applicationPrompt: "Where are you trying to fight a spiritual battle with human resources instead of putting on what God has already provided?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Finally, my brethren, be ", " in the Lord, and in the power of his ", ". Put on the whole armour of God, that ye may be able to stand against the ", " of the devil."],
+      answers: ["STRONG", "MIGHT", "WILES"],
+      decoys: ["BOLD", "STRENGTH", "PLANS", "ATTACKS"],
+    },
+  },
+  {
+    id: "heb121",
+    reference: "Hebrews 12:1-2",
+    translation: "NIV",
+    parts: [
+      "Let us throw off everything that ",
+      " and the sin that so easily entangles. And let us run with ",
+      " the race marked out for us, fixing our eyes on ",
+      ", the pioneer and perfecter of faith.",
+    ],
+    answers: ["HINDERS", "PERSEVERANCE", "JESUS"],
+    decoys: ["WEIGHS", "PATIENCE", "GOD", "HOPE"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "The race has already been marked out. You do not choose the course — you choose whether to run it. And the secret to endurance is not willpower. It is focus. Fix your eyes on Jesus. Not on the distance remaining, not on the runners beside you, not on what you dropped. On Him.",
+    applicationPrompt: "What are you carrying into the race that God is asking you to throw off — and what would the next mile look like without it?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Let us lay aside every weight, and the sin which doth so easily ", " us, and let us run with ", " the race that is set before us, looking unto ", " the author and finisher of our faith."],
+      answers: ["BESET", "PATIENCE", "JESUS"],
+      decoys: ["HINDER", "ENDURANCE", "GOD", "HOPE"],
+    },
+  },
+  {
+    id: "jas12",
+    reference: "James 1:2-4",
+    translation: "NIV",
+    parts: [
+      "Consider it pure ",
+      " whenever you face trials of many kinds, because you know that the testing of your ",
+      " produces perseverance. Let perseverance finish its work so that you may be ",
+      " and complete, not lacking anything.",
+    ],
+    answers: ["JOY", "FAITH", "MATURE"],
+    decoys: ["HOPE", "LOVE", "PERFECT", "STRONG"],
+    themeId: "perseverance",
+    themeLabel: "Perseverance",
+    devotional:
+      "James does not say enjoy the trial. He says consider it joy — a deliberate act of the mind, not a feeling. Why? Because the trial is producing something. Perseverance is being forged in the fire, and its finished work is maturity. The pain is not pointless. It is purposeful.",
+    applicationPrompt: "What trial are you enduring right now that might be producing something in you that comfort never could?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Count it all ", " when ye fall into divers temptations; knowing this, that the trying of your ", " worketh patience. But let patience have her perfect work, that ye may be ", " and entire, wanting nothing."],
+      answers: ["JOY", "FAITH", "PERFECT"],
+      decoys: ["HOPE", "LOVE", "MATURE", "STRONG"],
+    },
+  },
+  {
+    id: "ps234",
+    reference: "Psalm 23:4",
+    translation: "NIV",
+    parts: [
+      "Even though I walk through the darkest ",
+      ", I will fear no ",
+      ", for you are with me; your rod and your staff, they ",
+      " me.",
+    ],
+    answers: ["VALLEY", "EVIL", "COMFORT"],
+    decoys: ["SHADOW", "HARM", "PROTECT", "GUIDE"],
+    themeId: "fear",
+    themeLabel: "Fear",
+    devotional:
+      "The valley is real. David does not skip over it or pretend it is not dark. But the posture in the valley is not panic — it is peace. Why? Because \u2018you are with me.\u2019 The presence of the Shepherd does not remove the valley. It removes the fear of it.",
+    applicationPrompt: "What valley are you walking through right now, and do you believe the Shepherd is with you in it — not just beyond it?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Yea, though I walk through the valley of the shadow of ", ", I will fear no ", ": for thou art with me; thy rod and thy staff they ", " me."],
+      answers: ["DEATH", "EVIL", "COMFORT"],
+      decoys: ["DARKNESS", "HARM", "PROTECT", "GUIDE"],
+    },
+  },
+  {
+    id: "rom831",
+    reference: "Romans 8:31",
+    translation: "NIV",
+    parts: [
+      "What, then, shall we say in response to these things? If ",
+      " is for us, who can be ",
+      " us?",
+    ],
+    answers: ["GOD", "AGAINST"],
+    decoys: ["CHRIST", "BEFORE", "ABOVE", "WITHOUT"],
+    themeId: "courage",
+    themeLabel: "Courage",
+    devotional:
+      "Paul has just laid out the entire arc of the gospel — foreknowledge, calling, justification, glorification — and now he steps back and asks the only question that matters: if all of that is true, what is left to fear? If God is for you, the opposition is irrelevant. Not absent. Irrelevant.",
+    applicationPrompt: "What opposition in your life would shrink if you truly believed the God of the universe is for you — not against you, not indifferent, but for you?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["What shall we then say to these things? If ", " be for us, who can be ", " us?"],
+      answers: ["GOD", "AGAINST"],
+      decoys: ["CHRIST", "BEFORE", "ABOVE", "WITHOUT"],
+    },
+  },
+  {
+    id: "matt77",
+    reference: "Matthew 7:7",
+    translation: "NIV",
+    parts: [
+      "Ask and it will be ",
+      " to you; seek and you will ",
+      "; knock and the door will be ",
+      " to you.",
+    ],
+    answers: ["GIVEN", "FIND", "OPENED"],
+    decoys: ["SHOWN", "KNOW", "REVEALED", "GRANTED"],
+    themeId: "prayer",
+    themeLabel: "Prayer",
+    devotional:
+      "Three verbs, three promises. Ask — given. Seek — find. Knock — opened. Jesus does not attach conditions about worthiness. He attaches a promise to persistence. The door does not open to the qualified. It opens to the one who keeps knocking.",
+    applicationPrompt: "What have you stopped asking God for — and what would it look like to knock again?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Ask, and it shall be ", " you; seek, and ye shall ", "; knock, and it shall be ", " unto you."],
+      answers: ["GIVEN", "FIND", "OPENED"],
+      decoys: ["SHOWN", "KNOW", "REVEALED", "GRANTED"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  BATCH 10 — More popular verses from PDF lists                    */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "ps911",
+    reference: "Psalm 91:1-2",
+    translation: "NIV",
+    parts: [
+      "Whoever dwells in the shelter of the Most ",
+      " will rest in the shadow of the ",
+      ". I will say of the LORD, \"He is my refuge and my ",
+      ", my God, in whom I trust.\"",
+    ],
+    answers: ["HIGH", "ALMIGHTY", "FORTRESS"],
+    decoys: ["HOLY", "LORD", "SHIELD", "TOWER"],
+    themeId: "rest",
+    themeLabel: "Rest",
+    devotional:
+      "The shelter is not something you build. It is something you dwell in. The Most High does not move. He does not waver. The question is not whether the shelter exists — it is whether you will stop running long enough to rest inside it.",
+    applicationPrompt: "Where are you seeking refuge in things that cannot hold you, instead of dwelling in the shelter of the Most High?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["He that dwelleth in the secret place of the most ", " shall abide under the shadow of the ", ". I will say of the LORD, He is my refuge and my ", "; my God; in him will I trust."],
+      answers: ["HIGH", "ALMIGHTY", "FORTRESS"],
+      decoys: ["HOLY", "LORD", "SHIELD", "TOWER"],
+    },
+  },
+  {
+    id: "prov163",
+    reference: "Proverbs 16:3",
+    translation: "NIV",
+    parts: [
+      "Commit to the LORD whatever you ",
+      ", and he will ",
+      " your plans.",
+    ],
+    answers: ["DO", "ESTABLISH"],
+    decoys: ["PLAN", "BLESS", "DIRECT", "GUIDE"],
+    themeId: "guidance",
+    themeLabel: "Guidance",
+    devotional:
+      "The order matters. Commit first, then watch Him establish. Most of us want God to confirm our plans before we commit them. But the promise runs the other direction: hand it over, and then He makes the path firm beneath your feet.",
+    applicationPrompt: "What plan are you holding back from committing to the LORD — and what would change if you handed it over before you had the whole picture?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Commit thy works unto the ", ", and thy thoughts shall be ", "."],
+      answers: ["LORD", "ESTABLISHED"],
+      decoys: ["GOD", "BLESSED", "DIRECTED", "GUIDED"],
+    },
+  },
+  {
+    id: "1thess516",
+    reference: "1 Thessalonians 5:16-18",
+    translation: "NIV",
+    parts: [
+      "Rejoice ",
+      ", pray ",
+      ", give thanks in all ",
+      "; for this is God's will for you in Christ Jesus.",
+    ],
+    answers: ["ALWAYS", "CONTINUALLY", "CIRCUMSTANCES"],
+    decoys: ["FOREVER", "DAILY", "SITUATIONS", "TRIALS"],
+    themeId: "joy",
+    themeLabel: "Joy",
+    devotional:
+      "Three short commands. No conditions, no exceptions. Rejoice always — not when circumstances improve. Pray continually — not when you feel spiritual. Give thanks in all circumstances — not just the ones that make sense. This is not optimism. It is obedience rooted in trust.",
+    applicationPrompt: "Which of these three — rejoicing, praying, or giving thanks — is hardest for you right now, and what would practicing it today look like?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Rejoice ", ". Pray without ", ". In every thing give ", "; for this is the will of God in Christ Jesus concerning you."],
+      answers: ["EVERMORE", "CEASING", "THANKS"],
+      decoys: ["ALWAYS", "END", "PRAISE", "GLORY"],
+    },
+  },
+  {
+    id: "john1334",
+    reference: "John 13:34-35",
+    translation: "NIV",
+    parts: [
+      "A new command I give you: Love one ",
+      ". As I have ",
+      " you, so you must love one another. By this everyone will know that you are my ",
+      ", if you love one another.",
+    ],
+    answers: ["ANOTHER", "LOVED", "DISCIPLES"],
+    decoys: ["OTHER", "SAVED", "FOLLOWERS", "CHILDREN"],
+    themeId: "love",
+    themeLabel: "God's Love",
+    devotional:
+      "The command is not \u2018love people the way they deserve.\u2019 It is \u2018love as I have loved you.\u2019 That is a sacrificial, first-move, nothing-held-back kind of love. And Jesus says this is the proof — not your theology, not your attendance, not your knowledge. Your love.",
+    applicationPrompt: "Who in your life is hardest to love the way Jesus loved you — and what would one step toward that look like today?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["A new commandment I give unto you, That ye love one ", "; as I have ", " you, that ye also love one another. By this shall all men know that ye are my ", ", if ye have love one to another."],
+      answers: ["ANOTHER", "LOVED", "DISCIPLES"],
+      decoys: ["OTHER", "SAVED", "FOLLOWERS", "CHILDREN"],
+    },
+  },
+  {
+    id: "eph429",
+    reference: "Ephesians 4:29",
+    translation: "NIV",
+    parts: [
+      "Do not let any unwholesome talk come out of your ",
+      ", but only what is helpful for building others up according to their ",
+      ", that it may ",
+      " those who listen.",
+    ],
+    answers: ["MOUTHS", "NEEDS", "BENEFIT"],
+    decoys: ["LIPS", "HEARTS", "BLESS", "HELP"],
+    themeId: "anger",
+    themeLabel: "Anger",
+    devotional:
+      "Words are not neutral. They either build or demolish, and Paul makes the standard specific: helpful, need-meeting, grace-giving. The next time anger rises to your throat, this verse stands as a checkpoint. Will what comes out benefit the listener — or only relieve the speaker?",
+    applicationPrompt: "What words have you spoken recently that tore down instead of built up — and what would it cost you to replace them?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Let no corrupt communication proceed out of your ", "; but that which is good to the use of ", ", that it may minister ", " unto the hearers."],
+      answers: ["MOUTH", "EDIFYING", "GRACE"],
+      decoys: ["LIPS", "BUILDING", "BLESSINGS", "HELP"],
+    },
+  },
+  {
+    id: "1cor134",
+    reference: "1 Corinthians 13:4-7",
+    translation: "NIV",
+    parts: [
+      "Love is ",
+      ", love is ",
+      ". It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not ",
+      ", it is not easily angered, it keeps no record of wrongs.",
+    ],
+    answers: ["PATIENT", "KIND", "SELF-SEEKING"],
+    decoys: ["GENTLE", "PURE", "SELFISH", "BITTER"],
+    themeId: "love",
+    themeLabel: "God's Love",
+    devotional:
+      "This is not a greeting card. It is a mirror. Read each line and ask: is this how I love? Patient, kind, not envious, not proud, not self-seeking. Love is not a feeling to be chased — it is a standard to be practiced, and the standard is Christ Himself.",
+    applicationPrompt: "Which quality of love in this passage is most absent from the way you treat the people closest to you?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Charity suffereth long, and is ", "; charity envieth not; charity vaunteth not itself, is not puffed up, doth not behave itself ", ", seeketh not her own, is not easily ", ", thinketh no evil."],
+      answers: ["KIND", "UNSEEMLY", "PROVOKED"],
+      decoys: ["GENTLE", "PROUD", "ANGERED", "BITTER"],
+    },
+  },
+
+  /* ------------------------------------------------------------------ */
+  /*  BATCH 11 — Final popular verse set                               */
+  /* ------------------------------------------------------------------ */
+  {
+    id: "heb416",
+    reference: "Hebrews 4:16",
+    translation: "NIV",
+    parts: [
+      "Let us then approach God's throne of ",
+      " with confidence, so that we may receive ",
+      " and find grace to help us in our time of ",
+      ".",
+    ],
+    answers: ["GRACE", "MERCY", "NEED"],
+    decoys: ["GLORY", "LOVE", "TROUBLE", "TRIAL"],
+    themeId: "grace",
+    themeLabel: "Grace",
+    devotional:
+      "The throne is not guarded by your performance. It is a throne of grace, and you are told to approach with confidence — not because of who you are, but because of who sits on it. Mercy for past failure, grace for present need. Both are available. Come.",
+    applicationPrompt: "What is keeping you from approaching God\u2019s throne with confidence — guilt, shame, or the belief that you need to clean up first?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Let us therefore come boldly unto the throne of ", ", that we may obtain ", ", and find grace to help in time of ", "."],
+      answers: ["GRACE", "MERCY", "NEED"],
+      decoys: ["GLORY", "LOVE", "TROUBLE", "TRIAL"],
+    },
+  },
+  {
+    id: "john1125",
+    reference: "John 11:25-26",
+    translation: "NIV",
+    parts: [
+      "Jesus said to her, \"I am the ",
+      " and the life. The one who ",
+      " in me will live, even though they die; and whoever lives by believing in me will never ",
+      ".\"",
+    ],
+    answers: ["RESURRECTION", "BELIEVES", "DIE"],
+    decoys: ["WAY", "TRUSTS", "PERISH", "FALL"],
+    themeId: "hope",
+    themeLabel: "Hope",
+    devotional:
+      "Jesus does not say \u2018I know about the resurrection\u2019 or \u2018I will cause the resurrection.\u2019 He says I am the resurrection. The hope of every believer is not a doctrine — it is a Person. And that Person stood in front of a grieving woman and made the most staggering claim in human history.",
+    applicationPrompt: "When you think about death — your own or someone you love — do you anchor your hope in a theological idea or in the Person who said \u2018I am the resurrection\u2019?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["Jesus said unto her, I am the ", " and the life: he that ", " in me, though he were dead, yet shall he live: and whosoever liveth and believeth in me shall never ", "."],
+      answers: ["RESURRECTION", "BELIEVETH", "DIE"],
+      decoys: ["WAY", "TRUSTETH", "PERISH", "FALL"],
+    },
+  },
+  {
+    id: "ps1001",
+    reference: "Psalm 100:1-2",
+    translation: "NIV",
+    parts: [
+      "Shout for joy to the LORD, all the ",
+      ". Worship the LORD with ",
+      "; come before him with joyful ",
+      ".",
+    ],
+    answers: ["EARTH", "GLADNESS", "SONGS"],
+    decoys: ["NATIONS", "JOY", "PRAISE", "HEARTS"],
+    themeId: "joy",
+    themeLabel: "Joy",
+    devotional:
+      "This is not a suggestion — it is an invitation to the whole earth. Worship is not quiet duty. It is gladness. It is shouting. It is singing. The God who made everything invites everything to celebrate Him, and the right response is not restraint — it is joy.",
+    applicationPrompt: "When was the last time your worship felt like gladness instead of obligation — and what would it take to get there again?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["Make a joyful noise unto the LORD, all ye ", ". Serve the LORD with ", "; come before his presence with ", "."],
+      answers: ["LANDS", "GLADNESS", "SINGING"],
+      decoys: ["NATIONS", "JOY", "PRAISE", "HEARTS"],
+    },
+  },
+  {
+    id: "col323",
+    reference: "Colossians 3:23",
+    translation: "NIV",
+    parts: [
+      "Whatever you do, work at it with all your ",
+      ", as working for the ",
+      ", not for human masters.",
+    ],
+    answers: ["HEART", "LORD"],
+    decoys: ["MIGHT", "GOD", "KING", "STRENGTH"],
+    themeId: "obedience",
+    themeLabel: "Obedience",
+    devotional:
+      "Every task is an offering when the audience is the Lord. The mundane becomes sacred when you stop working for human approval and start working for divine glory. Your boss may not notice. God does.",
+    applicationPrompt: "What part of your daily work have you been doing half-heartedly — and what would change if you saw the Lord as the one you are working for?",
+    difficulty: "beginner",
+    kjv: {
+      parts: ["And whatsoever ye do, do it ", ", as to the ", ", and not unto men."],
+      answers: ["HEARTILY", "LORD"],
+      decoys: ["FAITHFULLY", "GOD", "KING", "WELL"],
+    },
+  },
+  {
+    id: "luke923",
+    reference: "Luke 9:23",
+    translation: "NIV",
+    parts: [
+      "Then he said to them all: \"Whoever wants to be my ",
+      " must deny ",
+      " and take up their cross daily and ",
+      " me.\"",
+    ],
+    answers: ["DISCIPLE", "THEMSELVES", "FOLLOW"],
+    decoys: ["SERVANT", "EVERYTHING", "OBEY", "TRUST"],
+    themeId: "surrender",
+    themeLabel: "Surrender",
+    devotional:
+      "The cost of following Jesus is everything — and the word \u2018daily\u2019 makes it relentless. This is not a one-time altar call. It is a daily death to self, a daily picking up of the cross, a daily choice to follow. The reward is not ease. The reward is Him.",
+    applicationPrompt: "What part of yourself are you refusing to deny — and what would it mean to take up your cross in that specific area today?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["And he said to them all, If any man will come after me, let him deny ", ", and take up his ", " daily, and follow me."],
+      answers: ["HIMSELF", "CROSS"],
+      decoys: ["ALL", "BURDEN", "EVERYTHING", "SELF"],
+    },
+  },
+  {
+    id: "rev214",
+    reference: "Revelation 21:4",
+    translation: "NIV",
+    parts: [
+      "He will wipe every ",
+      " from their eyes. There will be no more death or ",
+      " or crying or ",
+      ", for the old order of things has passed away.",
+    ],
+    answers: ["TEAR", "MOURNING", "PAIN"],
+    decoys: ["SORROW", "GRIEF", "SUFFERING", "SIN"],
+    themeId: "hope",
+    themeLabel: "Hope",
+    devotional:
+      "This is the end of all endings. No more death. No more mourning. No more crying. No more pain. The old order — the one you live in now, the one that breaks you — has an expiration date. And the God who will wipe your tears is not distant. He is the same one walking with you through them now.",
+    applicationPrompt: "What pain in your life right now do you need to hold up against this promise — and does it change how you carry it today?",
+    difficulty: "intermediate",
+    kjv: {
+      parts: ["And God shall wipe away all ", " from their eyes; and there shall be no more ", ", neither sorrow, nor ", ", neither shall there be any more pain: for the former things are passed away."],
+      answers: ["TEARS", "DEATH", "CRYING"],
+      decoys: ["SORROW", "GRIEF", "SUFFERING", "SIN"],
+    },
+  },
 ];

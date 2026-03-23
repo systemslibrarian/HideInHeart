@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <main className="grid spacious">
       <section className="hero hero-journey">
-        <h1 style={{ marginTop: 0, textAlign: "center" }}>Hide God&apos;s Word in your heart.</h1>
+        <h1 style={{ marginTop: 0, textAlign: "center" }}>Let God&apos;s Word take root in your heart.</h1>
         <p className="hero-rhythm" style={{ textAlign: "center" }}>Read · Reflect · Memorize · Live</p>
 
         <p className="scripture-inline" style={{ textAlign: "left" }}>&ldquo;{PSALM_119_11[translationKey]}&rdquo; <span style={{ whiteSpace: "nowrap" }}>— Psalm 119:11 ({label})</span></p>
@@ -45,6 +45,22 @@ export default function HomePage() {
           <h3>Carry one response forward</h3>
           <p className="muted">Finish with a short application prompt so the passage moves from memory into obedience, trust, or rest.</p>
         </article>
+      </section>
+
+      <section className="two-paths-section">
+        <h2 className="two-paths-heading">Two ways to begin</h2>
+        <div className="two-paths-grid">
+          <Link href="/play" className="path-card path-card-primary">
+            <strong>Begin today&apos;s journey</strong>
+            <span className="muted">Read, reflect, memorize, and apply a verse.</span>
+            <span className="path-cta">Begin Journey &rarr;</span>
+          </Link>
+          <Link href="/practice" className="path-card path-card-secondary">
+            <strong>Just practice</strong>
+            <span className="muted">Pick a verse and drill the tiles. No steps.</span>
+            <span className="path-cta">Open Practice &rarr;</span>
+          </Link>
+        </div>
       </section>
     </main>
   );
