@@ -739,6 +739,11 @@ export default function PlayPage() {
               <button className="btn btn-ghost" onClick={handleShowAnswer}>
                 Show answer
               </button>
+              {placements.some(Boolean) && (
+                <button className="btn btn-ghost" onClick={() => { setPlacements(new Array(blankIndices.length).fill("")); setSelectedTile(null); }}>
+                  Reset
+                </button>
+              )}
             </div>
           )}
 
