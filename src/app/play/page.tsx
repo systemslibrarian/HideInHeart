@@ -444,10 +444,27 @@ export default function PlayPage() {
     if (!verse || !reflectionText.trim()) return;
     setReflectionError(null);
 
+    /* Always persist locally so reflections survive without auth */
     try {
+      const stored = JSON.parse(localStorage.getItem("sg_reflections") ?? "[]");
+      stored.unshift({
+        id: Date.now(),
+        verse_id: verse.id,
+        category_id: selectedThemeId ?? "general",
+        response_text: reflectionText.trim(),
+        created_at: new Date().toISOString(),
+      });
+      localStorage.setItem("sg_reflections", JSON.stringify(stored.slice(0, 200)));
+    } catch { /* storage full or unavailable */ }
+
+    try {
+      const token = localStorage.getItem("sg_access_token");
       const response = await fetch("/api/reflection", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({
           verseId: verse.id,
           categoryId: selectedThemeId ?? "general",
@@ -458,11 +475,12 @@ export default function PlayPage() {
       if (response.ok) {
         setReflectionSaved(true);
       } else {
-        const data = await response.json().catch(() => ({}));
-        setReflectionError(data.error ?? "Could not save reflection.");
+        /* Saved locally even if server fails */
+        setReflectionSaved(true);
       }
     } catch {
-      setReflectionError("Could not save — you may be offline.");
+      /* Offline — already saved locally */
+      setReflectionSaved(true);
     }
   }, [verse, reflectionText, selectedThemeId]);
 

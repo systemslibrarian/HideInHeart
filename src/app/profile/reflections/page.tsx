@@ -34,6 +34,7 @@ export default function ReflectionsPage() {
   useEffect(() => {
     (async () => {
       try {
+        /* Try server first */
         const token = localStorage.getItem("sg_access_token");
         const headers: HeadersInit = token
           ? { Authorization: `Bearer ${token}` }
@@ -41,13 +42,26 @@ export default function ReflectionsPage() {
         const res = await fetch("/api/reflections", { headers });
         if (res.ok) {
           const data = await res.json();
-          setReflections(data.reflections ?? []);
+          const server: Reflection[] = data.reflections ?? [];
+          if (server.length > 0) {
+            setReflections(server);
+            setLoading(false);
+            return;
+          }
         }
       } catch {
-        /* offline or unavailable — show empty state */
-      } finally {
-        setLoading(false);
+        /* offline or unavailable — fall through to local */
       }
+
+      /* Fall back to localStorage */
+      try {
+        const local: Reflection[] = JSON.parse(localStorage.getItem("sg_reflections") ?? "[]");
+        setReflections(local);
+      } catch {
+        /* corrupt data */
+      }
+
+      setLoading(false);
     })();
   }, []);
 
