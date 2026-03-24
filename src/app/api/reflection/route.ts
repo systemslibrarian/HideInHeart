@@ -70,3 +70,34 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  const body = await request.json().catch(() => ({}));
+  const { id } = body as { id?: number | string };
+
+  if (!id) {
+    return NextResponse.json({ error: "Missing reflection id." }, { status: 400 });
+  }
+
+  if (!hasSupabase) {
+    return NextResponse.json({ deleted: true, mode: "local" });
+  }
+
+  const user = await authenticatedUserFromRequest(request);
+  if (!user) {
+    return NextResponse.json({ deleted: false, mode: "guest" });
+  }
+
+  const supabase = createSupabaseAdminClient();
+  const { error } = await supabase
+    .from("reflections")
+    .delete()
+    .eq("id", id)
+    .eq("user_id", user.id);
+
+  if (error) {
+    return NextResponse.json({ deleted: false, error: error.message }, { status: 500 });
+  }
+
+  return NextResponse.json({ deleted: true, mode: "supabase" });
+}

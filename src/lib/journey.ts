@@ -245,7 +245,7 @@ export function getBlankCountForSkillLevel(skillLevel: SkillLevel, totalAnswers:
     case "beginner":
       return Math.max(1, Math.ceil(totalAnswers * 0.33));
     case "intermediate":
-      return Math.max(1, Math.ceil(totalAnswers * 0.67));
+      return Math.max(1, Math.min(Math.ceil(totalAnswers * 0.6), totalAnswers - 1) || 1);
     case "expert":
       return totalAnswers;
   }
