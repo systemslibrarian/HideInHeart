@@ -38,6 +38,23 @@ export default function ReflectionsPage() {
     return token ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } : { "Content-Type": "application/json" };
   }
 
+  function exportAsText(): void {
+    if (reflections.length === 0) return;
+    const lines = reflections.map((r) => {
+      const ref = verseRefMap.get(r.verse_id) ?? r.verse_id;
+      const date = formatDate(r.created_at);
+      return `${ref} — ${date}\n${r.response_text}\n`;
+    });
+    const text = "My Reflections\n" + "=".repeat(40) + "\n\n" + lines.join("\n");
+    const blob = new Blob([text], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "my-reflections.txt";
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
   async function deleteOne(id: number) {
     setDeleting(id);
     try {
@@ -121,7 +138,21 @@ export default function ReflectionsPage() {
       </p>
 
       {reflections.length > 0 && (
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end", gap: "0.5rem", marginBottom: "1rem" }}>
+          <button
+            onClick={exportAsText}
+            style={{
+              background: "none",
+              border: "1px solid var(--border)",
+              color: "var(--ink)",
+              borderRadius: "6px",
+              padding: "0.4rem 0.85rem",
+              fontSize: "0.85rem",
+              cursor: "pointer",
+            }}
+          >
+            Export as text
+          </button>
           <button
             onClick={deleteAll}
             disabled={deleting === "all"}

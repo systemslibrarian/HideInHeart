@@ -115,6 +115,7 @@ export default function PlayPage() {
   const [practiceResult, setPracticeResult] = useState<PracticeResult | null>(null);
   const [answerRevealed, setAnswerRevealed] = useState(false);
   const [startTime, setStartTime] = useState(0);
+  const [hintUsed, setHintUsed] = useState(false);
 
   /* ---- reflection state ---- */
   const [reflectionText, setReflectionText] = useState("");
@@ -234,6 +235,7 @@ export default function PlayPage() {
       setAttemptIndex(1);
       setPracticeResult(null);
       setAnswerRevealed(false);
+      setHintUsed(false);
       setStartTime(Date.now());
       setStep("practice");
     },
@@ -252,7 +254,17 @@ export default function PlayPage() {
     setStep("complete");
     const today = new Date().toISOString().slice(0, 10);
     localStorage.setItem("sg_lastJourneyDate", today);
-    if (verse) localStorage.setItem("sg_lastJourneyVerse", verse.reference);
+    if (verse) {
+      localStorage.setItem("sg_lastJourneyVerse", verse.reference);
+      /* Spaced repetition: record practice timestamp + count */
+      try {
+        const srRaw = localStorage.getItem("sg_spaced_rep");
+        const sr: Record<string, { count: number; last: string }> = srRaw ? JSON.parse(srRaw) : {};
+        const entry = sr[verse.id] ?? { count: 0, last: "" };
+        sr[verse.id] = { count: entry.count + 1, last: today };
+        localStorage.setItem("sg_spaced_rep", JSON.stringify(sr));
+      } catch { /* storage full */ }
+    }
   }, [verse]);
 
   const navigateToStep = useCallback(
@@ -427,6 +439,7 @@ export default function PlayPage() {
     setSelectedTile(null);
     setPracticeResult(null);
     setAnswerRevealed(false);
+    setHintUsed(false);
     setAttemptIndex((prev) => prev + 1);
     setStartTime(Date.now());
     setTilePool(shuffle([...practiceAnswers, ...t.decoys.map(normalizeWord)]));
@@ -438,6 +451,22 @@ export default function PlayPage() {
     setPracticeResult({ correct: practiceAnswers.length, total: practiceAnswers.length });
     setAnswerRevealed(true);
   }, [verse, practiceResult, practiceAnswers]);
+
+  /** Reveal the first letter of the next empty blank's answer */
+  const handleHint = useCallback(() => {
+    if (practiceResult || hintUsed) return;
+    const emptySlot = placements.findIndex((p) => !p);
+    if (emptySlot === -1) return;
+    const answer = practiceAnswers[emptySlot];
+    if (!answer) return;
+    const firstLetter = answer.charAt(0).toUpperCase();
+    setPlacements((prev) => {
+      const next = [...prev];
+      next[emptySlot] = firstLetter + "…";
+      return next;
+    });
+    setHintUsed(true);
+  }, [practiceResult, hintUsed, placements, practiceAnswers]);
 
   /* ---- reflection save ---- */
   const handleSaveReflection = useCallback(async () => {
@@ -748,17 +777,20 @@ export default function PlayPage() {
             </>
           )}
 
-          {/* submit + show answer */}
+          {/* submit + show answer + hint */}
           {!practiceResult && (
             <div style={{ textAlign: "center", marginTop: "1.5rem", display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
               <button className="btn" disabled={!allFilled} onClick={handleSubmit}>
                 Commit to heart
               </button>
+              <button className="btn-hint" disabled={hintUsed} onClick={handleHint} title="Reveal the first letter of the next blank">
+                {hintUsed ? "Hint used" : "Hint"}
+              </button>
               <button className="btn btn-ghost" onClick={handleShowAnswer}>
                 Show answer
               </button>
               {placements.some(Boolean) && (
-                <button className="btn btn-ghost" onClick={() => { setPlacements(new Array(blankIndices.length).fill("")); setSelectedTile(null); }}>
+                <button className="btn btn-ghost" onClick={() => { setPlacements(new Array(blankIndices.length).fill("")); setSelectedTile(null); setHintUsed(false); }}>
                   Reset
                 </button>
               )}
@@ -820,11 +852,15 @@ export default function PlayPage() {
             ) : null;
           })()}
 
-          {verse.applicationPrompt && (
-            <div style={{ marginBottom: "2rem", padding: "1.25rem 1.5rem", background: "var(--surface-soft)", borderRadius: "var(--radius)", borderLeft: "3px solid var(--brand)" }}>
-              <p style={{ lineHeight: 1.7, fontSize: "1.05rem", fontFamily: "'Fraunces', Georgia, serif" }}>{verse.applicationPrompt}</p>
-            </div>
-          )}
+          {(() => {
+            const prompts = verse.applicationPrompts ?? (verse.applicationPrompt ? [verse.applicationPrompt] : []);
+            const prompt = prompts.length > 0 ? prompts[Math.floor(Date.now() / 86_400_000) % prompts.length] : null;
+            return prompt ? (
+              <div style={{ marginBottom: "2rem", padding: "1.25rem 1.5rem", background: "var(--surface-soft)", borderRadius: "var(--radius)", borderLeft: "3px solid var(--brand)" }}>
+                <p style={{ lineHeight: 1.7, fontSize: "1.05rem", fontFamily: "'Fraunces', Georgia, serif" }}>{prompt}</p>
+              </div>
+            ) : null;
+          })()}
 
           {!reflectionSaved && (
             <div>
@@ -885,7 +921,31 @@ export default function PlayPage() {
       )}
 
       {/* ------- STEP 6 — COMPLETION ------- */}
-      {step === "complete" && (
+      {step === "complete" && (() => {
+        /* Spaced repetition: suggest a verse due for review */
+        let reviewVerse: Verse | undefined;
+        try {
+          const srRaw = localStorage.getItem("sg_spaced_rep");
+          if (srRaw) {
+            const sr: Record<string, { count: number; last: string }> = JSON.parse(srRaw);
+            const today = Date.now();
+            let bestId: string | null = null;
+            let bestAge = 0;
+            for (const [vid, entry] of Object.entries(sr)) {
+              if (vid === verse?.id) continue;
+              const age = today - new Date(entry.last).getTime();
+              const daysSince = age / 86_400_000;
+              /* Suggest if last practiced 3+ days ago and has been practiced at least once */
+              if (entry.count >= 1 && daysSince >= 3 && daysSince > bestAge) {
+                bestAge = daysSince;
+                bestId = vid;
+              }
+            }
+            if (bestId) reviewVerse = verses.find((v) => v.id === bestId);
+          }
+        } catch { /* ignore */ }
+
+        return (
         <section className="journey-stage completion-panel" aria-labelledby="completion-heading" style={{ textAlign: "center", padding: "clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem)" }}>
           {verse && (
             <>
@@ -925,8 +985,32 @@ export default function PlayPage() {
               Return home
             </Link>
           </div>
+
+          {reviewVerse && (
+            <div style={{ marginTop: "2rem", padding: "1rem 1.25rem", background: "var(--surface-soft)", borderRadius: "var(--radius)", borderLeft: "3px solid var(--accent)" }}>
+              <p style={{ fontSize: "0.92rem", color: "var(--muted)", marginBottom: "0.5rem" }}>
+                A verse wants to visit you again:
+              </p>
+              <button
+                className="btn btn-ghost"
+                style={{ fontSize: "0.92rem" }}
+                onClick={() => {
+                  setVerse(reviewVerse!);
+                  setSelectedThemeId(reviewVerse!.themeId);
+                  setStep("read");
+                  setPracticeResult(null);
+                  setReflectionText("");
+                  setReflectionSaved(false);
+                  setServerError(null);
+                }}
+              >
+                {reviewVerse.reference} &rarr;
+              </button>
+            </div>
+          )}
         </section>
-      )}
+        );
+      })()}
     </main>
   );
 }

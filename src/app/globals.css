@@ -1227,3 +1227,54 @@ html[data-theme="dark"] textarea:focus-visible,
 html[data-theme="dark"] select:focus-visible {
   outline-color: rgba(125, 183, 186, 0.55);
 }
+
+/* Dark-mode heading legibility */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2 {
+  color: #fff;
+}
+
+html[data-theme="dark"] .theme-card strong,
+html[data-theme="dark"] .verse-list-item strong,
+html[data-theme="dark"] .book-list-item span:first-child,
+html[data-theme="dark"] .practice-level-card strong {
+  color: #fff;
+}
+
+html[data-theme="dark"] .path-card-secondary strong {
+  color: #fff;
+}
+
+/* Memorized badge on verse list */
+.verse-list-item .memorized-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ok);
+  letter-spacing: 0.02em;
+}
+
+/* Hint button */
+.btn-hint {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 999px;
+  min-height: 40px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-hint:hover {
+  background: rgba(213, 174, 103, 0.12);
+}
+
+.btn-hint:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

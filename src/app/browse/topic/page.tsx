@@ -20,6 +20,14 @@ function versePreview(verse: Verse, translationKey: TranslationKey): string {
   return words.length > 10 ? words.slice(0, 10).join(" ") + " …" : full;
 }
 
+function loadMemorized(): Set<string> {
+  try {
+    const raw = localStorage.getItem("sg_memorized_verses");
+    if (raw) return new Set(JSON.parse(raw) as string[]);
+  } catch { /* ignore */ }
+  return new Set();
+}
+
 /* ------------------------------------------------------------------ */
 /*  Component                                                         */
 /* ------------------------------------------------------------------ */
@@ -33,8 +41,12 @@ export default function BrowseByTopicPage() {
   const [verses, setVerses] = useState<Verse[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedThemeId, setSelectedThemeId] = useState<string | null>(null);
+  const [memorized, setMemorized] = useState<Set<string>>(new Set());
 
   const themeOptions: ThemeOption[] = isKids ? KIDS_THEME_OPTIONS : HEART_CHECK_OPTIONS;
+
+  /* load memorized set */
+  useEffect(() => { setMemorized(loadMemorized()); }, []);
 
   /* fetch verses */
   useEffect(() => {
@@ -120,7 +132,10 @@ export default function BrowseByTopicPage() {
               className="verse-list-item"
               role="listitem"
             >
-              <strong>{v.reference}</strong>
+              <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <strong>{v.reference}</strong>
+                {memorized.has(v.id) && <span className="memorized-badge">✓ memorized</span>}
+              </span>
               <span className="muted" style={{ fontSize: "0.9rem" }}>{versePreview(v, translationKey)}</span>
             </Link>
           ))}

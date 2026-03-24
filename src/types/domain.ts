@@ -27,6 +27,7 @@ export type Verse = {
   themeLabel: string;
   devotional: string;
   applicationPrompt: string;
+  applicationPrompts?: string[];
   difficulty?: SkillLevel;
   isDailyFeatured?: boolean;
   kjv?: VerseTranslation;

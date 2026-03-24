@@ -199,6 +199,24 @@ export const HEART_CHECK_OPTIONS: ThemeOption[] = [
     description: "Your own strength ran out a long time ago. His never does. Let the God of the universe be your power today.",
     prompt: "Where are you running on fumes instead of drawing from the limitless strength God offers?",
   },
+  {
+    id: "grief",
+    label: "Grief",
+    description: "Loss has torn something open. Bring your sorrow to the God who is close to the brokenhearted.",
+    prompt: "What grief are you carrying, and can you let God sit with you in it instead of rushing past it?",
+  },
+  {
+    id: "parenting",
+    label: "Parenting",
+    description: "Raising children is holy, exhausting work. Let God's Word steady you when you feel insufficient.",
+    prompt: "Where do you need God's wisdom most in leading and loving the children in your life?",
+  },
+  {
+    id: "work-vocation",
+    label: "Work & Vocation",
+    description: "Your work is not separate from your faith. Let Scripture shape how you labor and why.",
+    prompt: "How is God calling you to honor Him through your work — even when it feels mundane or overwhelming?",
+  },
 ];
 
 export const PRACTICE_LEVELS: Array<{
