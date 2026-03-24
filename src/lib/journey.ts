@@ -1,11 +1,25 @@
 import { normalizeWord } from "@/lib/game";
+import { VERSE_TRANSLATIONS } from "@/lib/verse-translations";
 import type { SkillLevel, ThemeOption, TranslationKey, Verse, VerseTranslation } from "@/types/domain";
 
 /** Return the parts/answers/decoys for a given translation key. Falls back to NIV. */
 export function getVerseTranslation(verse: Verse, key: TranslationKey): VerseTranslation {
-  if (key === "kjv" && verse.kjv) {
-    return verse.kjv;
+  if (key === "niv") return { parts: verse.parts, answers: verse.answers, decoys: verse.decoys };
+
+  /* Inline data on the verse object takes priority */
+  if (key === "kjv" && verse.kjv) return verse.kjv;
+  if (key === "nkjv" && verse.nkjv) return verse.nkjv;
+  if (key === "esv" && verse.esv) return verse.esv;
+
+  /* Fall back to the generated translations lookup */
+  const entry = VERSE_TRANSLATIONS[verse.id];
+  if (entry) {
+    if (key === "nkjv" && entry.nkjv) return entry.nkjv;
+    if (key === "esv" && entry.esv) return entry.esv;
+    if (key === "kjv" && entry.nkjv) return entry.nkjv; /* NKJV as KJV fallback */
   }
+
+  /* Ultimate fallback: NIV */
   return { parts: verse.parts, answers: verse.answers, decoys: verse.decoys };
 }
 

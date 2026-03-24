@@ -5,9 +5,15 @@ import { useState } from "react";
 
 import { useAudience } from "@/lib/audience-context";
 import { useTheme } from "@/lib/theme-context";
+import { useTranslation } from "@/lib/translation-context";
+import type { TranslationKey } from "@/types/domain";
+
+const TRANSLATION_OPTIONS: TranslationKey[] = ["niv", "kjv", "nkjv", "esv"];
+
 export function SiteHeader() {
   const { audienceMode, switchAudience } = useAudience();
   const { themeMode, toggleTheme } = useTheme();
+  const { translationKey, switchTranslation } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -31,6 +37,19 @@ export function SiteHeader() {
             >
               Kids
             </button>
+          </div>
+          <div className="translation-toggle" role="radiogroup" aria-label="Bible translation">
+            {TRANSLATION_OPTIONS.map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="radio"
+                aria-checked={translationKey === key}
+                onClick={() => switchTranslation(key)}
+              >
+                {key.toUpperCase()}
+              </button>
+            ))}
           </div>
           <button
             type="button"
@@ -60,6 +79,7 @@ export function SiteHeader() {
         <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
         <Link href="/browse/topic" onClick={() => setMenuOpen(false)}>By topic</Link>
         <Link href="/browse/book" onClick={() => setMenuOpen(false)}>By book</Link>
+        <Link href="/verses" onClick={() => setMenuOpen(false)}>My memorized</Link>
         <Link href="/why" onClick={() => setMenuOpen(false)}>Why memorize?</Link>
         <Link href="/profile/reflections" onClick={() => setMenuOpen(false)}>My reflections</Link>
       </nav>

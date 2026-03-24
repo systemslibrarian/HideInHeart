@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { useTranslation } from "@/lib/translation-context";
 
-const PSALM_119_11 = {
+const PSALM_119_11: Record<string, string> = {
   niv: "I have hidden your word in my heart, that I might not sin against you.",
   kjv: "Thy word have I hid in mine heart, that I might not sin against thee.",
-} as const;
+  nkjv: "Your word I have hidden in my heart, that I might not sin against You.",
+  esv: "I have stored up your word in my heart, that I might not sin against you.",
+};
 
 export default function HomePage() {
   const { translationKey } = useTranslation();
@@ -18,7 +20,7 @@ export default function HomePage() {
         <h1 style={{ marginTop: 0, textAlign: "center" }}>Let God&apos;s Word take root in your heart.</h1>
         <p className="hero-rhythm" style={{ textAlign: "center" }}>Read · Reflect · Memorize · Live</p>
 
-        <p className="scripture-inline" style={{ textAlign: "left" }}>&ldquo;{PSALM_119_11[translationKey]}&rdquo; <span style={{ whiteSpace: "nowrap" }}>— Psalm 119:11 ({label})</span></p>
+        <p className="scripture-inline" style={{ textAlign: "left" }}>&ldquo;{PSALM_119_11[translationKey] ?? PSALM_119_11.niv}&rdquo; <span style={{ whiteSpace: "nowrap" }}>— Psalm 119:11 ({label})</span></p>
       </section>
 
       <section style={{ textAlign: "center", margin: "0 auto", maxWidth: 520 }}>
@@ -28,6 +30,7 @@ export default function HomePage() {
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/browse/topic" className="btn large">By topic</Link>
           <Link href="/browse/book" className="btn large">By book of the Bible</Link>
+          <Link href="/verses" className="btn large secondary">My memorized</Link>
         </div>
       </section>
 

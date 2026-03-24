@@ -8,13 +8,13 @@ import { HEART_CHECK_OPTIONS, buildFullVerseText } from "@/lib/journey";
 import { KIDS_VERSES, KIDS_THEME_OPTIONS } from "@/lib/kids-verses";
 import { useAudience } from "@/lib/audience-context";
 import { useTranslation } from "@/lib/translation-context";
-import type { ThemeOption, Verse } from "@/types/domain";
+import type { ThemeOption, TranslationKey, Verse } from "@/types/domain";
 
 /* ------------------------------------------------------------------ */
 /*  Helpers                                                           */
 /* ------------------------------------------------------------------ */
 
-function versePreview(verse: Verse, translationKey: "niv" | "kjv"): string {
+function versePreview(verse: Verse, translationKey: TranslationKey): string {
   const full = buildFullVerseText(verse, translationKey);
   const words = full.split(/\s+/);
   return words.length > 10 ? words.slice(0, 10).join(" ") + " …" : full;

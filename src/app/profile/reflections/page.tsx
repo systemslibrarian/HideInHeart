@@ -24,12 +24,49 @@ function formatDate(iso: string): string {
 export default function ReflectionsPage() {
   const [reflections, setReflections] = useState<Reflection[]>([]);
   const [loading, setLoading] = useState(true);
+  const [usingServer, setUsingServer] = useState(false);
+  const [deleting, setDeleting] = useState<number | string | null>(null);
 
   const verseRefMap = useMemo(() => {
     const map = new Map<string, string>();
     for (const v of LOCAL_VERSES) map.set(v.id, v.reference);
     return map;
   }, []);
+
+  function authHeaders(): HeadersInit {
+    const token = localStorage.getItem("sg_access_token");
+    return token ? { Authorization: `Bearer ${token}`, "Content-Type": "application/json" } : { "Content-Type": "application/json" };
+  }
+
+  async function deleteOne(id: number) {
+    setDeleting(id);
+    try {
+      if (usingServer) {
+        await fetch("/api/reflection", { method: "DELETE", headers: authHeaders(), body: JSON.stringify({ id }) });
+      } else {
+        const updated = reflections.filter((r) => r.id !== id);
+        localStorage.setItem("sg_reflections", JSON.stringify(updated));
+      }
+      setReflections((prev) => prev.filter((r) => r.id !== id));
+    } finally {
+      setDeleting(null);
+    }
+  }
+
+  async function deleteAll() {
+    if (!confirm("Remove all reflections? This cannot be undone.")) return;
+    setDeleting("all");
+    try {
+      if (usingServer) {
+        await fetch("/api/reflection", { method: "DELETE", headers: authHeaders(), body: JSON.stringify({ id: "all" }) });
+      } else {
+        localStorage.removeItem("sg_reflections");
+      }
+      setReflections([]);
+    } finally {
+      setDeleting(null);
+    }
+  }
 
   useEffect(() => {
     (async () => {
@@ -45,6 +82,7 @@ export default function ReflectionsPage() {
           const server: Reflection[] = data.reflections ?? [];
           if (server.length > 0) {
             setReflections(server);
+            setUsingServer(true);
             setLoading(false);
             return;
           }
@@ -78,9 +116,30 @@ export default function ReflectionsPage() {
       <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", marginBottom: "0.5rem" }}>
         Your Reflections
       </h1>
-      <p className="muted" style={{ marginBottom: "2rem" }}>
+      <p className="muted" style={{ marginBottom: "1rem" }}>
         A private record of how God&apos;s Word has met you.
       </p>
+
+      {reflections.length > 0 && (
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
+          <button
+            onClick={deleteAll}
+            disabled={deleting === "all"}
+            style={{
+              background: "none",
+              border: "1px solid rgba(180,60,60,0.4)",
+              color: "rgba(180,60,60,0.85)",
+              borderRadius: "6px",
+              padding: "0.4rem 0.85rem",
+              fontSize: "0.85rem",
+              cursor: "pointer",
+              opacity: deleting === "all" ? 0.5 : 1,
+            }}
+          >
+            {deleting === "all" ? "Removing…" : "Clear all reflections"}
+          </button>
+        </div>
+      )}
 
       {reflections.length === 0 ? (
         <div className="card" style={{ textAlign: "center", padding: "2.5rem 1.5rem" }}>
@@ -95,8 +154,33 @@ export default function ReflectionsPage() {
       ) : (
         <div style={{ display: "grid", gap: "1rem" }}>
           {reflections.map((r) => (
-            <article key={r.id} className="card" style={{ padding: "1.25rem 1.5rem" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.75rem" }}>
+            <article key={r.id} className="card" style={{ padding: "1.25rem 1.5rem", position: "relative" }}>
+              <button
+                onClick={() => deleteOne(r.id)}
+                disabled={deleting === r.id}
+                aria-label={`Remove reflection for ${verseRefMap.get(r.verse_id) ?? r.verse_id}`}
+                title="Remove this reflection"
+                style={{
+                  position: "absolute",
+                  top: "0.6rem",
+                  right: "0.6rem",
+                  background: "none",
+                  border: "none",
+                  color: "var(--muted)",
+                  fontSize: "1.1rem",
+                  cursor: "pointer",
+                  padding: "0.25rem 0.4rem",
+                  borderRadius: "4px",
+                  lineHeight: 1,
+                  opacity: deleting === r.id ? 0.4 : 0.6,
+                  transition: "opacity 0.15s",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.color = "rgba(180,60,60,0.85)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = "0.6"; e.currentTarget.style.color = "var(--muted)"; }}
+              >
+                ✕
+              </button>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: "0.5rem", marginBottom: "0.75rem", paddingRight: "1.5rem" }}>
                 <strong style={{ fontFamily: "var(--scripture-font)", fontSize: "1.08rem" }}>{verseRefMap.get(r.verse_id) ?? r.verse_id} <span style={{ fontWeight: 400, color: "var(--muted)", fontSize: "0.85rem" }}>(NIV)</span></strong>
                 <time dateTime={r.created_at} style={{ fontSize: "0.85rem", color: "var(--muted)" }}>
                   {formatDate(r.created_at)}

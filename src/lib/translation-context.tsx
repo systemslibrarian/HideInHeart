@@ -17,10 +17,12 @@ const TranslationContext = createContext<TranslationContextValue>({
 
 const STORAGE_KEY = "sg_translation";
 
+const VALID_KEYS = new Set<TranslationKey>(["niv", "kjv", "nkjv", "esv"]);
+
 function readSavedTranslation(): TranslationKey {
   if (typeof window === "undefined") return "niv";
   const saved = localStorage.getItem(STORAGE_KEY);
-  return saved === "kjv" ? "kjv" : "niv";
+  return VALID_KEYS.has(saved as TranslationKey) ? (saved as TranslationKey) : "niv";
 }
 
 export function TranslationProvider({ children }: { children: ReactNode }) {

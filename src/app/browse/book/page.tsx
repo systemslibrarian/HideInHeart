@@ -7,7 +7,7 @@ import { buildFullVerseText } from "@/lib/journey";
 import { KIDS_VERSES } from "@/lib/kids-verses";
 import { useAudience } from "@/lib/audience-context";
 import { useTranslation } from "@/lib/translation-context";
-import type { Verse } from "@/types/domain";
+import type { TranslationKey, Verse } from "@/types/domain";
 
 /* ------------------------------------------------------------------ */
 /*  Canonical Bible book order                                        */
@@ -46,7 +46,7 @@ function chapterVerse(ref: string): { chapter: number; verse: number } {
   return { chapter: Number(m[1]), verse: Number(m[2]) };
 }
 
-function versePreview(verse: Verse, translationKey: "niv" | "kjv"): string {
+function versePreview(verse: Verse, translationKey: TranslationKey): string {
   const full = buildFullVerseText(verse, translationKey);
   const words = full.split(/\s+/);
   return words.length > 10 ? words.slice(0, 10).join(" ") + " …" : full;

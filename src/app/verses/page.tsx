@@ -1,13 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { LOCAL_VERSES } from "@/lib/verses-local";
 
 const STORAGE_KEY = "sg_memorized_verses";
 
 function loadMemorized(): Set<string> {
+  if (typeof window === "undefined") return new Set();
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return new Set(raw ? (JSON.parse(raw) as string[]) : []);
@@ -23,13 +24,8 @@ function saveMemorized(set: Set<string>) {
 }
 
 export default function VersesPage() {
-  const [memorized, setMemorized] = useState<Set<string>>(new Set());
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMemorized(loadMemorized());
-    setMounted(true);
-  }, []);
+  const [memorized, setMemorized] = useState<Set<string>>(loadMemorized);
+  const [mounted] = useState(() => typeof window !== "undefined");
 
   function toggle(id: string) {
     setMemorized((prev) => {

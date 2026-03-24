@@ -89,6 +89,19 @@ export async function DELETE(request: NextRequest) {
   }
 
   const supabase = createSupabaseAdminClient();
+
+  /* Delete all reflections for this user */
+  if (id === "all") {
+    const { error } = await supabase
+      .from("reflections")
+      .delete()
+      .eq("user_id", user.id);
+    if (error) {
+      return NextResponse.json({ deleted: false, error: error.message }, { status: 500 });
+    }
+    return NextResponse.json({ deleted: true, mode: "supabase", all: true });
+  }
+
   const { error } = await supabase
     .from("reflections")
     .delete()

@@ -8,7 +8,7 @@ export type ThemeOption = {
   verseThemeIds?: string[];
 };
 
-export type TranslationKey = "niv" | "kjv";
+export type TranslationKey = "niv" | "kjv" | "nkjv" | "esv";
 
 export type VerseTranslation = {
   parts: string[];
@@ -30,6 +30,8 @@ export type Verse = {
   difficulty?: SkillLevel;
   isDailyFeatured?: boolean;
   kjv?: VerseTranslation;
+  nkjv?: VerseTranslation;
+  esv?: VerseTranslation;
 };
 
 export type AttemptInput = {
