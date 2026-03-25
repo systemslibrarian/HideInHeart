@@ -140,13 +140,14 @@ a {
   gap: 0.5rem;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .brand-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  justify-content: center;
+  position: relative;
   width: 100%;
 }
 
@@ -1003,23 +1004,12 @@ select:focus-visible {
   .topbar {
     gap: 0.5rem;
   }
-.open .mobile-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    padding: 0.4rem 0.5rem 0.2rem;
-    border-bottom: 1px solid var(--nav-border);
-    margin-bottom: 0.25rem;
-  }
-
-  .nav
-  .header-controls {
-    display: none;
-  }
-
   .menu-toggle {
     display: inline-flex;
-    align-self: flex-start;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .nav {
