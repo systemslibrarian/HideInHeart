@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useTranslation } from "@/lib/translation-context";
 
 const PSALM_119_11: Record<string, string> = {
@@ -26,7 +27,7 @@ export default function HomePage() {
         <h2 id="how-it-works" className="sr-only">How it works</h2>
         <article className="card pillar-card">
           <div className="soft-label">1. Read it</div>
-          <h3>Start with a verse</h3>
+          <h3><Link href="/browse/topic" className="pillar-link">Start with a verse</Link></h3>
           <p className="muted">Begin with a passage you chose. Read it slowly and let the words settle before you move on.</p>
         </article>
         <article className="card pillar-card">

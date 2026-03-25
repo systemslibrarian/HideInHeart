@@ -72,11 +72,6 @@ export function SiteHeader() {
             <button type="button" role="radio" aria-checked={audienceMode === "adults"} onClick={() => switchAudience("adults")}>Adults</button>
             <button type="button" role="radio" aria-checked={audienceMode === "kids"} onClick={() => switchAudience("kids")}>Kids</button>
           </div>
-          <div className="translation-toggle" role="radiogroup" aria-label="Bible translation">
-            {TRANSLATION_OPTIONS.map((key) => (
-              <button key={key} type="button" role="radio" aria-checked={translationKey === key} onClick={() => switchTranslation(key)}>{key.toUpperCase()}</button>
-            ))}
-          </div>
         </div>
       </nav>
 
