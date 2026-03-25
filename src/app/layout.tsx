@@ -20,21 +20,21 @@ const crimsonText = Crimson_Text({
 });
 
 export const metadata: Metadata = {
-  title: "Scripture Journey",
-  description: "A calm daily Scripture journey for reading, reflecting, memorizing, and living God's Word.",
+  title: "Hidden in Heart",
+  description: "A calm daily companion for hiding God's Word in your heart — read, reflect, memorize, and live it.",
   manifest: "/manifest.webmanifest",
   metadataBase: new URL(appUrl),
   openGraph: {
-    title: "Scripture Journey",
-    description: "A calm daily Scripture journey for reading, reflecting, memorizing, and living God's Word.",
+    title: "Hidden in Heart",
+    description: "A calm daily companion for hiding God's Word in your heart — read, reflect, memorize, and live it.",
     type: "website",
     url: appUrl,
-    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "Scripture Journey" }],
+    images: [{ url: "/icon-512.png", width: 512, height: 512, alt: "Hidden in Heart" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scripture Journey",
-    description: "A calm daily Scripture journey for reading, reflecting, memorizing, and living God's Word.",
+    title: "Hidden in Heart",
+    description: "A calm daily companion for hiding God's Word in your heart — read, reflect, memorize, and live it.",
     images: ["/icon-512.png"],
   },
 };

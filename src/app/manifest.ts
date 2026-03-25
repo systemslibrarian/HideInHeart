@@ -4,9 +4,9 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Scripture Memory",
-    short_name: "Scripture",
-    description: "Memorize scripture with a competitive web app experience",
+    name: "Hidden in Heart",
+    short_name: "Hidden in Heart",
+    description: "A calm daily companion for hiding God's Word in your heart — read, reflect, memorize, and live it.",
     start_url: "/",
     display: "standalone",
     background_color: "#0e4c92",

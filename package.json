@@ -2,7 +2,7 @@
   "name": "scripturegame",
   "version": "1.0.0",
   "private": true,
-  "description": "Scripture Memory production web app",
+  "description": "Hidden in Heart — a calm daily companion for memorizing God's Word",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
