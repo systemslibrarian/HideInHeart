@@ -77,9 +77,6 @@ export function SiteHeader() {
               <button key={key} type="button" role="radio" aria-checked={translationKey === key} onClick={() => switchTranslation(key)}>{key.toUpperCase()}</button>
             ))}
           </div>
-          <button type="button" className="theme-toggle" aria-label={`Switch to ${themeMode === "light" ? "dark" : "light"} mode`} onClick={toggleTheme}>
-            {themeMode === "light" ? "🌙" : "☀️"}
-          </button>
         </div>
       </nav>
 
@@ -88,19 +85,30 @@ export function SiteHeader() {
           Hide in Heart
         </Link>
 
-        <button
-          className={`menu-toggle ${menuOpen ? "open" : ""}`}
-          aria-expanded={menuOpen}
-          aria-controls="main-nav"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMenuOpen((o) => !o)}
-        >
-          <span className="menu-toggle-icon">
-            <span className="menu-toggle-bar" />
-            <span className="menu-toggle-bar" />
-            <span className="menu-toggle-bar" />
-          </span>
-        </button>
+        <div className="brand-row-actions">
+          <button
+            type="button"
+            className="theme-toggle mobile-theme-toggle"
+            aria-label={`Switch to ${themeMode === "light" ? "dark" : "light"} mode`}
+            onClick={toggleTheme}
+          >
+            {themeMode === "light" ? "🌙" : "☀️"}
+          </button>
+
+          <button
+            className={`menu-toggle ${menuOpen ? "open" : ""}`}
+            aria-expanded={menuOpen}
+            aria-controls="main-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <span className="menu-toggle-icon">
+              <span className="menu-toggle-bar" />
+              <span className="menu-toggle-bar" />
+              <span className="menu-toggle-bar" />
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   );

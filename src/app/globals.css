@@ -966,6 +966,20 @@ select:focus-visible {
   background: var(--surface-strong);
 }
 
+.mobile-theme-toggle {
+  display: none;
+}
+
+.brand-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .translation-toggle button {
   border: none;
   border-radius: 999px;
@@ -1013,10 +1027,10 @@ select:focus-visible {
 
   .menu-toggle {
     display: inline-flex;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
+  }
+
+  .mobile-theme-toggle {
+    display: inline-flex;
   }
 
   .nav {
