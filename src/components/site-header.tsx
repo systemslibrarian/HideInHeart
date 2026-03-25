@@ -80,7 +80,6 @@ export function SiteHeader() {
         <Link href="/browse/topic" onClick={() => setMenuOpen(false)}>By topic</Link>
         <Link href="/browse/book" onClick={() => setMenuOpen(false)}>By book</Link>
         <Link href="/verses" onClick={() => setMenuOpen(false)}>My memorized</Link>
-        <Link href="/why" onClick={() => setMenuOpen(false)}>Why memorize?</Link>
         <Link href="/profile/reflections" onClick={() => setMenuOpen(false)}>My reflections</Link>
       </nav>
     </header>

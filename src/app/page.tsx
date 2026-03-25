@@ -30,7 +30,6 @@ export default function HomePage() {
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/browse/topic" className="btn large">By topic</Link>
           <Link href="/browse/book" className="btn large">By book of the Bible</Link>
-          <Link href="/verses" className="btn large secondary">My memorized</Link>
         </div>
       </section>
 

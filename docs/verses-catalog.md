@@ -1,51 +1,61 @@
 # HideInHeart — Verse Catalog
 
-> Updated 2026-03-23 from `src/lib/verses-local.ts`, `src/lib/verses-additional.ts` (adults) and `src/lib/kids-verses.ts` (kids).
+> Updated 2026-03-25 from `src/lib/verses-local.ts`, `src/lib/verses-additional.ts` (adults) and `src/lib/kids-verses.ts` (kids).
 
 ## Current App Totals
 
 | Audience | Verse count |
 |---|---:|
-| Adults | 338 |
-| Kids | 38 |
-| **Total** | **376** |
+| Adults | 292 |
+| Kids | 34 |
+| **Total** | **326** |
 
 ---
 
-## Adults: Verses by Topic (338)
+## Adults: Verses by Topic (292)
 
-### Anger (5)
+### The Lord's Prayer (1)
+
+- Matthew 6:9-13
+
+### Addiction (2)
+
+- 1 Corinthians 10:13
+- Galatians 5:1
+
+### Anger (4)
 
 - Ephesians 4:26-27
 - Ephesians 4:29
 - James 1:19-20
-- Proverbs 14:29
 - Proverbs 15:1
 
-### Anxiety (6)
+### Anxiety (5)
 
 - 1 Peter 5:7
 - Matthew 11:28
 - Matthew 6:33-34
-- Matthew 6:34
 - Philippians 4:6
-- Proverbs 12:25
+- Psalm 55:22
 
-### Courage (13)
+### Courage (10)
 
 - 1 John 4:4
 - 2 Corinthians 5:7
 - 2 Timothy 1:7
 - Deuteronomy 31:6
-- Deuteronomy 31:8
 - Isaiah 43:2
 - Joshua 1:9
-- Proverbs 18:10
 - Psalm 121:7-8
 - Psalm 46:1
 - Romans 12:21
-- Romans 8:31
 - Romans 8:31-32
+
+### Depression (3)
+
+- Isaiah 43:2
+- Psalm 42:11
+- Psalm 147:3
 
 ### Doubt (5)
 
@@ -53,19 +63,15 @@
 - Hebrews 11:6
 - John 20:29
 - Mark 9:24
-- Romans 3:23
+- Psalm 34:8
 
-### Father of Lights (9)
+### Father of Lights (5)
 
 - 1 John 1:5
-- Daniel 2:22
 - Genesis 1:3
-- Isaiah 60:19
 - James 1:17
 - John 1:4-5
 - Psalm 19:1
-- Revelation 21:23
-- Revelation 4:11
 
 ### Fear (5)
 
@@ -75,81 +81,63 @@
 - Psalm 46:10
 - Psalm 56:3
 
-### Forgiveness (5)
+### Forgiveness (4)
 
 - Colossians 2:13-14
 - Colossians 3:13
 - Ephesians 4:32
-- Matthew 6:14
 - Matthew 6:14-15
 
-### God's Faithfulness (10)
+### God's Faithfulness (7)
 
 - 2 Timothy 2:13
 - Exodus 34:6
 - Lamentations 3:22-23
-- Luke 16:10
 - Numbers 23:19
-- Proverbs 3:3-4
 - Psalm 100:5
 - Psalm 33:4
 - Psalm 36:5
-- Psalm 52:8
 
-### God's Light (17)
+### God's Light (11)
 
 - 1 John 1:7
-- 2 Corinthians 3:17
-- 2 Samuel 22:29
 - Ephesians 5:8
 - Isaiah 60:1
-- John 12:36
 - John 8:12
 - John 8:32
 - Matthew 4:16
 - Matthew 5:14
 - Matthew 5:16
-- Micah 7:8
 - Philippians 2:14-15
 - Psalm 119:105
-- Psalm 119:130
-- Psalm 18:28
 - Psalm 27:1
 
-### God's Love (23)
+### God's Love (17)
 
 - 1 Corinthians 13:13
 - 1 Corinthians 13:4-5
 - 1 Corinthians 13:4-7
 - 1 Corinthians 13:8
-- 1 Corinthians 16:14
 - 1 John 4:16
 - 1 John 4:7-8
-- 1 John 4:9
 - Colossians 3:12
 - Deuteronomy 6:5
-- Ephesians 4:2
 - Ephesians 5:1-2
 - Jeremiah 31:3
 - John 13:34-35
 - John 15:13
-- Luke 6:35
 - Mark 12:30-31
 - Matthew 22:37-39
-- Philippians 2:3-4
 - Proverbs 17:17
-- Romans 15:7
 - Romans 5:8
 - Romans 8:35
 
-### God's Word (17)
+### God's Word (14)
 
 - 2 Timothy 2:15
 - 2 Timothy 3:16
-- 2 Timothy 3:16-17
 - Colossians 3:16-17
 - Deuteronomy 6:6-7
-- Hebrews 1:1-2
 - Hebrews 4:12
 - Isaiah 40:8
 - John 17:17
@@ -158,28 +146,29 @@
 - Matthew 4:4
 - Psalm 119:11
 - Psalm 119:9
-- Psalm 12:6
 - Psalm 1:1-3
 - Romans 10:17
 
-### Grace (12)
+### Grace (9)
 
 - Ephesians 1:7
 - Ephesians 2:4-5
 - Ephesians 2:8-9
 - Hebrews 4:16
 - Psalm 103:8-10
-- Psalm 86:15
-- Romans 11:6
 - Romans 3:24
-- Romans 5:6
 - Romans 6:1-2
 - Titus 2:11-14
 - Titus 3:5
 
-### Guidance (12)
+### Grief (3)
 
-- 2 Corinthians 6:14
+- Matthew 5:4
+- Psalm 34:18
+- Revelation 21:4
+
+### Guidance (9)
+
 - James 1:5
 - John 14:26
 - Matthew 7:13-14
@@ -187,12 +176,10 @@
 - Proverbs 19:21
 - Proverbs 22:6
 - Proverbs 3:5-6
-- Psalm 119:105
 - Psalm 143:8
-- Psalm 1:6
 - Psalm 25:4-5
 
-### Hope (13)
+### Hope (12)
 
 - 1 Corinthians 2:9
 - Hebrews 6:19
@@ -204,15 +191,13 @@
 - Revelation 21:4
 - Romans 12:12
 - Romans 15:13
-- Romans 4:20-21
 - Romans 8:18
 - Romans 8:28
 
-### Identity in Christ (14)
+### Identity in Christ (11)
 
 - 1 Corinthians 12:27
 - 1 Corinthians 6:19-20
-- 1 Corinthians 6:20
 - 1 Peter 2:9
 - 2 Corinthians 5:17
 - Ephesians 2:10
@@ -220,26 +205,33 @@
 - Galatians 3:26
 - Genesis 1:27
 - John 1:12
-- Philippians 3:20
 - Psalm 139:14
 - Romans 6:14
-- Romans 8:30
 
-### Joy (11)
+### Joy (8)
 
-- 1 Chronicles 16:34
 - 1 Thessalonians 5:16-18
-- 1 Thessalonians 5:18
 - Nehemiah 8:10
 - Psalm 100:1-2
 - Psalm 103:1-2
-- Psalm 138:1
 - Psalm 150:6
 - Psalm 16:11
 - Psalm 37:4
 - Romans 14:17
 
-### Mission (8)
+### Loneliness (3)
+
+- Ecclesiastes 4:9-10
+- Hebrews 10:24-25
+- Psalm 68:6
+
+### Marriage (3)
+
+- 1 Corinthians 13:4-7
+- Ecclesiastes 4:12
+- Ephesians 5:25
+
+### Mission (7)
 
 - 1 Peter 3:15
 - Acts 1:8
@@ -247,67 +239,58 @@
 - Hebrews 10:24-25
 - Mark 16:15
 - Matthew 28:18-20
-- Matthew 28:19-20
 - Matthew 4:19
 
-### Obedience (19)
+### Obedience (13)
 
 - 1 John 3:23
 - 1 John 5:3
-- Acts 24:16
 - Acts 5:29
 - Colossians 3:17
-- Colossians 3:23
 - Ecclesiastes 12:13
 - Ephesians 6:1-3
 - James 1:22
-- James 2:26
 - James 4:17
 - John 14:15
-- John 14:21
 - Joshua 1:8
-- Leviticus 19:11
 - Luke 11:28
 - Matthew 7:24
-- Proverbs 14:5
 - Romans 13:1
 
-### Peace (11)
+### Peace (9)
 
-- 1 Thessalonians 5:23
 - Exodus 14:14
 - Hebrews 12:14
 - Isaiah 26:3
 - John 14:27
 - Numbers 6:24-26
 - Philippians 4:6-7
-- Philippians 4:7
 - Psalm 34:14
 - Romans 12:17-18
 - Romans 5:1
 
-### Perseverance (15)
+### Perseverance (10)
 
 - 1 Corinthians 15:58
 - 1 Peter 1:6-7
-- 2 Timothy 3:12
 - Galatians 6:9
-- Hebrews 10:35
 - Hebrews 12:1-2
-- Hebrews 12:2
-- Hebrews 12:3
 - James 1:12
 - James 1:2-4
-- Jude 1:3
 - Matthew 5:11-12
 - Philippians 1:6
 - Romans 5:3-4
 - Romans 8:38-39
 
-### Prayer (12)
+### Physical Healing (3)
+
+- James 5:14-15
+- Jeremiah 30:17
+- 3 John 1:2
+
+### Prayer (11)
 
 - 1 John 5:14
-- 1 John 5:14-15
 - 1 Thessalonians 5:17
 - Colossians 4:2
 - John 15:7
@@ -319,11 +302,9 @@
 - Psalm 63:1
 - Romans 8:26
 
-### Provision (9)
+### Provision (7)
 
-- 2 Corinthians 9:7
 - Hebrews 13:5
-- Luke 12:15
 - Matthew 6:19-21
 - Matthew 6:33
 - Philippians 4:19
@@ -331,15 +312,14 @@
 - Psalm 23:1
 - Psalm 37:25
 
-### Rest (5)
+### Rest (4)
 
-- Hebrews 4:9-10
+- Exodus 33:14
 - Matthew 11:28-30
-- Matthew 11:29
 - Psalm 23:1-2
 - Psalm 91:1-2
 
-### Salvation (31)
+### Salvation (28)
 
 - 1 Corinthians 2:2
 - 1 John 2:2
@@ -353,42 +333,47 @@
 - Isaiah 53:5
 - Isaiah 53:6
 - Isaiah 9:6
-- James 2:10
 - John 10:30
 - John 14:6
 - John 1:14
 - John 20:31
 - John 3:16-17
-- John 3:36
 - John 5:24
 - Luke 19:10
-- Luke 1:30-33
 - Matthew 1:21
 - Matthew 28:6
 - Revelation 3:20
 - Romans 10:9-10
 - Romans 1:16
 - Romans 3:10-12
-- Romans 5:12
+- Romans 3:23
 - Romans 5:9-10
 - Romans 8:1
 
-### Strength (8)
+### Singleness (3)
+
+- 1 Corinthians 7:7-8
+- Philippians 4:11-12
+- Psalm 37:4
+
+### Spiritual Warfare (3)
+
+- 1 John 4:4
+- Ephesians 6:12
+- James 4:7
+
+### Strength (5)
 
 - 2 Corinthians 12:9
 - Ephesians 3:16-17
 - Ephesians 6:10-11
-- Isaiah 26:4
 - Isaiah 40:28
-- Isaiah 40:29
 - John 16:33
-- Psalm 147:5
 
-### Surrender (16)
+### Surrender (14)
 
 - 1 Peter 5:6-7
 - Colossians 3:2
-- Galatians 5:22-23
 - Isaiah 55:8-9
 - Luke 16:13
 - Luke 9:23
@@ -400,7 +385,6 @@
 - Psalm 139:23-24
 - Psalm 51:10
 - Romans 12:1
-- Romans 12:1-2
 - Romans 12:2
 
 ### Temptation (5)
@@ -411,37 +395,37 @@
 - James 1:13-15
 - Romans 6:23
 
-### Waiting (4)
+### Trauma (3)
+
+- Isaiah 61:1
+- Psalm 34:18
+- Psalm 147:3
+
+### Waiting (3)
 
 - Isaiah 40:31
 - Jeremiah 29:11
-- Lamentations 3:25
 - Psalm 130:5
 
-### Wisdom (18)
+### Wisdom (13)
 
 - 1 Corinthians 15:33
 - 1 John 4:1
 - 1 Thessalonians 5:21
 - Colossians 2:8
 - Galatians 6:7
-- James 1:26
 - James 1:5
-- Matthew 12:36-37
-- Proverbs 11:9
 - Proverbs 13:20
 - Proverbs 13:3
-- Proverbs 16:24
 - Proverbs 16:9
 - Proverbs 18:21
 - Proverbs 1:7
 - Proverbs 2:6
 - Proverbs 3:7-8
-- Romans 16:17-18
 
 ---
 
-## Kids: Verses by Topic (38)
+## Kids: Verses by Topic (34)
 
 ### About Character (11)
 
@@ -457,30 +441,27 @@
 - Psalm 139:14
 - Psalm 56:3
 
-### About Faith (6)
+### About Faith (5)
 
-- 2 Corinthians 4:18
 - Hebrews 11:6
 - Jeremiah 29:11
 - Proverbs 3:5
 - Psalm 118:24
 - Romans 10:17
 
-### About God (9)
+### About God (8)
 
 - Genesis 1:1
 - Isaiah 43:5
 - James 1:17
 - John 3:16
 - Matthew 28:20
-- Proverbs 30:5
 - Psalm 145:9
 - Psalm 46:10
 - Romans 10:13
 
-### About Jesus (7)
+### About Jesus (6)
 
-- Galatians 5:22-23
 - Hebrews 13:8
 - John 14:1
 - John 14:6
@@ -488,58 +469,52 @@
 - Matthew 19:26
 - Romans 5:8
 
-### About Love (5)
+### About Love (4)
 
 - 1 John 4:18
 - 1 John 4:19
 - 1 John 4:8
 - Psalm 136:1
-- Romans 12:9
 
 ---
 
-## Book Coverage (Adults — 338 verses across 38 books)
+## Book Coverage (Adults — 292 verses across 33 books)
 
 | Book | Count |
 |---|---:|
 | Psalm | 42 |
-| Romans | 37 |
-| Matthew | 29 |
-| John | 27 |
-| Proverbs | 21 |
-| Hebrews | 17 |
-| Isaiah | 14 |
-| Ephesians | 13 |
-| 1 John | 13 |
-| 1 Corinthians | 13 |
-| James | 12 |
-| Philippians | 10 |
-| Colossians | 10 |
-| Luke | 9 |
+| Romans | 28 |
+| Matthew | 26 |
+| John | 24 |
+| 1 Corinthians | 14 |
+| Ephesians | 14 |
+| Proverbs | 14 |
+| Hebrews | 13 |
+| Isaiah | 13 |
+| 1 John | 12 |
+| James | 11 |
+| Colossians | 9 |
+| Philippians | 8 |
 | 1 Peter | 7 |
-| 2 Corinthians | 7 |
-| 2 Timothy | 6 |
-| Mark | 5 |
 | Galatians | 5 |
-| Acts | 5 |
-| 1 Thessalonians | 5 |
-| Revelation | 4 |
-| Deuteronomy | 4 |
-| Jeremiah | 3 |
-| Lamentations | 2 |
+| Luke | 5 |
+| Mark | 5 |
+| 2 Corinthians | 4 |
+| 2 Timothy | 4 |
+| Acts | 4 |
+| Jeremiah | 4 |
+| 1 Thessalonians | 3 |
+| Deuteronomy | 3 |
+| Ecclesiastes | 3 |
+| Exodus | 3 |
+| Revelation | 3 |
 | Genesis | 2 |
 | Joshua | 2 |
-| Titus | 2 |
-| Exodus | 2 |
 | Numbers | 2 |
-| 2 Samuel | 1 |
-| Micah | 1 |
-| Daniel | 1 |
+| Titus | 2 |
+| 3 John | 1 |
+| Lamentations | 1 |
 | Nehemiah | 1 |
-| 1 Chronicles | 1 |
-| Ecclesiastes | 1 |
-| Jude | 1 |
-| Leviticus | 1 |
 
 ---
 

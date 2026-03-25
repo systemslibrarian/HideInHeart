@@ -4,6 +4,38 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { LOCAL_VERSES } from "@/lib/verses-local";
+import type { Verse } from "@/types/domain";
+
+const BIBLE_BOOK_ORDER: string[] = [
+  "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth",
+  "1 Samuel","2 Samuel","1 Kings","2 Kings","1 Chronicles","2 Chronicles",
+  "Ezra","Nehemiah","Esther","Job","Psalm","Proverbs","Ecclesiastes",
+  "Song of Songs","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel",
+  "Hosea","Joel","Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk",
+  "Zephaniah","Haggai","Zechariah","Malachi",
+  "Matthew","Mark","Luke","John","Acts","Romans",
+  "1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians",
+  "Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy",
+  "Titus","Philemon","Hebrews","James","1 Peter","2 Peter",
+  "1 John","2 John","3 John","Jude","Revelation",
+];
+
+function parseBibleRef(ref: string): { bookIndex: number; chapter: number; verse: number } {
+  const m = ref.match(/^(.+?)\s+(\d+):(\d+)/);
+  if (!m) return { bookIndex: 999, chapter: 0, verse: 0 };
+  const bookIndex = BIBLE_BOOK_ORDER.indexOf(m[1]);
+  return { bookIndex: bookIndex === -1 ? 999 : bookIndex, chapter: Number(m[2]), verse: Number(m[3]) };
+}
+
+function sortByBibleOrder(verses: Verse[]): Verse[] {
+  return [...verses].sort((a, b) => {
+    const pa = parseBibleRef(a.reference);
+    const pb = parseBibleRef(b.reference);
+    if (pa.bookIndex !== pb.bookIndex) return pa.bookIndex - pb.bookIndex;
+    if (pa.chapter !== pb.chapter) return pa.chapter - pb.chapter;
+    return pa.verse - pb.verse;
+  });
+}
 
 const STORAGE_KEY = "sg_memorized_verses";
 
@@ -55,7 +87,7 @@ export default function VersesPage() {
       </section>
 
       <section aria-label="Verse catalog" className="grid two">
-        {LOCAL_VERSES.map((verse) => {
+        {sortByBibleOrder(LOCAL_VERSES).map((verse) => {
           const isMemorized = mounted && memorized.has(verse.id);
           return (
             <article
