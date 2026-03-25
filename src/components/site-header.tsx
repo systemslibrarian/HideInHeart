@@ -60,6 +60,14 @@ export function SiteHeader() {
         </button>
       </div>
 
+      <nav id="main-nav" className={`nav ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
+        <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link href="/browse/topic" onClick={() => setMenuOpen(false)}>By topic</Link>
+        <Link href="/browse/book" onClick={() => setMenuOpen(false)}>By book</Link>
+        <Link href="/verses" onClick={() => setMenuOpen(false)}>My memorized</Link>
+        <Link href="/profile/reflections" onClick={() => setMenuOpen(false)}>My reflections</Link>
+      </nav>
+
       <div className="brand-row">
         <Link href="/" className="brand-name" onClick={() => setMenuOpen(false)}>
           Hide in Heart
@@ -79,14 +87,6 @@ export function SiteHeader() {
           </span>
         </button>
       </div>
-
-      <nav id="main-nav" className={`nav ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
-        <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link href="/browse/topic" onClick={() => setMenuOpen(false)}>By topic</Link>
-        <Link href="/browse/book" onClick={() => setMenuOpen(false)}>By book</Link>
-        <Link href="/verses" onClick={() => setMenuOpen(false)}>My memorized</Link>
-        <Link href="/profile/reflections" onClick={() => setMenuOpen(false)}>My reflections</Link>
-      </nav>
     </header>
   );
 }
