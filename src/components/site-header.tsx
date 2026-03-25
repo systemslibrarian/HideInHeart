@@ -81,6 +81,18 @@ export function SiteHeader() {
       </nav>
 
       <div className="brand-row">
+        <div className="mobile-version-select">
+          <select
+            aria-label="Bible translation"
+            value={translationKey}
+            onChange={(e) => switchTranslation(e.target.value as TranslationKey)}
+          >
+            {TRANSLATION_OPTIONS.map((key) => (
+              <option key={key} value={key}>{key.toUpperCase()}</option>
+            ))}
+          </select>
+        </div>
+
         <Link href="/" className="brand-name" onClick={() => setMenuOpen(false)}>
           Hide in Heart
         </Link>

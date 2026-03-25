@@ -975,6 +975,11 @@ select:focus-visible {
   display: none;
 }
 
+/* compact version pill — hidden on desktop, shown on mobile */
+.mobile-version-select {
+  display: none;
+}
+
 .brand-row-actions {
   display: flex;
   align-items: center;
@@ -1036,6 +1041,33 @@ select:focus-visible {
 
   .mobile-theme-toggle {
     display: inline-flex;
+  }
+
+  .mobile-version-select {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .mobile-version-select select {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--nav-border);
+    border-radius: 999px;
+    background: var(--surface-strong);
+    color: var(--ink);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.32rem 1.6rem 0.32rem 0.7rem;
+    min-height: 36px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236e7d96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.55rem center;
   }
 
   .nav {
