@@ -209,6 +209,11 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ---- bottom mobile nav (hidden on desktop) ---- */
+.bottom-nav {
+  display: none;
+}
+
 .hero {
   background: linear-gradient(160deg, var(--brand-strong), var(--brand));
   color: white;
@@ -1116,6 +1121,52 @@ select:focus-visible {
 
   .practice-meta {
     flex-direction: column;
+  }
+
+  /* ---- bottom nav ---- */
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    background: var(--surface-soft);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--nav-border);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .bottom-nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.18rem;
+    padding: 0.55rem 0.25rem;
+    min-height: 56px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.15s ease;
+  }
+
+  .bottom-nav-item.active {
+    color: var(--brand);
+  }
+
+  .bottom-nav-item svg {
+    flex-shrink: 0;
+  }
+
+  /* pad main content so bottom nav doesn't cover it */
+  .shell {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
   }
 }
 

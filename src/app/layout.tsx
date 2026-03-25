@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Crimson_Text } from "next/font/google";
 
+import { BottomNav } from "@/components/bottom-nav";
 import { SiteHeader } from "@/components/site-header";
 import { AudienceProvider } from "@/lib/audience-context";
 import { getAppUrl } from "@/lib/env";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 {children}
               </main>
             </div>
+            <BottomNav />
 
             </AudienceProvider>
           </TranslationProvider>
