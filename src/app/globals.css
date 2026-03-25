@@ -1,60 +1,60 @@
 :root {
-  --bg: #faf8f4;
-  --ink: #1a2035;
-  --brand: #4a7c7e;
-  --brand-strong: #3a6264;
-  --accent: #d5ae67;
-  --card: #fffdfa;
-  --muted: #7a8499;
+  --bg: #f6f3ed;
+  --ink: #1e2638;
+  --brand: #5a8f91;
+  --brand-strong: #457072;
+  --accent: #c99a3f;
+  --card: #fffdf8;
+  --muted: #6e7d96;
   --ok: #3d7a5e;
   --bad: #a04d46;
-  --border: #e2ddd6;
+  --border: #ddd8cf;
   --radius: 16px;
   --scripture-font: var(--font-crimson), 'Crimson Text', Georgia, serif;
-  --surface-soft: rgba(255, 255, 255, 0.85);
-  --surface-strong: rgba(255, 255, 255, 0.7);
+  --surface-soft: rgba(255, 255, 255, 0.88);
+  --surface-strong: rgba(255, 255, 255, 0.72);
   --menu-bg: #fff;
-  --menu-border: #cfd6df;
-  --nav-border: #d2d8e0;
+  --menu-border: #c4d0da;
+  --nav-border: #cdd3dc;
   --page-glow-1: rgba(255, 255, 255, 0.9);
-  --page-glow-2: rgba(213, 174, 103, 0.2);
-  --page-grad-start: #e8e0d1;
+  --page-glow-2: rgba(201, 154, 63, 0.22);
+  --page-grad-start: #e9e4d8;
   --page-grad-end: var(--bg);
-  --ink-soft: rgba(35, 49, 58, 0.85);
-  --blank-bg: #fff8eb;
-  --blank-border: #b56d08;
-  --blank-placeholder: #7b4a00;
-  --drop-help-bg: #fff7e9;
-  --drop-help-border: #e6c891;
-  --drop-help-ink: #54350b;
+  --ink-soft: rgba(30, 38, 56, 0.82);
+  --blank-bg: #fef7e8;
+  --blank-border: #b07020;
+  --blank-placeholder: #7a4500;
+  --drop-help-bg: #fef6e4;
+  --drop-help-border: #e4c47a;
+  --drop-help-ink: #4e3108;
 }
 
 html[data-theme="dark"] {
-  --bg: #0f1623;
-  --ink: #eef3ff;
-  --brand: #7db7ba;
-  --brand-strong: #5d9092;
-  --accent: #e6c27a;
-  --card: #172132;
-  --muted: #a9b5ca;
+  --bg: #0e1520;
+  --ink: #e8eeff;
+  --brand: #80bcc0;
+  --brand-strong: #5f9598;
+  --accent: #e8c47c;
+  --card: #162030;
+  --muted: #a4b2cb;
   --ok: #7ec6a1;
   --bad: #e09289;
-  --border: #2b3950;
-  --surface-soft: rgba(23, 33, 50, 0.92);
-  --surface-strong: rgba(23, 33, 50, 0.82);
-  --menu-bg: #172132;
-  --menu-border: #31405b;
-  --nav-border: #31405b;
-  --page-glow-1: rgba(127, 162, 220, 0.08);
-  --page-glow-2: rgba(230, 194, 122, 0.08);
-  --page-grad-start: #121c2c;
+  --border: #273448;
+  --surface-soft: rgba(20, 30, 48, 0.93);
+  --surface-strong: rgba(20, 30, 48, 0.84);
+  --menu-bg: #162030;
+  --menu-border: #2e3f5a;
+  --nav-border: #2e3f5a;
+  --page-glow-1: rgba(120, 160, 220, 0.09);
+  --page-glow-2: rgba(232, 196, 124, 0.09);
+  --page-grad-start: #111b2a;
   --page-grad-end: var(--bg);
-  --ink-soft: rgba(238, 243, 255, 0.82);
-  --blank-bg: rgba(230, 194, 122, 0.10);
-  --blank-border: rgba(230, 194, 122, 0.55);
+  --ink-soft: rgba(232, 238, 255, 0.82);
+  --blank-bg: rgba(232, 196, 124, 0.11);
+  --blank-border: rgba(232, 196, 124, 0.55);
   --blank-placeholder: var(--accent);
-  --drop-help-bg: rgba(230, 194, 122, 0.10);
-  --drop-help-border: rgba(230, 194, 122, 0.30);
+  --drop-help-bg: rgba(232, 196, 124, 0.11);
+  --drop-help-border: rgba(232, 196, 124, 0.32);
   --drop-help-ink: var(--accent);
 }
 
@@ -395,8 +395,8 @@ a {
 
 .scripture-anchor {
   font-family: var(--scripture-font);
-  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
-  line-height: 1.65;
+  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  line-height: 1.7;
   text-align: center;
   max-width: 38rem;
   margin: 0.5rem auto 1.5rem;
@@ -419,8 +419,8 @@ a {
 
 .scripture-inline {
   font-family: var(--scripture-font);
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.6;
+  font-size: clamp(1.1rem, 2.1vw, 1.3rem);
+  line-height: 1.65;
   text-align: center;
   max-width: 40rem;
   margin: 0.25rem auto 1rem;
@@ -497,7 +497,7 @@ a {
   margin: 0.18rem 0.32rem;
   padding: 0.5rem 0.8rem;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.05rem;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -558,9 +558,9 @@ a {
 }
 
 .verse-text {
-  line-height: 2.15;
+  line-height: 2.2;
   margin: 0;
-  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
 }
 
 .verse-text.drop-zone-active {
@@ -740,8 +740,8 @@ a {
 }
 
 .journey-devotional {
-  font-size: 1.05rem;
-  line-height: 1.9;
+  font-size: 1.12rem;
+  line-height: 1.95;
   color: var(--ink);
 }
 
@@ -889,8 +889,8 @@ a {
 
 .verse-display {
   font-family: var(--scripture-font);
-  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-  line-height: 1.85;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  line-height: 1.9;
   font-style: italic;
   text-align: center;
   color: var(--ink);

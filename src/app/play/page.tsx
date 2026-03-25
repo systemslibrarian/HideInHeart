@@ -700,7 +700,7 @@ export default function PlayPage() {
           </div>
 
           {/* verse with blanks */}
-          <div className="verse-area" role="group" aria-label="Verse with blanks to fill" style={{ lineHeight: 2.15, fontSize: "1.15rem" }}>
+          <div className="verse-area" role="group" aria-label="Verse with blanks to fill" style={{ lineHeight: 2.2, fontSize: "1.25rem" }}>
             {t.parts.map((part, answerIndex) => {
               const slotIndex = blankIndexLookup.get(answerIndex);
               const isBlank = slotIndex !== undefined;
