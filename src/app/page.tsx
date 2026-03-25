@@ -85,23 +85,6 @@ export default function HomePage() {
         </div>
       )}
 
-      <section className="browse-shortcuts" aria-label="Browse verses">
-        <Link href="/browse/topic" className="browse-shortcut-card">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-            <line x1="7" y1="7" x2="7.01" y2="7"/>
-          </svg>
-          <span>By Topic</span>
-        </Link>
-        <Link href="/browse/book" className="browse-shortcut-card">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-          </svg>
-          <span>By Book</span>
-        </Link>
-      </section>
-
       <section className="grid three home-grid" aria-labelledby="how-it-works">
         <h2 id="how-it-works" className="sr-only">How it works</h2>
         <article className="card pillar-card">

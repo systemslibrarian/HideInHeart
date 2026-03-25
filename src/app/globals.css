@@ -109,10 +109,25 @@ a {
 .topbar {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0;
   margin-bottom: 1rem;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* ---- top bar main row: brand left, controls right ---- */
+.topbar-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--nav-border);
+}
+
+.topbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .brand {
@@ -136,19 +151,75 @@ a {
 }
 
 .header-controls {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: none;
 }
 
 .brand-row {
-  display: flex;
+  display: none;
+}
+
+/* ---- version select (shared styling, used in topbar-controls) ---- */
+.version-select {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
+}
+
+.version-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 1.8rem 0.35rem 0.78rem;
+  min-height: 38px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236e7d96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.55rem center;
+}
+
+/* ---- desktop tab bar navigation ---- */
+.desktop-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--nav-border);
+  padding-top: 0.15rem;
+}
+
+.desktop-nav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.desktop-nav-item:hover {
+  color: var(--ink);
+}
+
+.desktop-nav-item.active {
+  color: var(--brand);
+  border-bottom-color: var(--brand);
+}
+
+.desktop-nav-item svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.desktop-nav-item.active svg {
+  opacity: 1;
 }
 
 .menu-toggle {
@@ -191,7 +262,7 @@ a {
 }
 
 .nav {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 0.6rem;
 }
@@ -199,14 +270,19 @@ a {
 .nav a {
   background: var(--surface-strong);
   border: 1px solid var(--nav-border);
-  border-radius: 999px;
+  border-radius: var(--radius);
   min-height: 48px;
-  padding: 0.4rem 0.85rem;
+  padding: 0.55rem 1rem;
   font-size: 0.95rem;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
   -webkit-tap-highlight-color: transparent;
+}
+
+.nav a svg {
+  flex-shrink: 0;
+  opacity: 0.6;
 }
 
 /* ---- bottom mobile nav (hidden on desktop) ---- */
@@ -1076,37 +1152,8 @@ select:focus-visible {
   display: none;
 }
 
-.desktop-version-select {
-  display: inline-flex;
-  align-items: center;
-}
-
-.desktop-version-select select {
-  appearance: none;
-  -webkit-appearance: none;
-  border: 1px solid var(--nav-border);
-  border-radius: 999px;
-  background: var(--surface-strong);
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  padding: 0.38rem 1.8rem 0.38rem 0.78rem;
-  min-height: 40px;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236e7d96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.6rem center;
-}
-
 .brand-row-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  display: none;
 }
 
 .translation-toggle button {
@@ -1150,7 +1197,13 @@ select:focus-visible {
     gap: 0.5rem;
   }
 
-  .header-controls {
+  /* hide desktop tab bar on mobile */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* show mobile controls */
+  .topbar-controls .translation-toggle {
     display: none;
   }
 
@@ -1189,10 +1242,6 @@ select:focus-visible {
     background-position: right 0.55rem center;
   }
 
-  .desktop-version-select {
-    display: none;
-  }
-
   .nav {
     display: none;
     width: 100%;
@@ -1219,7 +1268,6 @@ select:focus-visible {
 
   .nav a {
     width: 100%;
-    justify-content: center;
   }
 
   .card {
