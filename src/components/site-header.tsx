@@ -37,18 +37,16 @@ export function SiteHeader() {
             Kids
           </button>
         </div>
-        <div className="translation-toggle" role="radiogroup" aria-label="Bible translation">
-          {TRANSLATION_OPTIONS.map((key) => (
-            <button
-              key={key}
-              type="button"
-              role="radio"
-              aria-checked={translationKey === key}
-              onClick={() => switchTranslation(key)}
-            >
-              {key.toUpperCase()}
-            </button>
-          ))}
+        <div className="desktop-version-select">
+          <select
+            aria-label="Bible translation"
+            value={translationKey}
+            onChange={(e) => switchTranslation(e.target.value as TranslationKey)}
+          >
+            {TRANSLATION_OPTIONS.map((key) => (
+              <option key={key} value={key}>{key.toUpperCase()}</option>
+            ))}
+          </select>
         </div>
         <button
           type="button"

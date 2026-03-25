@@ -1076,6 +1076,29 @@ select:focus-visible {
   display: none;
 }
 
+.desktop-version-select {
+  display: inline-flex;
+  align-items: center;
+}
+
+.desktop-version-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--nav-border);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.38rem 1.8rem 0.38rem 0.78rem;
+  min-height: 40px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236e7d96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+}
+
 .brand-row-actions {
   display: flex;
   align-items: center;
@@ -1164,6 +1187,10 @@ select:focus-visible {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236e7d96' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.55rem center;
+  }
+
+  .desktop-version-select {
+    display: none;
   }
 
   .nav {

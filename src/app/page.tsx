@@ -64,7 +64,6 @@ export default function HomePage() {
   return (
     <main className="grid spacious">
       <section className="hero hero-journey">
-        <h1 style={{ marginTop: 0, textAlign: "center" }}>Hide in Heart</h1>
         <p className="hero-rhythm" style={{ textAlign: "center" }}>Read · Reflect · Memorize · Live</p>
 
         <p className="scripture-inline" style={{ textAlign: "left" }}>&ldquo;{PSALM_119_11[translationKey] ?? PSALM_119_11.niv}&rdquo; <span style={{ whiteSpace: "nowrap" }}>— Psalm 119:11 ({label})</span></p>
