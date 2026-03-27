@@ -27,11 +27,11 @@ Each session you walk through a short journey:
 ## Features
 
 - **Word-tile memorization** — the central mechanic, designed for mobile and desktop.
-- **Topic selection** — 28 themes across 134 adult verses and 38 kid-friendly verses.
+- **Topic selection** — 32 themes across 353 adult verses and 34 kid-friendly verses. Every theme now has verses.
 - **Practice mode** — quick standalone verse practice without a full journey.
 - **Kids mode** — age-appropriate verses across 5 themes with an Adults/Kids toggle.
 - **Three depth levels** — beginner, intermediate, and expert control how many blanks appear.
-- **NIV / KJV toggle** — switch translations at any time.
+- **NIV / KJV / NKJV / ESV toggle** — switch translations at any time.
 - **"Why memorize Scripture" page** — encouragement and context for the practice.
 - **Offline-capable** — a local verse set works without any backend connection.
 - **Reflections** — save short written responses to application prompts after each journey.
