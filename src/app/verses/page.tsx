@@ -267,7 +267,7 @@ export default function VersesPage() {
               <p className="verse-preview">{buildFullVerseText(verse, translationKey)}</p>
               <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", marginTop: "0.25rem" }}>
                 <Link className="btn secondary" href={`/play?verse=${verse.id}&theme=${verse.themeId}`}>
-                  Practice this set
+                  Memorize this verse
                 </Link>
                 <button
                   onClick={() => toggle(verse.id)}
