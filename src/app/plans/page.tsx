@@ -7,7 +7,6 @@ import {
   ADULT_PLANS,
   KIDS_PLANS,
   PLAN_CATEGORIES,
-  type MemorizationPlan,
   type PlanCategory,
 } from "@/lib/plans";
 import { buildFullVerseText } from "@/lib/journey";
