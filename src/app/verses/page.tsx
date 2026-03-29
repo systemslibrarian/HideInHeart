@@ -48,6 +48,7 @@ function verseTextForSearch(verse: Verse, translationKey: TranslationKey): strin
 type MemorizedFilter = "all" | "memorized" | "not-memorized";
 
 const STORAGE_KEY = "sg_memorized_verses";
+const SAVED_KEY = "sg_my_verses";
 
 function loadMemorized(): Set<string> {
   if (typeof window === "undefined") return new Set();
@@ -57,6 +58,21 @@ function loadMemorized(): Set<string> {
   } catch {
     return new Set();
   }
+}
+
+function loadSaved(): Set<string> {
+  if (typeof window === "undefined") return new Set();
+  try {
+    const raw = localStorage.getItem(SAVED_KEY);
+    return new Set(raw ? (JSON.parse(raw) as string[]) : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function persistSaved(set: Set<string>) {
+  try { localStorage.setItem(SAVED_KEY, JSON.stringify([...set])); }
+  catch { /* storage full */ }
 }
 
 function saveMemorized(set: Set<string>) {
@@ -73,14 +89,16 @@ export default function VersesPage() {
   const [verses, setVerses] = useState<Verse[]>([]);
   const [loading, setLoading] = useState(true);
   const [memorized, setMemorized] = useState<Set<string>>(new Set());
+  const [saved, setSaved] = useState<Set<string>>(new Set());
   const [mounted, setMounted] = useState(false);
   const [search, setSearch] = useState("");
   const [memorizedFilter, setMemorizedFilter] = useState<MemorizedFilter>("all");
 
-  /* Load memorized set from localStorage after hydration to avoid SSR mismatch */
+  /* Load memorized + saved sets from localStorage after hydration to avoid SSR mismatch */
   useEffect(() => {
     setMounted(true);
     setMemorized(loadMemorized());
+    setSaved(loadSaved());
   }, []);
 
   useEffect(() => {
@@ -110,6 +128,19 @@ export default function VersesPage() {
         next.add(id);
       }
       saveMemorized(next);
+      return next;
+    });
+  }
+
+  function toggleSaved(id: string) {
+    setSaved((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) {
+        next.delete(id);
+      } else {
+        next.add(id);
+      }
+      persistSaved(next);
       return next;
     });
   }
@@ -287,6 +318,17 @@ export default function VersesPage() {
                 >
                   {isMemorized ? "✓ Memorized" : "Mark memorized"}
                 </button>
+                {mounted && (
+                  <button
+                    onClick={() => toggleSaved(verse.id)}
+                    aria-label={saved.has(verse.id) ? `Remove ${verse.reference} from My Verses` : `Save ${verse.reference} to My Verses`}
+                    aria-pressed={saved.has(verse.id)}
+                    className="btn-bookmark"
+                    title={saved.has(verse.id) ? "Saved to My Verses" : "Save to My Verses"}
+                  >
+                    {saved.has(verse.id) ? "★ Saved" : "☆ Save"}
+                  </button>
+                )}
               </div>
             </article>
           );
