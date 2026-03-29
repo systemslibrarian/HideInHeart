@@ -198,7 +198,7 @@ export default function PlansPage() {
                           {verse && (
                             <Link
                               href={`/play?verse=${id}&theme=${verse.themeId}`}
-                              className="btn btn-sm"
+                              className="btn btn-sm plan-verse-action"
                             >
                               {isMem ? "Review" : "Practice"}
                             </Link>

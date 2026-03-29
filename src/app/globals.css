@@ -1358,7 +1358,7 @@ select:focus-visible {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--nav-border);
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px);
   }
 
   .bottom-nav-item {
@@ -1389,7 +1389,7 @@ select:focus-visible {
 
   /* pad main content so bottom nav doesn't cover it */
   .shell {
-    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(80px + env(safe-area-inset-bottom, 12px));
   }
 }
 
@@ -1774,9 +1774,9 @@ html[data-theme="dark"] .browse-sort {
 .plan-card-header {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 0.75rem;
   width: 100%;
-  padding: 1.25rem 1.25rem;
+  padding: 1rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -1802,15 +1802,17 @@ html[data-theme="dark"] .browse-sort {
 
 .plan-title {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin: 0;
   line-height: 1.3;
+  color: var(--ink);
 }
 
 .plan-subtitle {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   margin: 0.2rem 0 0;
   line-height: 1.4;
+  color: var(--muted);
 }
 
 .plan-meta {
@@ -1852,7 +1854,7 @@ html[data-theme="dark"] .browse-sort {
 .plan-progress-bar {
   height: 3px;
   background: var(--border);
-  margin: 0 1.25rem;
+  margin: 0 1rem;
   border-radius: 3px;
   overflow: hidden;
 }
@@ -1864,14 +1866,14 @@ html[data-theme="dark"] .browse-sort {
 }
 
 .plan-detail {
-  padding: 0.5rem 1.25rem 1.25rem;
+  padding: 0.5rem 1rem 1rem;
 }
 
 .plan-description {
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   line-height: 1.6;
   color: var(--ink);
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
 }
 
 .plan-verse-list {
@@ -1886,10 +1888,11 @@ html[data-theme="dark"] .browse-sort {
 .plan-verse-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.6rem 0.75rem;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
   border-radius: var(--radius);
   background: var(--surface-soft, rgba(0,0,0,0.02));
+  flex-wrap: wrap;
 }
 .plan-verse-item.memorized {
   opacity: 0.7;
@@ -1914,7 +1917,8 @@ html[data-theme="dark"] .browse-sort {
 
 .plan-verse-ref {
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
+  color: var(--ink);
 }
 .plan-verse-check {
   color: var(--ok);
@@ -1922,10 +1926,11 @@ html[data-theme="dark"] .browse-sort {
 }
 
 .plan-verse-preview {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--muted);
 }
 
 .plan-start-btn {
@@ -1935,10 +1940,50 @@ html[data-theme="dark"] .browse-sort {
 }
 
 .btn-sm {
-  font-size: 0.8rem;
-  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 6px;
   flex-shrink: 0;
+  min-height: auto;
+  white-space: nowrap;
+}
+
+.plan-verse-action {
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  .plan-grid {
+    gap: 0.75rem;
+  }
+  .plan-card-header {
+    padding: 0.85rem;
+    gap: 0.6rem;
+  }
+  .plan-icon {
+    font-size: 1.4rem;
+  }
+  .plan-title {
+    font-size: 0.95rem;
+  }
+  .plan-subtitle {
+    font-size: 0.8rem;
+  }
+  .plan-detail {
+    padding: 0.4rem 0.85rem 0.85rem;
+  }
+  .plan-verse-item {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.45rem 0.5rem;
+  }
+  .plan-verse-action {
+    margin-left: 1.75rem;
+    margin-top: 0.15rem;
+  }
+  .plan-verse-preview {
+    display: none;
+  }
 }
 
 /* ================================================================== */
