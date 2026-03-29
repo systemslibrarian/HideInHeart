@@ -228,19 +228,19 @@ export const PRACTICE_LEVELS: Array<{
     id: "beginner",
     label: "Gentle practice",
     shortLabel: "Gentle",
-    description: "About one third of the words are hidden so you can settle into the passage.",
+    description: "About a third of the key words are hidden — good for your first pass through a new verse.",
   },
   {
     id: "intermediate",
     label: "Steady practice",
     shortLabel: "Steady",
-    description: "About two thirds of the words are hidden for a fuller memorization pass.",
+    description: "About two thirds of the key words are hidden for a fuller memorization pass.",
   },
   {
     id: "expert",
     label: "Deep practice",
     shortLabel: "Deep",
-    description: "Every practice word is hidden so the verse must be rebuilt in full.",
+    description: "All key words are hidden — see how much of the verse you can recall from memory.",
   },
 ];
 
@@ -272,11 +272,15 @@ export function getPracticeLevelMeta(skillLevel: SkillLevel) {
 export function getBlankCountForSkillLevel(skillLevel: SkillLevel, totalAnswers: number): number {
   if (totalAnswers <= 0) return 0;
 
+  // beginner: ~1/3 of blanks, using ceil so it's always strictly less than intermediate
+  const beginnerCount = Math.max(1, Math.ceil(totalAnswers / 3));
+
   switch (skillLevel) {
     case "beginner":
-      return Math.max(1, Math.round(totalAnswers / 3));
+      return beginnerCount;
     case "intermediate":
-      return Math.max(1, Math.round((totalAnswers * 2) / 3));
+      // Guaranteed at least 1 more blank than beginner so the two levels are always distinct
+      return Math.max(beginnerCount + 1, Math.round((totalAnswers * 2) / 3));
     case "expert":
       return totalAnswers;
   }
