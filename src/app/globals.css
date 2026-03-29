@@ -38,7 +38,7 @@ html[data-theme="dark"] {
   --brand-strong: #5f9598;
   --accent: #e8c47c;
   --card: #162030;
-  --muted: #a4b2cb;
+  --muted: #bcc8dd;
   --ok: #7ec6a1;
   --bad: #e09289;
   --border: #273448;
@@ -1633,7 +1633,7 @@ html[data-theme="dark"] .path-card-secondary strong {
 
 /* Dark-mode version select dropdown arrow */
 html[data-theme="dark"] .version-select select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a4b2cb' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23bcc8dd' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 /* Dark-mode plan card contrast */
@@ -1676,7 +1676,21 @@ html[data-theme="dark"] .my-verse-ref {
   color: #fff;
 }
 html[data-theme="dark"] .my-verse-preview {
+  color: var(--ink);
+}
+html[data-theme="dark"] .my-verse-theme {
   color: var(--muted);
+}
+
+/* Dark-mode: brighten muted text inside cards/stages for readability */
+html[data-theme="dark"] .card .muted,
+html[data-theme="dark"] .journey-stage .muted {
+  color: rgba(232, 238, 255, 0.75);
+}
+
+/* Dark-mode: hero muted text needs full white on teal gradient */
+html[data-theme="dark"] .hero .muted {
+  color: rgba(255, 255, 255, 1);
 }
 
 /* Memorized badge on verse list */
@@ -1742,7 +1756,7 @@ html[data-theme="dark"] .my-verse-preview {
 .browse-search:focus {
   outline: none;
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(90, 143, 145, 0.18);
+  box-shadow: 0 0 0 3px rgba(128, 188, 192, 0.2);
 }
 
 .browse-search::placeholder {
@@ -1771,7 +1785,7 @@ html[data-theme="dark"] .my-verse-preview {
 .browse-sort:focus {
   outline: none;
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px rgba(90, 143, 145, 0.18);
+  box-shadow: 0 0 0 3px rgba(128, 188, 192, 0.2);
 }
 
 .filter-tabs {
@@ -1811,6 +1825,10 @@ html[data-theme="dark"] .my-verse-preview {
   color: #fff;
 }
 
+html[data-theme="dark"] .filter-tab.active {
+  color: #0e1520;
+}
+
 .browse-empty {
   text-align: center;
   padding: 2rem 1rem;
@@ -1847,11 +1865,11 @@ html[data-theme="dark"] .browse-sort {
 }
 
 html[data-theme="dark"] .browse-search {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23a4b2cb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23bcc8dd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
 }
 
 html[data-theme="dark"] .browse-sort {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23a4b2cb' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23bcc8dd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
 }
 
 /* ================================================================== */
