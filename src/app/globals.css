@@ -1727,6 +1727,28 @@ html[data-theme="dark"] .hero .muted {
   cursor: not-allowed;
 }
 
+/* ---- search input (my-verses, shared) ---- */
+.search-input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--ink);
+  min-height: 44px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(128, 188, 192, 0.2);
+}
+.search-input::placeholder {
+  color: var(--muted);
+}
+
 /* ---- browse toolbar (search + sort/filter) ---- */
 .browse-toolbar {
   display: flex;

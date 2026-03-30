@@ -236,8 +236,8 @@ const BASE_VERSES: Verse[] = [
     parts: ["For all have ", " and fall ", " of the glory of God."],
     answers: ["SINNED", "SHORT"],
     decoys: ["FAILED", "AWAY", "FAR"],
-    themeId: "doubt",
-    themeLabel: "Doubt",
+    themeId: "salvation",
+    themeLabel: "Salvation",
     devotional:
       "Before grace can reach you, honesty has to come first. This verse levels every person — no one gets a pass, no one is further from God than anyone else. If doubt tells you that you have failed too many times to come back, this verse says you are standing in the same line as everyone who has ever lived.",
     applicationPrompt: "What failure are you still ashamed of that you have not brought into the open before God?",
