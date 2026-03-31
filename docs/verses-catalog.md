@@ -1,18 +1,18 @@
 # Hide in Heart — Verse Catalog
 
-> Updated 2026-03-25 from `src/lib/verses-local.ts`, `src/lib/verses-additional.ts` (adults) and `src/lib/kids-verses.ts` (kids).
+> Updated 2026-03-31 from `src/lib/verses-local.ts`, `src/lib/verses-additional.ts` (adults) and `src/lib/kids-verses.ts` (kids).
 
 ## Current App Totals
 
 | Audience | Verse count |
 |---|---:|
-| Adults | 295 |
+| Adults | 307 |
 | Kids | 34 |
-| **Total** | **329** |
+| **Total** | **341** |
 
 ---
 
-## Adults: Verses by Topic (295)
+## Adults: Verses by Topic (307)
 
 ### The Lord's Prayer (1)
 
@@ -93,8 +93,9 @@
 - Galatians 5:22-23
 - John 15:5
 
-### God's Faithfulness (7)
+### God's Faithfulness (8)
 
+- 2 Peter 1:5-8
 - 2 Timothy 2:13
 - Exodus 34:6
 - Lamentations 3:22-23
@@ -117,18 +118,20 @@
 - Psalm 119:105
 - Psalm 27:1
 
-### God's Love (17)
+### God's Love (19)
 
 - 1 Corinthians 13:13
 - 1 Corinthians 13:4-5
 - 1 Corinthians 13:4-7
 - 1 Corinthians 13:8
+- 1 John 3:16
 - 1 John 4:16
 - 1 John 4:7-8
 - Colossians 3:12
 - Deuteronomy 6:5
 - Ephesians 5:1-2
 - Jeremiah 31:3
+- John 10:11-15
 - John 13:34-35
 - John 15:13
 - Mark 12:30-31
@@ -137,8 +140,9 @@
 - Romans 5:8
 - Romans 8:35
 
-### God's Word (14)
+### God's Word (15)
 
+- 1 Peter 1:25
 - 2 Timothy 2:15
 - 2 Timothy 3:16
 - Colossians 3:16-17
@@ -154,12 +158,13 @@
 - Psalm 1:1-3
 - Romans 10:17
 
-### Grace (9)
+### Grace (10)
 
 - Ephesians 1:7
 - Ephesians 2:4-5
 - Ephesians 2:8-9
 - Hebrews 4:16
+- Luke 15:4-7
 - Psalm 103:8-10
 - Romans 3:24
 - Romans 6:1-2
@@ -184,9 +189,10 @@
 - Psalm 143:8
 - Psalm 25:4-5
 
-### Hope (12)
+### Hope (13)
 
 - 1 Corinthians 2:9
+- 1 Peter 5:4
 - Hebrews 6:19
 - Jeremiah 17:7-8
 - John 10:10
@@ -263,10 +269,11 @@
 - Micah 6:8
 - Romans 13:1
 
-### Peace (9)
+### Peace (10)
 
 - Exodus 14:14
 - Hebrews 12:14
+- Hebrews 13:20
 - Isaiah 26:3
 - John 14:27
 - Numbers 6:24-26
@@ -294,11 +301,13 @@
 - Jeremiah 30:17
 - 3 John 1:2
 
-### Prayer (11)
+### Prayer (13)
 
 - 1 John 5:14
+- 1 Peter 3:12
 - 1 Thessalonians 5:17
 - Colossians 4:2
+- James 5:16
 - John 15:7
 - John 4:24
 - Mark 11:24
@@ -308,9 +317,11 @@
 - Psalm 63:1
 - Romans 8:26
 
-### Provision (7)
+### Provision (9)
 
+- Ezekiel 34:12
 - Hebrews 13:5
+- Isaiah 40:11
 - Matthew 6:19-21
 - Matthew 6:33
 - Philippians 4:19
@@ -325,7 +336,7 @@
 - Psalm 23:1-2
 - Psalm 91:1-2
 
-### Salvation (28)
+### Salvation (29)
 
 - 1 Corinthians 2:2
 - 1 John 2:2
@@ -339,6 +350,7 @@
 - Isaiah 53:5
 - Isaiah 53:6
 - Isaiah 9:6
+- John 10:27-28
 - John 10:30
 - John 14:6
 - John 1:14
@@ -484,26 +496,26 @@
 
 ---
 
-## Book Coverage (Adults — 295 verses across 34 books)
+## Book Coverage (Adults — 307 verses across 37 books)
 
 | Book | Count |
 |---|---:|
 | Psalm | 42 |
 | Romans | 28 |
+| John | 28 |
 | Matthew | 26 |
-| John | 25 |
 | 1 Corinthians | 14 |
 | Ephesians | 14 |
 | Proverbs | 14 |
-| Hebrews | 13 |
-| Isaiah | 13 |
-| 1 John | 12 |
-| James | 11 |
+| Hebrews | 14 |
+| Isaiah | 14 |
+| 1 John | 13 |
+| James | 12 |
 | Colossians | 9 |
 | Philippians | 8 |
-| 1 Peter | 7 |
+| 1 Peter | 10 |
 | Galatians | 6 |
-| Luke | 5 |
+| Luke | 6 |
 | Mark | 5 |
 | 2 Corinthians | 4 |
 | 2 Timothy | 4 |
@@ -518,7 +530,9 @@
 | Joshua | 2 |
 | Numbers | 2 |
 | Titus | 2 |
+| 2 Peter | 1 |
 | 3 John | 1 |
+| Ezekiel | 1 |
 | Lamentations | 1 |
 | Micah | 1 |
 | Nehemiah | 1 |
@@ -527,5 +541,5 @@
 
 ## Notes
 
-- Adult verses are split across two source files: `verses-local.ts` (134 base) and `verses-additional.ts` (204 added).
+- Adult verses are split across two source files: `verses-local.ts` (146 base) and `verses-additional.ts` (204 added).
 - Each verse includes exercise-ready text parts, answers, decoys, theme assignment, devotional copy, and application prompts.
