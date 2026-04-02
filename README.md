@@ -172,9 +172,3 @@ npm run preflight
 4. Trigger deployment via push to `main` or manually from Actions.
 
 Workflow files: `.github/workflows/ci.yml`, `.github/workflows/deploy.yml`
-
-## 10/10 Progress Tracker
-
-Detailed 31-point completion checklist:
-
-- `docs/ten-out-of-ten-checklist.md`
