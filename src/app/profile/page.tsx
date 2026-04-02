@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { hasSupabaseClient } from "@/lib/env";
+
 type Profile = {
   userId: string;
   totalPoints: number;
@@ -60,8 +62,15 @@ export default function ProfilePage() {
     <main className="grid two">
       <section className="card">
         <h1 style={{ marginTop: 0 }}>Profile</h1>
-        <p className="muted">User ID: {profile.userId}</p>
-        <p className="muted">Mode: {authMode === "account" ? "Signed in account" : "Guest mode"}</p>
+        {hasSupabaseClient && (
+          <>
+            <p className="muted">User ID: {profile.userId}</p>
+            <p className="muted">Mode: {authMode === "account" ? "Signed in account" : "Guest mode"}</p>
+          </>
+        )}
+        {!hasSupabaseClient && (
+          <p className="muted">All progress is saved locally on this device.</p>
+        )}
       </section>
       <section className="card">
         <h3 style={{ marginTop: 0 }}>Your Walk</h3>

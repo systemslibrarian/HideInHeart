@@ -1,11 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+import { hasSupabaseClient } from "@/lib/env";
 import { getSupabaseBrowserClient } from "@/lib/supabase/client";
 
 export default function AuthPage() {
+  if (!hasSupabaseClient) {
+    return (
+      <main className="card" style={{ maxWidth: "560px" }}>
+        <h1 style={{ marginTop: 0 }}>Sign In</h1>
+        <p className="muted">
+          Accounts are not enabled on this instance. All progress is saved locally on your device.
+        </p>
+        <Link href="/play" className="btn primary">Start memorizing</Link>
+      </main>
+    );
+  }
+
+  return <AuthForm />;
+}
+
+function AuthForm() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

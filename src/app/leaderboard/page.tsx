@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { hasSupabaseClient } from "@/lib/env";
+
 type Row = {
   user_id: string;
   display_name: string;
@@ -26,6 +28,9 @@ export default function LeaderboardPage() {
     <main className="card">
       <h1 style={{ marginTop: 0, fontFamily: "'Fraunces', Georgia, serif" }}>Leaderboard</h1>
       <p className="muted">Top memorization scores across users.</p>
+      {!hasSupabaseClient && (
+        <p className="muted" style={{ fontStyle: "italic" }}>Showing sample data. Sign-in is not enabled on this instance.</p>
+      )}
       <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
       <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 320 }}>
         <caption className="sr-only">User rankings by memorization score</caption>
