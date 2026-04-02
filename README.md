@@ -101,7 +101,7 @@ supabase/
 
 ## License
 
-ISC
+MIT — see [`LICENSE`](LICENSE).
 
 ## Supabase Setup (Optional)
 
