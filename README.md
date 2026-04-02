@@ -13,7 +13,7 @@ Just Scripture, carried deeper each day.
 > "Your word I have hidden in my heart, that I might not sin against You."
 > — Psalm 119:11
 
-Built with Next.js 15, Supabase, and TypeScript.
+Built with Next.js 15 and TypeScript. Runs locally by default — optionally connects to Supabase for accounts, cross-device sync, and leaderboards.
 
 ## What It Does
 
@@ -41,7 +41,7 @@ Each session you walk through a short journey:
 | Layer | Technology |
 |---|---|
 | Framework | Next.js 15, React 19, TypeScript |
-| Database & Auth | Supabase (PostgreSQL + Auth) |
+| Database & Auth | Supabase (optional — PostgreSQL + Auth) |
 | Validation | Zod |
 | Testing | Vitest |
 | Monitoring | Sentry |
@@ -103,12 +103,15 @@ supabase/
 
 ISC
 
-## Supabase Setup
+## Supabase Setup (Optional)
 
-1. Create a new Supabase project.
-2. Run `supabase/schema.sql`.
-3. Run `supabase/seed.sql`.
-4. Add Supabase keys to env vars.
+The app runs in **local-only mode** by default — no database or accounts needed.
+All verses are served from built-in files and progress is saved in the browser.
+
+To enable accounts, cross-device sync, real leaderboards, and the admin CMS, see
+the full setup guide:
+
+- [`docs/supabase-setup.md`](docs/supabase-setup.md)
 
 ## App Routes
 
@@ -153,7 +156,7 @@ npm run preflight
 
 ## Notes
 
-- If Supabase env vars are missing, the app uses local fallback data for development.
+- The app runs in **local-only mode** by default. Supabase is optional — see [`docs/supabase-setup.md`](docs/supabase-setup.md).
 - Verse text in this repository may require translation licensing review before commercial use.
 
 ## Health Endpoint
